@@ -6,6 +6,7 @@ TagManager:
   tags:
   - player
   - Collect
+  - Zeus
   layers:
   - Default
   - TransparentFX
