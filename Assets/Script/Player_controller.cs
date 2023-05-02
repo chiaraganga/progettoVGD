@@ -13,7 +13,7 @@ public class Player_controller : MonoBehaviour
     public float jumpSpeed = 10;
     private const float gravity = 9.81f;
     private float vspeed = 0;
-    public float Knock_Back_Force=1f;
+    public float Knock_Back_Force = 1f;
     public float Knock_Back_Time;
     private float Knock_Back_Max_Time = 1f;
 
@@ -30,7 +30,7 @@ public class Player_controller : MonoBehaviour
             float Horizontal_mov = Input.GetAxis("Horizontal"); //prendiamo da tastiera i movimenti per gli assi x e z
             float Vertical_mov = Input.GetAxis("Vertical");
             movement = new Vector3(Horizontal_mov, 0f, Vertical_mov) * speed;
-            if (ch.isGrounded)// se il character controller è ancorato a terra allora posso saltare
+            if (ch.isGrounded)// se il character controller ï¿½ ancorato a terra allora posso saltare
             {
                 float jump = Input.GetAxis("Jump") * jumpSpeed;
                 vspeed = jump;
@@ -47,7 +47,7 @@ public class Player_controller : MonoBehaviour
         {
             Knock_Back_Time -= Time.deltaTime;
         }
-        // simuliamo la forza di gravità in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
+        // simuliamo la forza di gravitï¿½ in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
         vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
         ch.Move(movement * Time.deltaTime);
@@ -68,5 +68,14 @@ public class Player_controller : MonoBehaviour
         movement.y = Knock_Back_Force;
 
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Collect"))
+        {
+            other.gameObject.SetActive(false);
+
+        }
     }
 }
