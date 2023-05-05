@@ -7,18 +7,24 @@ public class Player_controller : MonoBehaviour
     private CharacterController ch;
 
     Vector3 movement;
+
     //Parametri di movimento
-    public float speed = 5;
-    public float rotationSpeed = 720f;
+    float Horizontal_mov;
+    float Vertical_mov;
+    public float speed;
+    public float rotationSpeed = 100f;
     public float jumpSpeed = 10;
     private const float gravity = 9.81f;
-    private float vspeed = 0;
+    public float vspeed=0;
     public float Knock_Back_Force = 1f;
     public float Knock_Back_Time;
     private float Knock_Back_Max_Time = 1f;
+    
+    
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         ch = GetComponent<CharacterController>();
     }
 
@@ -27,15 +33,21 @@ public class Player_controller : MonoBehaviour
     {
         if (Knock_Back_Time <= 0)
         {
-            float Horizontal_mov = Input.GetAxis("Horizontal"); //prendiamo da tastiera i movimenti per gli assi x e z
-            float Vertical_mov = Input.GetAxis("Vertical");
-            movement = new Vector3(Horizontal_mov, 0f, Vertical_mov) * speed;
+            
+            Horizontal_mov = Input.GetAxis("Horizontal")*rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
+            Vertical_mov = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            movement = (ch.transform.forward * Vertical_mov);
+            
+            
+           
+
             if (ch.isGrounded)// se il character controller � ancorato a terra allora posso saltare
             {
+
+                vspeed = 0f;
                 float jump = Input.GetAxis("Jump") * jumpSpeed;
-                vspeed = jump;
-
-
+                if (jump>0)
+                    vspeed = jump;
             }
         }
 
@@ -50,14 +62,19 @@ public class Player_controller : MonoBehaviour
         // simuliamo la forza di gravit� in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
         vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
-        ch.Move(movement * Time.deltaTime);
-        //Rotazione del giocatore verso dove sta guardando
-        if (movement.x != 0 || movement.z != 0)
-        {
-            Quaternion Player_Rotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.z), Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Player_Rotation, rotationSpeed * Time.deltaTime);
+        //movimento e rotazione
 
-        }
+        ch.transform.Rotate(Vector3.up * Horizontal_mov );
+        ch.Move(movement);
+        
+
+
+
+
+
+
+
+
 
     }
     public void KnockBack(Vector3 distance)

@@ -6,26 +6,29 @@ public class Camera_manager : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform player;
-    public Vector3 offset;
+    
     public bool offset_values;
-    public float rotation_speed;
+    public float plerp=0.05f;
+    public float rlerp=0.05f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        if (!offset_values)
-        offset = player.position - transform.position;
+        transform.position = Vector3.Lerp(transform.position, player.position, plerp);
+        transform.rotation = Quaternion.Lerp(transform.rotation, player.rotation, rlerp);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player);
         
-        transform.position =(player.position - offset);
-       
-        
+
+
+
+
+
     }
-   
+
 }
