@@ -801,6 +801,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 179249403574968997, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179249403574968997, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_TagString
       value: Zeus
       objectReference: {fileID: 0}
