@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_controller : MonoBehaviour
 {
     private CharacterController ch;
-
+    
     Vector3 movement;
 
     //Parametri di movimento
@@ -24,6 +24,8 @@ public class Player_controller : MonoBehaviour
 
     void Start()
     {
+        
+        
         Cursor.lockState = CursorLockMode.Locked;
         ch = GetComponent<CharacterController>();
     }
@@ -97,8 +99,13 @@ public class Player_controller : MonoBehaviour
     {
         if (other.CompareTag("Collect"))
         {
+            
             other.gameObject.SetActive(false);
+            
+           
+
 
         }
+        
     }
 }
