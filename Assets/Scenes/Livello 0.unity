@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -973,11 +973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1962278687480115005, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2739274827264177787, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3262870427175775425, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -989,7 +989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4896235612164709054, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.9
+      value: 10.226
       objectReference: {fileID: 0}
     - target: {fileID: 4896235612164709054, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1005,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5334712608281650843, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5504303427531010078, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1049,7 +1049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7308492034953326369, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7308492034953326369, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1093,7 +1093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8213316970753209240, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8840637435044882722, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
       propertyPath: m_LocalPosition.x
