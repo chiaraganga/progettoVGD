@@ -5,20 +5,20 @@ using UnityEngine;
 public class Player_controller : MonoBehaviour
 {
     private CharacterController ch;
-    
+   
     Vector3 movement;
 
     //Parametri di movimento
     float Horizontal_mov;
     float Vertical_mov;
     public float speed;
-    public float rotationSpeed = 100f;
-    public float jumpForce = 10;
+    public float rotationSpeed;
+    private const float jumpHeight = 2f;
     private const float gravity = 9.81f;
-    public float vspeed;
-    public float Knock_Back_Force = 1f;
+    public float vspeed=0;
+    public float Knock_Back_Force = 1.0f;
     public float Knock_Back_Time;
-    private float Knock_Back_Max_Time = 1f;
+    private const float Knock_Back_Max_Time = 1.0f;
     
     
 
@@ -28,6 +28,8 @@ public class Player_controller : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.Locked;
         ch = GetComponent<CharacterController>();
+        
+        
     }
 
     // Update is called once per frame
@@ -35,26 +37,33 @@ public class Player_controller : MonoBehaviour
     {
         if (Knock_Back_Time <= 0)
         {
-            
-            Horizontal_mov = Input.GetAxis("Horizontal")*rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
+
+            Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
             Vertical_mov = Input.GetAxis("Vertical") * speed * Time.deltaTime;
             movement = (ch.transform.forward * Vertical_mov);
+
+
+
+
             
-
-
-
-
             if (ch.isGrounded)// se il character controller � ancorato a terra allora posso saltare
             {
 
-                vspeed = 0;
+                if (vspeed < 0)
+                    vspeed = -2f;
 
-                float jump = Input.GetAxis("Jump") * jumpForce;
-                if (jump > 0)
-                    vspeed = jump;
+                //float jump = Input.GetAxis("Jump");
+                if (Input.GetButtonDown("Jump"))
+                {
+
+                    vspeed += Mathf.Sqrt(jumpHeight * 2 * gravity);    
+                }
+
+
+
             }
-            else
-                vspeed -= gravity * Time.deltaTime;
+            
+                
         }
 
 
@@ -66,14 +75,13 @@ public class Player_controller : MonoBehaviour
             Knock_Back_Time -= Time.deltaTime;
         }
         // simuliamo la forza di gravit� in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
-        
+        vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
-        if (vspeed < 0)
-            vspeed = 0;
         //movimento e rotazione
 
-        ch.transform.Rotate(Vector3.up * Horizontal_mov );
+        ch.transform.Rotate(Vector3.up * Horizontal_mov);
         ch.Move(movement);
+    }
         
 
 
@@ -84,7 +92,7 @@ public class Player_controller : MonoBehaviour
 
 
 
-    }
+    
     public void KnockBack(Vector3 distance)
     {
         //durata e direzione del nostro contraccolpo 
