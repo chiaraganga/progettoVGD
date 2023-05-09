@@ -8,6 +8,7 @@ TagManager:
   - Collect
   - Zeus
   - zeus
+  - Enemy
   layers:
   - Default
   - TransparentFX
