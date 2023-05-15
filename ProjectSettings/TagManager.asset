@@ -9,6 +9,7 @@ TagManager:
   - Zeus
   - zeus
   - Enemy
+  - Next_Level
   layers:
   - Default
   - TransparentFX
