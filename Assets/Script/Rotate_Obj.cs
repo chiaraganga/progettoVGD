@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Rotate_Obj : MonoBehaviour
 {
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
-       
+
 
     }
 
@@ -18,5 +19,5 @@ public class Rotate_Obj : MonoBehaviour
         transform.Rotate(new Vector3(0f, 180f * Time.deltaTime, 0f));
     }
 
-    
+   
 }

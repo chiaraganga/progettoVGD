@@ -33,9 +33,9 @@ public struct SerializableVector3  //creo una struttura di tipo (in questo caso)
 public class Player_controller : MonoBehaviour
 {
     private CharacterController ch;
-    
+    private GameObject Zeus;
     Vector3 movement;
-    GameObject statua;
+    int buildIndex;
     //Parametri di movimento
     float Horizontal_mov;
     float Vertical_mov;
@@ -49,18 +49,27 @@ public class Player_controller : MonoBehaviour
     public float jump_force;
     public int score = 0;
     string saveDataPath;
+
     private void Awake()
     {
+
+
         DontDestroyOnLoad(this.gameObject);
     }
     void Start()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        buildIndex = currentScene.buildIndex;
+        if (buildIndex == 0)
+        {
+            Zeus = GameObject.FindGameObjectWithTag("Zeus");
+            Zeus.SetActive(false);
+        }
 
-        statua = GameObject.FindGameObjectWithTag("Zeus");
-        statua.SetActive(false);
+
         Cursor.lockState = CursorLockMode.Locked;
         ch = GetComponent<CharacterController>();
-        
+
         GameObject oldplayer = GameObject.Find("Player");
         if (oldplayer != this.gameObject)
         {
@@ -68,8 +77,8 @@ public class Player_controller : MonoBehaviour
         }
 
     }
-    
-    
+
+
     // Update is called once per frame
     void Update()
     {
@@ -104,7 +113,7 @@ public class Player_controller : MonoBehaviour
 
         ch.transform.Rotate(Vector3.up * Horizontal_mov);
         ch.Move(movement);
-        
+
         if (Input.GetKeyDown("p"))
         {
             save();
@@ -115,20 +124,21 @@ public class Player_controller : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
 
-
         if (other.CompareTag("Collect"))
         {
-
             other.gameObject.SetActive(false);
-            score += 1;
+            score++;
         }
-        if(score ==6)
+        if (score == 2 && buildIndex == 0)
+
+
+
         {
-            
-            statua.SetActive(true);
+            Zeus.SetActive(true);
         }
 
         if (other.gameObject.CompareTag("Next_Level"))
@@ -140,6 +150,8 @@ public class Player_controller : MonoBehaviour
         }
 
     }
+
+    
     
         public void save()
     {
