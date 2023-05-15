@@ -125,7 +125,7 @@ public class Player_controller : MonoBehaviour
             other.gameObject.SetActive(false);
             score += 1;
         }
-        if(score ==5)
+        if(score ==6)
         {
             
             statua.SetActive(true);
