@@ -50,6 +50,10 @@ public class Player_controller : MonoBehaviour
     public int score = 0;
     string saveDataPath;
 
+    //Aggiunto da Chiara per le animazioni
+    private Animator animator;
+    float velocity = 0;
+
     private void Awake()
     {
 
@@ -70,6 +74,9 @@ public class Player_controller : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         ch = GetComponent<CharacterController>();
 
+        //Aggiunto da Chiara per le animazioni 
+        animator = GetComponent<Animator>();
+
         GameObject oldplayer = GameObject.Find("Player");
         if (oldplayer != this.gameObject)
         {
@@ -78,15 +85,13 @@ public class Player_controller : MonoBehaviour
 
     }
 
-
+     //Aggiunto float per le animazioni
     // Update is called once per frame
     void Update()
     {
-        Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
-        Vertical_mov = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        float Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
+        float Vertical_mov = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         movement = (ch.transform.forward * Vertical_mov);
-
-
 
 
 
@@ -105,13 +110,27 @@ public class Player_controller : MonoBehaviour
             }
         }
 
+        //messa parte per le animazioni da controllare
+        if (Vertical_mov > 0)
+        {
+            velocity += Time.deltaTime * 0.2f;
+        } else
+        {
+            velocity -= Time.deltaTime * 0.5f;
+        }
+
+        velocity = Mathf.Clamp01(velocity);
+        animator.SetFloat("Velocity", velocity);
+
+        ch.SimpleMove(transform.forward * velocity);
+
 
         // simuliamo la forza di gravit� in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
         vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
         //movimento e rotazione
 
-        ch.transform.Rotate(Vector3.up * Horizontal_mov);
+        ch.transform.Rotate(Vector3.up * Horizontal_mov * Time.deltaTime* 0.2f);
         ch.Move(movement);
 
         if (Input.GetKeyDown("p"))
