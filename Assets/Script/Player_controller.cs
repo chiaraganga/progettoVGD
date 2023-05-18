@@ -107,7 +107,9 @@ public class Player_controller : MonoBehaviour
 
 
                 vspeed = jump * jump_force;
+               
             }
+        
         }
 
         //messa parte per le animazioni da controllare
