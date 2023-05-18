@@ -121,6 +121,7 @@ public class Player_controller : MonoBehaviour
 
         velocity = Mathf.Clamp01(velocity);
         animator.SetFloat("Velocity", velocity);
+        animator.SetFloat("Turn", Horizontal_mov);
 
         ch.SimpleMove(transform.forward * velocity);
 
