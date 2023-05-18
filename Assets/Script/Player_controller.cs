@@ -85,7 +85,7 @@ public class Player_controller : MonoBehaviour
 
     }
 
-     //Aggiunto float per le animazioni
+    //Aggiunto float per le animazioni
     // Update is called once per frame
     void Update()
     {
@@ -114,7 +114,8 @@ public class Player_controller : MonoBehaviour
         if (Vertical_mov > 0)
         {
             velocity += Time.deltaTime * 0.2f;
-        } else
+        }
+        else
         {
             velocity -= Time.deltaTime * 0.5f;
         }
@@ -131,7 +132,7 @@ public class Player_controller : MonoBehaviour
         movement.y = vspeed;
         //movimento e rotazione
 
-        ch.transform.Rotate(Vector3.up * Horizontal_mov * Time.deltaTime* 0.2f);
+        ch.transform.Rotate(Vector3.up * Horizontal_mov * Time.deltaTime * 0.2f);
         ch.Move(movement);
 
         if (Input.GetKeyDown("p"))
@@ -171,9 +172,9 @@ public class Player_controller : MonoBehaviour
 
     }
 
-    
-    
-        public void save()
+
+
+    public void save()
     {
         saveDataPath = Application.persistentDataPath + "/data.vdg"; //salva in una cartella che è uguale per tutti gli os usando una estensione che non esoste
         GameData gameData = new GameData();
@@ -199,5 +200,4 @@ public class Player_controller : MonoBehaviour
 
         }
     }
-}   
-    
+}
