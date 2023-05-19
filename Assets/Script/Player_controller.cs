@@ -126,8 +126,6 @@ public class Player_controller : MonoBehaviour
         animator.SetFloat("Velocity", velocity);
         animator.SetFloat("Turn", Horizontal_mov);
 
-        ch.SimpleMove(transform.forward * velocity);
-
 
         // simuliamo la forza di gravit� in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
         vspeed -= gravity * Time.deltaTime;
