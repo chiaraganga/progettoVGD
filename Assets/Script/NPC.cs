@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class NPC : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class NPC : MonoBehaviour
     public TMP_Text dialogueText;
     public string[] dialogo;
     private bool isWriting = false;
+    private bool isInitialDialogActive = false;
 
     private bool isDialogActive = false;
     private bool isFirstDialog = true;
@@ -20,8 +20,14 @@ public class NPC : MonoBehaviour
     private int index;
     public float velocityword;
 
-    // Tempo di visualizzazione del messaggio "Ciao, ti devo parlare!"
+    // Tempo di visualizzazione del messaggio iniziale
     public float initialMessageDuration = 5f;
+
+    // Durata del secondo dialogo dopo aver premuto E (4 secondi)
+    public float secondDialogDuration = 3f;
+
+    // Durata del terzo dialogo dopo aver premuto E (8 secondi)
+    public float thirdDialogDuration = 7f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,29 +42,34 @@ public class NPC : MonoBehaviour
         if (isFirstDialog && Zeus != null && Zeus.activeSelf)
         {
             // Mostra il messaggio iniziale e avvia il conteggio alla fine del quale scompare
-            StartDialog("Ciao, ti devo parlare!");
+            StartInitialDialog("Ercole! Grazie al cielo hai aggiustato la mia statua! Avvicinati, ti devo parlare.");
             isFirstDialog = false;
             Invoke("EndInitialDialog", initialMessageDuration);
         }
 
         if (isDialogActive)
         {
-            if (Input.GetKeyDown(KeyCode.E) && isPlayerClose)
+            if (isWriting)
             {
-                if (isWriting)
+                if (Time.time >= initialMessageDuration)
                 {
                     CompleteWriting();
                 }
-                else
+            }
+            else
+            {
+                if (Time.time >= initialMessageDuration)
                 {
                     if (index < dialogo.Length - 1)
                     {
                         index++;
                         StartWriting(dialogo[index]);
-                    }
-                    else
-                    {
-                        EndDialog();
+                        initialMessageDuration = Time.time + velocityword * dialogo[index].Length;
+
+                        if (index == dialogo.Length - 1)
+                        {
+                            Invoke("EndDialog", thirdDialogDuration);
+                        }
                     }
                 }
             }
@@ -66,10 +77,12 @@ public class NPC : MonoBehaviour
         else if (isPlayerClose && Input.GetKeyDown(KeyCode.E))
         {
             StartDialog(dialogo[index]);
+            initialMessageDuration = Time.time + secondDialogDuration;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+
+private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -83,6 +96,19 @@ public class NPC : MonoBehaviour
         {
             isPlayerClose = false;
         }
+    }
+
+    private void StartInitialDialog(string message)
+    {
+        isInitialDialogActive = true;
+        dialogPanel.SetActive(true);
+        dialogueText.text = message;
+    }
+
+    private void EndInitialDialog()
+    {
+        isInitialDialogActive = false;
+        dialogPanel.SetActive(false);
     }
 
     private void StartDialog(string message)
@@ -123,11 +149,5 @@ public class NPC : MonoBehaviour
         }
 
         isWriting = false;
-    }
-
-    // Metodo chiamato dopo il tempo di visualizzazione del messaggio iniziale
-    private void EndInitialDialog()
-    {
-        EndDialog();
     }
 }
