@@ -262,7 +262,7 @@ MonoBehaviour:
   dialogPanel: {fileID: 1847331874}
   dialogueText: {fileID: 1059761053}
   dialogo:
-  - Ciao!
+  - Pippo!
   - Abbiamo bisogno di te
   velocityword: 0.06
   playerIsClose: 0
