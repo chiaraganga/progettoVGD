@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     public TMP_Text dialogueText;
     public string[] dialogo;
     private bool isWriting = false;
-    private bool isInitialDialogActive = false;
+   // private bool isInitialDialogActive = false;
 
     private bool isDialogActive = false;
     private bool isFirstDialog = true;
@@ -105,14 +105,14 @@ private void OnTriggerExit(Collider other)
 
 private void StartInitialDialog(string message)
     {
-        isInitialDialogActive = true;
+      //  isInitialDialogActive = true;
         dialogPanel.SetActive(true);
         dialogueText.text = message;
     }
 
 private void EndInitialDialog()
     {
-        isInitialDialogActive = false;
+       // isInitialDialogActive = false;
         dialogPanel.SetActive(false);
     }
 
