@@ -43,15 +43,13 @@ public class Player_controller : MonoBehaviour
     public float vspeed = 0;
     public float Knock_Back_Force = 1.0f;
     public float Knock_Back_Time;
-    private const float Knock_Back_Max_Time = 1.0f;
+    private float jump;
     public float jump_force;
     public int score = 0;
     string saveDataPath;
-    private bool running;
-    private bool grounded;
-    public float walk_speed;
-    public float run_speed;
-    private float real_speed;
+
+
+    private bool run = false;
     public int coeff_vel;
     //Aggiunto da Chiara per le animazioni
     private Animator animator;
@@ -72,7 +70,7 @@ public class Player_controller : MonoBehaviour
             Zeus = GameObject.FindGameObjectWithTag("Zeus");
             Zeus.SetActive(false);
         }
-        real_speed = walk_speed;
+
 
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -94,18 +92,21 @@ public class Player_controller : MonoBehaviour
     void Update()
     {
 
-        animator.SetBool("grounded", ch.isGrounded);
+         animator.SetBool("grounded", ch.isGrounded);
 
-        float Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
-        float Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
+        Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
+        Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
+        jump = Input.GetAxis("Jump");
+        if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.Joystick1Button4))
+        {
+            run = true;
+            
+        }
+        else
+        {
 
-
-
-
-
-
-
-
+            run = false;
+        }
 
         if (ch.isGrounded)// se il character controller   ancorato a terra allora posso saltare
         {
@@ -120,7 +121,7 @@ public class Player_controller : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
 
-                float jump = Input.GetAxis("Jump");
+                
                 vspeed = jump * jump_force;
 
 
@@ -129,26 +130,37 @@ public class Player_controller : MonoBehaviour
 
         }
 
-
-        //messa parte per  le animazioni da controllare
         if (Vertical_mov > 0)
-            velocity += Time.deltaTime * 0.2f;
-        else
-            velocity -= Time.deltaTime * 0.8f;
+        {
+            if (run == true)
+            {
+                velocity = 2f;
+            }
+            else
+            {
+                velocity = 1f;
+            }
+        }
+        if (Vertical_mov == 0)
+            velocity = 0f;
+        if (Vertical_mov < 0)
+            velocity = -0.3f;
 
 
 
-        velocity = Mathf.Clamp01(velocity); //clamp01 restituisce un valore compreso tra 0 e 1, quindi se velocity diventa maggiore di 1 la clamp ci riporta al valore 1
-        // se velocity diventa minore di 0 la clamp ci riporta a 0, in modo da non ottenere velocità indesiderate
+
+
+    
+
         animator.SetFloat("Velocity", velocity);//nell'animator assegna a velocity(quella delle animazioni)  la nostra variabile da input
-
-        movement = ch.transform.forward * velocity * coeff_vel;
+        
+        movement = ch.transform.forward * velocity * coeff_vel;//tranform.forward è un vettore unitario relativo all'oggetto, sarà sempre nella direzione in cui punta il "davanti" dell'oggetto
 
         vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
 
         ch.Move(movement);
-        //tranform.forward è un vettore unitario relativo all'oggetto, sarà sempre nella direzione in cui punta il "davanti" dell'oggetto
+
 
         transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
 
@@ -158,11 +170,10 @@ public class Player_controller : MonoBehaviour
 
 
         // simuliamo la forza di gravità  in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
-        vspeed -= gravity * Time.deltaTime;
-        movement.y = vspeed;
-       //movimento e rotazione
 
-        
+        //movimento e rotazione
+
+
 
 
         if (Input.GetKeyDown("p"))
