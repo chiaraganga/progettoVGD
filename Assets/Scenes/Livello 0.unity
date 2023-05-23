@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -247,18 +247,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 179249403574968997, guid: 3d33bda740fe94825bc475e342fc2ed4, type: 3}
   m_PrefabInstance: {fileID: 1682745260}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &58010279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 58010273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b9aba31340214025a2eb0540c48da71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &58010280
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,6 +260,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7059351, y: 2.018002, z: 2.2720468}
   m_Center: {x: -0.029265033, y: 0.7794622, z: 0.032229014}
+--- !u!114 &58010286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58010273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b373bee62ee42548df95a3f3e01ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPanel: {fileID: 1847331874}
+  dialogueText: {fileID: 1059761053}
+  dialogo:
+  - Figliolo!
+  - Abbiamo bisogno di te!
+  velocityword: 0.04
+  initialMessageDuration: 5
+  secondDialogDuration: 3
+  thirdDialogDuration: 7
 --- !u!1 &177679824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,7 +2628,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847331874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.79417, y: 0.14488384, z: 1}
   m_ConstrainProportionsScale: 0
