@@ -48,10 +48,10 @@ public class Player_controller : MonoBehaviour
     public int score = 0;
     string saveDataPath;
 
-
+    private bool attack = false;
     private bool run = false;
     public int coeff_vel;
-    //Aggiunto da Chiara per le animazioni
+    
     private Animator animator;
     float velocity = 0;
 
@@ -92,8 +92,8 @@ public class Player_controller : MonoBehaviour
     void Update()
     {
 
-         animator.SetBool("grounded", ch.isGrounded);
-
+        animator.SetBool("grounded", ch.isGrounded);
+        animator.SetBool("attack", false);
         Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
         Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
         jump = Input.GetAxis("Jump");
@@ -149,7 +149,11 @@ public class Player_controller : MonoBehaviour
 
 
 
-
+        if(Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("attack", true);
+        }
+        
     
 
         animator.SetFloat("Velocity", velocity);//nell'animator assegna a velocity(quella delle animazioni)  la nostra variabile da input
