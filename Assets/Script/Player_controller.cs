@@ -48,7 +48,7 @@ public class Player_controller : MonoBehaviour
     public int score = 0;
     string saveDataPath;
 
-    private bool attack = false;
+    
     private bool run = false;
     public int coeff_vel;
     

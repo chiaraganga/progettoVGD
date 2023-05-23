@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -649,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377752822}
   m_LocalRotation: {x: -0.18605918, y: 0.060377955, z: -0.011470828, w: -0.9806146}
-  m_LocalPosition: {x: 0.00082962215, y: 10.399842, z: -2000}
+  m_LocalPosition: {x: -0.00006556511, y: 10.399842, z: -150.00003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1200,7 +1200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830104905}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -0.00011536198}
-  m_LocalPosition: {x: -11489.494, y: -2618.9702, z: 2642.1006}
+  m_LocalPosition: {x: -11489.066, y: -2618.9702, z: 792.1007}
   m_LocalScale: {x: 804.89374, y: 932.8358, z: 885.11237}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1655,7 +1655,7 @@ MonoBehaviour:
   ShoulderOffset: {x: 0, y: 10, z: 0}
   VerticalArmLength: 0.4
   CameraSide: 1
-  CameraDistance: 2000
+  CameraDistance: 150
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 2147483647
@@ -1702,6 +1702,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1347008842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6424520603749228109, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+  m_PrefabInstance: {fileID: 1360297870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1347008845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347008842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d833dfff880914cb72fba8fc17501f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  max_health: 0
+  invicibility_max_time: 0
+  invincibility_actual_time: 0
 --- !u!1001 &1360297870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2203,7 +2224,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.25
-  m_SlopeLimit: 90
+  m_SlopeLimit: 75
   m_StepOffset: 0.1
   m_SkinWidth: 0.025
   m_MinMoveDistance: 0.001
