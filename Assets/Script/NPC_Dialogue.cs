@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Runtime.ConstrainedExecution;
 
-public class NPC : MonoBehaviour
+public class NPC_Dialogue : MonoBehaviour
 {
     //Variabili
     public GameObject dialogPanel;
@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     public TMP_Text dialogueText;
     public string[] dialogo;
     private bool isWriting = false;
-   // private bool isInitialDialogActive = false;
+    // private bool isInitialDialogActive = false;
 
     private bool isDialogActive = false;
     private bool isFirstDialog = true;
@@ -87,7 +87,7 @@ public class NPC : MonoBehaviour
     }
 
 
-private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -95,7 +95,7 @@ private void OnTriggerEnter(Collider other)
         }
     }
 
-private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -103,47 +103,47 @@ private void OnTriggerExit(Collider other)
         }
     }
 
-private void StartInitialDialog(string message)
+    private void StartInitialDialog(string message)
     {
-      //  isInitialDialogActive = true;
+        //  isInitialDialogActive = true;
         dialogPanel.SetActive(true);
         dialogueText.text = message;
     }
 
-private void EndInitialDialog()
+    private void EndInitialDialog()
     {
-       // isInitialDialogActive = false;
+        // isInitialDialogActive = false;
         dialogPanel.SetActive(false);
     }
 
-private void StartDialog(string message)
+    private void StartDialog(string message)
     {
         isDialogActive = true;
         dialogPanel.SetActive(true);
         StartWriting(message);
     }
 
-private void EndDialog()
+    private void EndDialog()
     {
         isDialogActive = false;
         dialogPanel.SetActive(false);
         index = 0;
     }
 
-private void StartWriting(string message)
+    private void StartWriting(string message)
     {
         dialogueText.text = "";
         StartCoroutine(WriteText(message));
     }
 
-private void CompleteWriting()
+    private void CompleteWriting()
     {
         StopAllCoroutines();
         dialogueText.text = dialogo[index];
         isWriting = false;
     }
 
-private IEnumerator WriteText(string message)
+    private IEnumerator WriteText(string message)
     {
         isWriting = true;
 

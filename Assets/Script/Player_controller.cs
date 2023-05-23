@@ -221,7 +221,7 @@ public class Player_controller : MonoBehaviour
 
     public void save()
     {
-        saveDataPath = Application.persistentDataPath + "/data.vdg"; //salva in una cartella che è uguale per tutti gli os usando una estensione che non esoste
+        saveDataPath = Application.persistentDataPath + "/data.vgd"; //salva in una cartella che è uguale per tutti gli os usando una estensione che non esoste
         GameData gameData = new GameData();
         gameData.position = new SerializableVector3(transform.position);
 
