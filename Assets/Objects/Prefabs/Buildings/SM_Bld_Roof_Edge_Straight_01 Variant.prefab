@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3217655756084735471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18499982
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 28.987
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9983535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.057362206
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000001487668
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 8.547633e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 6.577
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038392635014108333, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665572056855842327, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Roof_Edge_Straight_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665572056855842327, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170173058270769090, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ade05ff072cf4ad47830066f0c571d23, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95a141a8875791945a84beaf05e7e92a, type: 3}

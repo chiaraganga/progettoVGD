@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2985622156709086015
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887045396202337546, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231376585942724528, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Roof_Base_Straight_Side_01 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231376585942724528, guid: 295a89e2569299842bbac75502387dd7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 295a89e2569299842bbac75502387dd7, type: 3}

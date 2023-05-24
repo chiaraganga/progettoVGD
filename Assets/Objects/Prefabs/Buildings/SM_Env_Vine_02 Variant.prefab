@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4868278985608196908
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35.076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071066
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886413245789572503, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232011072944035629, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Vine_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232011072944035629, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae56e17ef25a7824ebc9b5019c2a41a2, type: 3}
