@@ -10,6 +10,7 @@ TagManager:
   - zeus
   - Enemy
   - Next_Level
+  - Weapon
   layers:
   - Default
   - TransparentFX

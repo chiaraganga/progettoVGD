@@ -207,6 +207,11 @@ public class Player_controller : MonoBehaviour
             Zeus.SetActive(true);
         }
 
+        if (other.CompareTag("Weapon"))
+        {
+            other.gameObject.SetActive(false);
+        }
+
         if (other.gameObject.CompareTag("Next_Level"))
         {
             PlayerPrefs.SetInt("currentlevel", (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
