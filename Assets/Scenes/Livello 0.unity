@@ -1213,6 +1213,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.034
       objectReference: {fileID: 0}
+    - target: {fileID: 6504769305279346166, guid: 7446fc63649c2ee48b182b2009c99608, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 8334810020102068652, guid: 7446fc63649c2ee48b182b2009c99608, type: 3}
       propertyPath: m_RootOrder
       value: 4
