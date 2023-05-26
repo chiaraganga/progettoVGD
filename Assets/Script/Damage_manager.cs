@@ -37,7 +37,7 @@ public class Damage_manager : MonoBehaviour
         foreach (Collider enemy in hit_enemies)
         {
             enemy.GetComponent<Health_manager>().Damages(damage_done);
-            //Debug.Log("hit" + enemy.name);
+            Debug.Log("hit" + enemy.name);
         }
 
     }
