@@ -31,6 +31,7 @@ public struct SerializableVector3  //creo una struttura di tipo (in questo caso)
 
 public class Player_controller : MonoBehaviour
 {
+    
     private CharacterController ch;
     private GameObject Zeus;
     Vector3 movement;
@@ -47,10 +48,10 @@ public class Player_controller : MonoBehaviour
     public float jump_force;
     public int score = 0;
     string saveDataPath;
-
+    private bool is_jumping=false;
     
     private bool run = false;
-    public int coeff_vel;
+    private float coeff_vel;
     
     private Animator animator;
     float velocity = 0;
@@ -76,14 +77,15 @@ public class Player_controller : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         ch = GetComponent<CharacterController>();
 
-        //Aggiunto da Chiara per le animazioni 
+        
         animator = GetComponent<Animator>();
-        //
+        
         GameObject oldplayer = GameObject.Find("Player");
         if (oldplayer != this.gameObject)
         {
             Destroy(oldplayer);
         }
+        
 
     }
 
@@ -92,7 +94,7 @@ public class Player_controller : MonoBehaviour
     void Update()
     {
 
-        animator.SetBool("grounded", ch.isGrounded);
+
         animator.SetBool("attack", false);
         Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
         Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
@@ -117,18 +119,31 @@ public class Player_controller : MonoBehaviour
 
 
 
-
-            if (Input.GetButtonDown("Jump"))
+            if(is_jumping==true)
             {
-
-                
-                vspeed = jump * jump_force;
-
-
+                is_jumping = false;
+                animator.SetBool("grounded", false);
             }
+            
 
 
         }
+        if (Input.GetButtonDown("Jump") && ch.isGrounded)
+        {
+
+            is_jumping = true;
+            vspeed = jump * jump_force;
+            animator.SetBool("grounded", true);
+            coeff_vel = 2.5f;
+
+
+        }
+        else
+        {
+            vspeed -= gravity * Time.deltaTime;
+            coeff_vel = 3f;
+        }
+
 
         if (Vertical_mov > 0)
         {
@@ -149,18 +164,18 @@ public class Player_controller : MonoBehaviour
 
 
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) )
         {
             animator.SetBool("attack", true);
         }
-        
+       
     
 
         animator.SetFloat("Velocity", velocity);//nell'animator assegna a velocity(quella delle animazioni)  la nostra variabile da input
         
         movement = ch.transform.forward * velocity * coeff_vel;//tranform.forward è un vettore unitario relativo all'oggetto, sarà sempre nella direzione in cui punta il "davanti" dell'oggetto
 
-        vspeed -= gravity * Time.deltaTime;
+        
         movement.y = vspeed;
 
         ch.Move(movement);
@@ -219,6 +234,8 @@ public class Player_controller : MonoBehaviour
                 Destroy(this.gameObject);
             SceneManager.LoadScene(PlayerPrefs.GetInt("currentlevel"));
         }
+
+       
 
     }
 

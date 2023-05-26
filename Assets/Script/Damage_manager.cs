@@ -5,25 +5,49 @@ using UnityEngine;
 public class Damage_manager : MonoBehaviour
 {
     public int damage_done = 1;
+    public Transform attack_point;
+    public float attack_range;
+    public LayerMask enemy_layer;
+    
     // Start is called before the first frame update
     void Start()
     {
-
+       
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
+
+
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Invoke("detect_attack", 0.7f); //invoca la funzione con un ritardo di 0,7 secondi
+        }
+
     }
-    private void OnTriggerEnter(Collider other)
+    private void detect_attack()
     {
+        Collider[] hit_enemies = Physics.OverlapSphere(attack_point.position, attack_range, enemy_layer);// array di memici che contiene tutto ciò che viene toccato dalla punta della spada in un area sferica di raggio variabile
 
-            FindObjectOfType<Health_manager>().Damages(damage_done);//cerca tutti gli oggetti che hanno attaccato come script healthmanager
-                                                                                   //richiama il metodo damages e gli passa come parametro il danno che vogliamo venga inflitto al personaggio e la direzione in cui deve essere respinto
-                                                                                   // in alternativa possiamo anche utilizzare questa sintassi other.gameObject.GetComponent<HealthManager>().Damages(damage_done,hit_direction)
+        foreach (Collider enemy in hit_enemies)
+        {
+            enemy.GetComponent<Health_manager>().Damages(damage_done);
+            //Debug.Log("hit" + enemy.name);
+        }
 
-
-        
     }
+    private void OnDrawGizmosSelected()//disegna la sfera in modo da poterla settare da inspector in modo corretto
+    {
+        if (attack_point == null)
+            return;
+        Gizmos.DrawSphere(attack_point.position,attack_range);
+    }
+
+
+
 }
