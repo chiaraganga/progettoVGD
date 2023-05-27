@@ -282,6 +282,7 @@ MonoBehaviour:
   velocityword: 0.04
   initialMessageDuration: 5
   delayBetweenMessages: 4
+  objectToShow: {fileID: 489689176}
 --- !u!1 &170846973
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +941,10 @@ PrefabInstance:
     - target: {fileID: 9199442243369390583, guid: fc5cad8c2ce1f9440b9fb9c49a5f04ed, type: 3}
       propertyPath: m_Name
       value: Spada
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199442243369390583, guid: fc5cad8c2ce1f9440b9fb9c49a5f04ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9199442243369390583, guid: fc5cad8c2ce1f9440b9fb9c49a5f04ed, type: 3}
       propertyPath: m_TagString
@@ -3365,7 +3370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1847331875
 RectTransform:
   m_ObjectHideFlags: 0

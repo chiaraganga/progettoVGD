@@ -22,6 +22,8 @@ public class NPC_Dialogue : MonoBehaviour
     public float initialMessageDuration = 5f;
     public float delayBetweenMessages = 7f;
 
+    public GameObject objectToShow;
+
     void Start()
     {
         dialogPanel.SetActive(false);
@@ -97,6 +99,11 @@ public class NPC_Dialogue : MonoBehaviour
         isDialogActive = false;
         dialogPanel.SetActive(false);
         index = 0;
+
+        if (objectToShow != null)
+        {
+            objectToShow.SetActive(true);
+        }
     }
 
     private void StartWriting(string message)
