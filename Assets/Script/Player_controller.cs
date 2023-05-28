@@ -49,7 +49,7 @@ public class Player_controller : MonoBehaviour
     public int score = 0;
     string saveDataPath;
     private bool is_jumping=false;
-    
+    private bool double_jump = false;
     private bool run = false;
     private float coeff_vel;
     
@@ -135,11 +135,20 @@ public class Player_controller : MonoBehaviour
             vspeed = jump * jump_force;
             animator.SetBool("grounded", true);
             coeff_vel = 2.5f;
+            double_jump = true;
+            
 
 
         }
         else
         {
+            if(Input.GetButtonDown("Jump") && double_jump==true)
+            {
+
+                double_jump = false;
+                vspeed = jump * jump_force;
+                coeff_vel = 1.8f;
+            }
             vspeed -= gravity * Time.deltaTime;
             coeff_vel = 3f;
         }
