@@ -140,6 +140,10 @@ PrefabInstance:
     - target: {fileID: 2485577355459365654, guid: 6caf8bb8634284d40b8709667e67e1dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2613587393787704931}
+    - target: {fileID: 2485577355459365654, guid: 6caf8bb8634284d40b8709667e67e1dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Livello4
       objectReference: {fileID: 0}
     - target: {fileID: 2485577355736847871, guid: 6caf8bb8634284d40b8709667e67e1dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -304,6 +308,10 @@ PrefabInstance:
     - target: {fileID: 2485577357308678609, guid: 6caf8bb8634284d40b8709667e67e1dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2613587393787704931}
+    - target: {fileID: 2485577357308678609, guid: 6caf8bb8634284d40b8709667e67e1dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Livello3
       objectReference: {fileID: 0}
     - target: {fileID: 2485577357376404869, guid: 6caf8bb8634284d40b8709667e67e1dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
