@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Livello 3.unity
     guid: 6bab4f558daad4b19869d7410a7af202
+  - enabled: 1
+    path: Assets/Scenes/Livello 4 + Stage Boss.unity
+    guid: 1f45fb184455d486cb9b03c9271d1c24
+  - enabled: 1
+    path: "Assets/Scenes/Men\xF9.unity"
+    guid: 5a09e897f1651174fa69bae2ce4bd0cd
   m_configObjects: {}
