@@ -429,8 +429,8 @@ Canvas:
   m_GameObject: {fileID: 1239845623}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1308740929}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -827,35 +827,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pippo
-
-
-    Pippo
-
-
-    Tutti
-
-
-    Pippo
-
-
-    Pippo
-
-
-    Tutti
-
-
-    Pippo
-
-
-    Pippo
-
-
-    Tutti
-
-
-    Chiara
-    Ganga, Fabrizio Camedda'
+  m_text: "Pippo\n\nPippo\n\nTutti\n\nPippo\n\nPippo\n\nTutti\n\nPippo\n\nPippo\n\nTutti\n\nChiara
+    Ganga, \nFabrizio Camedda, \nAlberto Mannai, \nStefano Figus"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -918,7 +891,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -203.17334, w: 0}
+  m_margin: {x: 0, y: 0, z: -238.92334, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
