@@ -6,21 +6,16 @@ using UnityEngine;
 public class Health_manager : MonoBehaviour
 {
 
-    public haelth_bar barra_vita;//ho sbagliato il nome , amen
+    public health_bar barra_vita;
     public int health;
     public int max_health=15;
-    
-   
-  
 
     public void Start()
     {
         health = max_health;
         barra_vita.Set_max_health(max_health);
-        
-        
-        //respawn_point = Player.transform.position;
 
+        //respawn_point = Player.transform.position;
     }
 
     public void Update()
@@ -30,26 +25,8 @@ public class Health_manager : MonoBehaviour
 
     public void Damages(int damage)
     {
-
-
-
-
-
-       
-            health -= damage;
+        health -= damage;
         barra_vita.Set_health(health);
-            
-            
-
-
-        
-
-
-
-
-
-
-
     }
 
     public void Healing(int heal)
@@ -60,5 +37,4 @@ public class Health_manager : MonoBehaviour
             health = max_health;
         }
     }
-    
 }
