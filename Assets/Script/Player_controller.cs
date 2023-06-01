@@ -40,7 +40,7 @@ public class Player_controller : MonoBehaviour
     float Horizontal_mov;
     float Vertical_mov;
     public float rotationSpeed;
-    private const float gravity = 9.81f;
+    private const float gravity = 0.981f;
     public float vspeed = 0;
     public float Knock_Back_Force = 1.0f;
     public float Knock_Back_Time;
@@ -59,7 +59,7 @@ public class Player_controller : MonoBehaviour
     private void Awake()
     {
 
-
+        
         DontDestroyOnLoad(this.gameObject);
     }
     void Start()
@@ -115,7 +115,7 @@ public class Player_controller : MonoBehaviour
 
 
             if (vspeed < 0f)
-                vspeed = -2f;
+                vspeed = -0.2f;
 
 
 
@@ -134,7 +134,7 @@ public class Player_controller : MonoBehaviour
             is_jumping = true;
             vspeed = jump * jump_force;
             animator.SetBool("grounded", true);
-            coeff_vel = 2.5f;
+            coeff_vel = 0.08f;
             double_jump = true;
             
 
@@ -147,10 +147,10 @@ public class Player_controller : MonoBehaviour
 
                 double_jump = false;
                 vspeed = jump * jump_force;
-                coeff_vel = 1.8f;
+                coeff_vel = 0.05f;
             }
             vspeed -= gravity * Time.deltaTime;
-            coeff_vel = 3f;
+            coeff_vel = 0.1f;
         }
 
 
