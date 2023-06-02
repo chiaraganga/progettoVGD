@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Men\xF9.unity"
     guid: 5a09e897f1651174fa69bae2ce4bd0cd
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: e267e66630d62457d83bbb7063705fca
   m_configObjects: {}

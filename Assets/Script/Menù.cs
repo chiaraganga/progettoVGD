@@ -39,18 +39,5 @@ public class Menù : MonoBehaviour
             Application.Quit();
         #endif
     }
-    public void NewGame()
-    {
-
-        
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("currentlevel", 0);
-        SceneManager.LoadScene(PlayerPrefs.GetInt("currentlevel"));
-
-    }
-    public void LoadGame()
-    {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("currentlevel"));
-       
-    }
+   
 }

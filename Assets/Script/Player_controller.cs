@@ -41,7 +41,7 @@ public class Player_controller : MonoBehaviour
     float Vertical_mov;
     public float rotationSpeed;
     private const float gravity = 0.981f;
-    public float vspeed = 0;
+    private float vspeed = 0;
     public float Knock_Back_Force = 1.0f;
     public float Knock_Back_Time;
     private float jump;
@@ -59,8 +59,8 @@ public class Player_controller : MonoBehaviour
     private void Awake()
     {
 
-        
-        DontDestroyOnLoad(this.gameObject);
+       
+        //DontDestroyOnLoad(this.gameObject);
     }
     void Start()
     {
@@ -147,7 +147,7 @@ public class Player_controller : MonoBehaviour
 
                 double_jump = false;
                 vspeed = jump * jump_force;
-                coeff_vel = 0.05f;
+                coeff_vel = 0.07f;
             }
             vspeed -= gravity * Time.deltaTime;
             coeff_vel = 0.1f;
@@ -168,7 +168,7 @@ public class Player_controller : MonoBehaviour
         if (Vertical_mov == 0)
             velocity = 0f;
         if (Vertical_mov < 0)
-            velocity = -0.3f;
+            velocity = -0.5f;
 
 
 
@@ -184,7 +184,7 @@ public class Player_controller : MonoBehaviour
         
         movement = ch.transform.forward * velocity * coeff_vel;//tranform.forward è un vettore unitario relativo all'oggetto, sarà sempre nella direzione in cui punta il "davanti" dell'oggetto
 
-        
+        vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
 
         ch.Move(movement);
