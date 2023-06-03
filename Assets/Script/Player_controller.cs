@@ -99,7 +99,7 @@ public class Player_controller : MonoBehaviour
         Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
         Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
         jump = Input.GetAxis("Jump");
-        if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.Joystick1Button4))
+        if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4))
         {
             run = true;
             
@@ -223,7 +223,7 @@ public class Player_controller : MonoBehaviour
             other.gameObject.SetActive(false);
             score++;
         }
-        if (score == 2 && buildIndex == 0)
+        if (score == 6 && buildIndex == 0)
 
 
 
