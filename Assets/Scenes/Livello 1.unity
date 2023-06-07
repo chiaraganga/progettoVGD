@@ -241,16 +241,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109358796}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -129.33002, y: 36.39241, z: 5.3061657}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14092.744, y: 1302.6464, z: 545.8013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1766605691}
   - {fileID: 1107356615}
   - {fileID: 11570033}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 279445669}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &117549130
 GameObject:
@@ -555,6 +555,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
+--- !u!1 &279445668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 279445669}
+  m_Layer: 0
+  m_Name: Recover_Life
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &279445669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279445668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14222.074, y: -1266.2539, z: -540.4951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 109358797}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &294661044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1412,7 +1444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8565889977101156661, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8565889977101156661, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2333,6 +2365,7 @@ MonoBehaviour:
   barra_vita: {fileID: 0}
   health: 0
   max_health: 0
+  dead: 0
 --- !u!195 &1347008846
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2932,7 +2965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7520248112906100687, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7520248112906100687, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: m_LocalScale.x
