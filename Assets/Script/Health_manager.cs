@@ -25,20 +25,24 @@ public class Health_manager : MonoBehaviour
 
     public void Update()
     {
-        if (dead == true)
+        if(this.CompareTag("Player"))
         {
+            if (dead == true)
+            {
+                dead = false;
+                anim.SetBool("dead", false);
+            }
             dead = false;
-            anim.SetBool("dead", false);
+            if (health == 0)
+            {
+
+                dead = true;
+                anim.SetBool("dead", true);
+                Invoke("destroy_anim", 4.4f);
+
+            }
         }
-        dead = false;
-        if (health == 0)
-        {
-            
-            dead = true;
-            anim.SetBool("dead", true);
-            Invoke("destroy_anim", 4.4f);
-            
-        }
+        
        
             
         
@@ -68,5 +72,17 @@ public class Health_manager : MonoBehaviour
         barra_vita.Set_max_health(0);
         SceneManager.LoadScene(6);
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(this.CompareTag("Player"))
+        {
+            if (other.CompareTag("Collect"))
+            {
+                Healing(10);
+            }
+        }
+        
     }
 }
