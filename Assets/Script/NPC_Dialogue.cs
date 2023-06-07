@@ -50,7 +50,7 @@ public class NPC_Dialogue : MonoBehaviour
                 }
             }
         }
-        else if (isPlayerClose && Input.GetKeyDown(KeyCode.E))
+        else if (isPlayerClose && Input.GetKeyDown(KeyCode.E) || (isPlayerClose && Input.GetKey(KeyCode.Joystick1Button1)))
         {
             if (index < dialogo.Length)
             {
