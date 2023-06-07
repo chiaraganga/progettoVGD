@@ -134,7 +134,7 @@ public class Player_controller : MonoBehaviour
             is_jumping = true;
             vspeed = jump * jump_force;
             animator.SetBool("grounded", true);
-            coeff_vel = 0.08f;
+            
             double_jump = true;
             
 
@@ -147,7 +147,7 @@ public class Player_controller : MonoBehaviour
 
                 double_jump = false;
                 vspeed = jump * jump_force;
-                coeff_vel = 0.07f;
+                coeff_vel = 0.08f;
             }
             vspeed -= gravity * Time.deltaTime;
             coeff_vel = 0.1f;
@@ -158,11 +158,11 @@ public class Player_controller : MonoBehaviour
         {
             if (run == true)
             {
-                velocity = 2f;
+                velocity = 1.5f;
             }
             else
             {
-                velocity = 1f;
+                velocity = 0.5f;
             }
         }
         if (Vertical_mov == 0)
