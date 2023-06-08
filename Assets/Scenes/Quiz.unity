@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1868715737}
+  startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &80761886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,6 +1237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1868715737}
+  startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1145262602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1772,6 +1774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1868715737}
+  startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1521271534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2294,6 +2297,13 @@ MonoBehaviour:
     - no
     - no
     CorrectAnswer: 1
+  - Question: Sicuro?
+    Answers:
+    - si
+    - no
+    - no
+    - no
+    CorrectAnswer: 1
   options:
   - {fileID: 1145262600}
   - {fileID: 2026138721}
@@ -2397,7 +2407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876634842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 579, y: 229, z: -551.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2439,6 +2449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1868715737}
+  startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &2026138723
 MonoBehaviour:
   m_ObjectHideFlags: 0

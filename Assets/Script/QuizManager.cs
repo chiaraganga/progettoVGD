@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
 {
@@ -44,6 +44,7 @@ public class QuizManager : MonoBehaviour
         // QnA.RemoveAll(currentQuestion);
         score += 1;
         generateQuestion();
+        StartCoroutine(WaitForNext());
     }
 
     public void retry()
@@ -63,11 +64,18 @@ public class QuizManager : MonoBehaviour
         //Risposta sbagliata
         // QnA.RemoveAll(currentQuestion);
         generateQuestion();
+        StartCoroutine(WaitForNext());
+
+    }
+    IEnumerator WaitForNext()
+    {
+        yield return new WaitForSeconds(1);
+        generateQuestion();
     }
 
     void generateQuestion()
     {
-        if(QnA.Count > 0)
+        if (QnA.Count > 0)
         {
             currentQuestion = Random.Range(0, QnA.Count);
             QuestionTxt.text = QnA[currentQuestion].Question;
@@ -78,23 +86,25 @@ public class QuizManager : MonoBehaviour
             Debug.Log("No Question");
             GameOver();
         }
-        
+
 
     }
 
     void SetAnswer()
     {
-        for (int i=0; i < options.Length; i++)
+        for (int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<AnswersScript>().isCorrect = false;
             options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestion].Answers[i];
 
-            if (QnA[currentQuestion].CorrectAnswer == i+1)
+            if (QnA[currentQuestion].CorrectAnswer == i + 1)
             {
                 options[i].GetComponent<AnswersScript>().isCorrect = true;
             }
+
+            ColorBlock colors = options[i].GetComponent<Button>().colors;
+            colors.normalColor = options[i].GetComponent<AnswersScript>().startColor;
+            options[i].GetComponent<Button>().colors = colors;
         }
     }
-
-
 }
