@@ -31,12 +31,20 @@ public class QuizManager : MonoBehaviour
     public int score;
 
     int totalQuestions = 0;
+    public int trigger_counter = 0;
 
     private void Start()
     {
         totalQuestions = QnA.Count;
         GoPanel.SetActive(false);
         generateQuestion();
+
+        trigger_counter++;
+        if (trigger_counter != 1)
+        {
+            QnA.RemoveAt(currentQuestion);
+        }
+        //generateQuestion();
     }
 
     public void correct()
@@ -65,7 +73,6 @@ public class QuizManager : MonoBehaviour
         // QnA.RemoveAll(currentQuestion);
         generateQuestion();
         StartCoroutine(WaitForNext());
-
     }
     IEnumerator WaitForNext()
     {
@@ -80,14 +87,15 @@ public class QuizManager : MonoBehaviour
             currentQuestion = Random.Range(0, QnA.Count);
             QuestionTxt.text = QnA[currentQuestion].Question;
             SetAnswer();
+
+            // Rimuovi la domanda corrente dalla lista QnA
+            QnA.RemoveAt(currentQuestion);
         }
         else
         {
             Debug.Log("No Question");
             GameOver();
         }
-
-
     }
 
     void SetAnswer()
