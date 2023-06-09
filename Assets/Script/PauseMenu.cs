@@ -7,9 +7,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject menuPrincipaleUI;
     public GameObject menuLivelliUI;
 
-    private bool isPaused = false;
+    private static bool isPaused = false;
     private bool isMainMenuActive = true;
 
+    public static bool IsPaused(){
+        return isPaused;
+    }
     private void Start()
     {
         ResumeGame(); // Inizia il gioco con il menu di pausa chiuso
@@ -33,6 +36,7 @@ public class PauseMenu : MonoBehaviour
     private void PauseGame()
     {
         isPaused = true;
+
         Time.timeScale = 0f; // Congela il tempo di gioco per fermare la logica del gioco
         pauseMenuUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None; // Sblocca il cursore del mouse
