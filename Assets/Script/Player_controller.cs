@@ -41,7 +41,7 @@ public class Player_controller : MonoBehaviour
     float Vertical_mov;
     public float rotationSpeed;
     private const float gravity = 0.981f;
-    private float vspeed = 0;
+    public float vspeed = 0;
     public float Knock_Back_Force = 1.0f;
     public float Knock_Back_Time;
     private float jump;
@@ -92,7 +92,9 @@ public class Player_controller : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   if(PauseMenu.IsPaused()){
+        return;
+    }
 
 
         animator.SetBool("attack", false);
