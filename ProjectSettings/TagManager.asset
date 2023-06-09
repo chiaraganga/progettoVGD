@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Next_Level
   - Weapon
+  - Atena
   layers:
   - Default
   - TransparentFX

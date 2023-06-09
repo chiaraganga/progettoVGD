@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -879,6 +879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 2135655171}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &419832336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,6 +1520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Atena
       objectReference: {fileID: 0}
+    - target: {fileID: 7711014058203007029, guid: b3a49cb8b83374b5d864c7ee24927d40, type: 3}
+      propertyPath: m_TagString
+      value: Atena
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3a49cb8b83374b5d864c7ee24927d40, type: 3}
 --- !u!1001 &1258817400
@@ -1654,6 +1659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 2135655171}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1269934713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1819,6 +1825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 2135655171}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1276953438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2773,6 +2780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 2135655171}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1773882335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3481,7 +3489,12 @@ MonoBehaviour:
   - {fileID: 1269934710}
   - {fileID: 1773882332}
   currentQuestion: 0
+  Quizpanel: {fileID: 0}
+  GoPanel: {fileID: 0}
   QuestionTxt: {fileID: 1290641477}
+  ScoreTxt: {fileID: 0}
+  score: 0
+  trigger_counter: 0
 --- !u!4 &2135655172
 Transform:
   m_ObjectHideFlags: 0
