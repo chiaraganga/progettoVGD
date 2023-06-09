@@ -185,13 +185,13 @@ public class Player_controller : MonoBehaviour
         animator.SetFloat("Velocity", velocity);//nell'animator assegna a velocity(quella delle animazioni)  la nostra variabile da input
         
         movement = ch.transform.forward * velocity * coeff_vel;//tranform.forward è un vettore unitario relativo all'oggetto, sarà sempre nella direzione in cui punta il "davanti" dell'oggetto
-
+        
         vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
 
         ch.Move(movement);
 
-
+       
         transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
 
 
