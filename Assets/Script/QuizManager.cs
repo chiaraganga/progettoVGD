@@ -45,6 +45,7 @@ public class QuizManager : MonoBehaviour
             QnA.RemoveAt(currentQuestion);
         }
         //generateQuestion();
+        Cursor.visible = true;
     }
 
     public void correct()
@@ -97,7 +98,7 @@ public class QuizManager : MonoBehaviour
         {
             options[i].GetComponent<AnswersScript>().isCorrect = false;
             options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestion].Answers[i];
-
+            
             if (QnA[currentQuestion].CorrectAnswer == i + 1)
             {
                 options[i].GetComponent<AnswersScript>().isCorrect = true;
