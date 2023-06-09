@@ -22,13 +22,13 @@ public class Atena_Dialogue : MonoBehaviour
 
     public float initialMessageDuration = 5f;
     public float delayBetweenMessages = 7f;
+    public float panelDisableDuration = 5f; // Durata in secondi dopo l'ultimo messaggio prima di disabilitare il pannello
 
     public GameObject objectToShow;
 
     public QuizManager quizManager;
 
     private bool isFirstMessageShown = false;
-    private bool isLastMessage = false;
 
     // Start is called before the first frame update
     void Start()
@@ -100,10 +100,7 @@ public class Atena_Dialogue : MonoBehaviour
     private void EndDialog()
     {
         isDialogActive = false;
-        if (isLastMessage)
-        {
-            dialogPanel.SetActive(false);
-        }
+        dialogPanel.SetActive(false);
         index = 0;
 
         if (objectToShow != null)
@@ -143,18 +140,27 @@ public class Atena_Dialogue : MonoBehaviour
     private void ShowNextMessage()
     {
         index++;
+
         if (index < dialogo.Length)
         {
             StartDialog(dialogo[index]);
-            initialMessageDuration = Time.time + velocityword * dialogo[index].Length;
-            isFirstMessageShown = true;
+
+            if (index == 1) // Controllo se è il secondo messaggio
+            {
+                Invoke("EndDialog", 5f); // Chiudi il dialogo dopo 5 secondi
+            }
+            else
+            {
+                float delay = index == 0 ? initialMessageDuration : delayBetweenMessages;
+                Invoke("ShowNextMessage", delay); // Richiama il metodo dopo il delay appropriato
+            }
         }
         else
         {
-            isLastMessage = true;
-            Invoke("EndDialog", 5f); // Chiude il dialogo dopo 5 secondi
+            EndDialog();
         }
     }
+
 
     private void StartNextMessage()
     {
