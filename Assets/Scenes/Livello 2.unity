@@ -1875,6 +1875,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3a49cb8b83374b5d864c7ee24927d40, type: 3}
+--- !u!1 &1204765083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7711014058203007029, guid: b3a49cb8b83374b5d864c7ee24927d40, type: 3}
+  m_PrefabInstance: {fileID: 1204765082}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1204765084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204765083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc8cdd23fb339040a7212c66150d9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPanel: {fileID: 908202362}
+  dialogueText: {fileID: 1123527238}
+  dialogo:
+  - Ercole, ciao!
+  - Spiegazione prova.
+  velocityword: 0.04
+  initialMessageDuration: 5
+  delayBetweenMessages: 4
+  objectToShow: {fileID: 0}
+  quizManager: {fileID: 0}
+--- !u!65 &1204765087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204765083}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2916107, y: 2.2276397, z: 1.1330457}
+  m_Center: {x: -0.009455204, y: 1.0518067, z: 0.06652259}
+--- !u!64 &1204765088
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204765083}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1258817400
 PrefabInstance:
   m_ObjectHideFlags: 0
