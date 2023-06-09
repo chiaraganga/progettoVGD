@@ -28,6 +28,9 @@ public class Atena_Dialogue : MonoBehaviour
 
     public QuizManager quizManager;
 
+    public GameObject quizPanel;
+    public CursorLockMode cursorLockMode;
+
     private bool isFirstMessageShown = false;
 
     // Start is called before the first frame update
@@ -107,7 +110,15 @@ public class Atena_Dialogue : MonoBehaviour
         {
             objectToShow.SetActive(true);
         }
+
+        // Attiva il QuizPanel
+        quizPanel.SetActive(true);
+
+        // Imposta la visibilità del cursore
+        Cursor.lockState = cursorLockMode;
+        Cursor.visible = true;
     }
+
 
     private void StartWriting(string message)
     {
