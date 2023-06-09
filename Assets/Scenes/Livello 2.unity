@@ -1896,10 +1896,11 @@ MonoBehaviour:
   dialogueText: {fileID: 1123527238}
   dialogo:
   - Ercole, ciao!
-  - Spiegazione prova.
+  - Ciao!!!! funziona??
   velocityword: 0.04
   initialMessageDuration: 5
   delayBetweenMessages: 4
+  panelDisableDuration: 5
   objectToShow: {fileID: 0}
   quizManager: {fileID: 0}
 --- !u!65 &1204765087
