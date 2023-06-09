@@ -52,7 +52,6 @@ public class QuizManager : MonoBehaviour
         // QnA.RemoveAll(currentQuestion);
         score += 1;
         generateQuestion();
-        StartCoroutine(WaitForNext());
     }
 
     public void retry()
@@ -71,12 +70,6 @@ public class QuizManager : MonoBehaviour
     {
         //Risposta sbagliata
         // QnA.RemoveAll(currentQuestion);
-        generateQuestion();
-        StartCoroutine(WaitForNext());
-    }
-    IEnumerator WaitForNext()
-    {
-        yield return new WaitForSeconds(1);
         generateQuestion();
     }
 
