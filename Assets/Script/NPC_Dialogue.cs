@@ -24,7 +24,6 @@ public class NPC_Dialogue : MonoBehaviour
 
     public GameObject objectToShow;
 
-    public QuizManager quizManager;
 
     void Start()
     {
@@ -147,18 +146,6 @@ public class NPC_Dialogue : MonoBehaviour
         else
         {
             EndDialog();
-        }
-    }
-
-    private void QuizStartDialogue()
-    {
-        Debug.Log("funziona");
-    }
-    private void QuizEndDialogue()
-    {
-        if(quizManager.score == 3)
-        {
-            Debug.Log("funziona anche questo");
         }
     }
 }
