@@ -3421,7 +3421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1750876291, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: m_Height
-      value: 2
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 1750876291, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: m_Radius

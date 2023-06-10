@@ -117,7 +117,7 @@ public class Player_controller : MonoBehaviour
 
 
             if (vspeed < 0f)
-                vspeed = -0.2f;
+                vspeed = -2f;
 
 
 
