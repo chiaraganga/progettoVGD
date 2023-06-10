@@ -28,7 +28,7 @@ public class QuizManager : MonoBehaviour
     public TMP_Text QuestionTxt;
     public TMP_Text ScoreTxt;
 
-    private bool quizCompleted = false;
+   // private bool quizCompleted = false;
 
     public int score;
 
@@ -56,7 +56,7 @@ public class QuizManager : MonoBehaviour
 
         if (score >= 3)
         {
-            quizCompleted = true;
+            //quizCompleted = true;
             Quizpanel.SetActive(false);
             GoPanel.SetActive(false);
             FindObjectOfType<Atena_Dialogue>().QuizEndDialogue();
