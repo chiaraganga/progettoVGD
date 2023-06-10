@@ -117,10 +117,10 @@ public class Atena_Dialogue : MonoBehaviour
         dialogPanel.SetActive(false);
         index = 0;
 
-        if (objectToShow != null)
-        {
-            objectToShow.SetActive(true);
-        }
+        //if (objectToShow != null)
+        //{
+         //   objectToShow.SetActive(true);
+        //}
 
         // Attiva il QuizPanel solo se isQuizCompleted è impostato su false
         if (!isQuizCompleted)
@@ -200,6 +200,11 @@ public class Atena_Dialogue : MonoBehaviour
             StartDialog("Complimenti!");
             isQuizCompleted = true;
             quizPanel.SetActive(false);
+
+            if (objectToShow != null)
+            {
+                objectToShow.SetActive(true);
+            }
         }
     }
 
