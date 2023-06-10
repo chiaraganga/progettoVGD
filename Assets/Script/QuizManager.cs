@@ -28,6 +28,8 @@ public class QuizManager : MonoBehaviour
     public TMP_Text QuestionTxt;
     public TMP_Text ScoreTxt;
 
+   // private bool quizCompleted = false;
+
     public int score;
 
     int totalQuestions = 0;
@@ -50,10 +52,21 @@ public class QuizManager : MonoBehaviour
 
     public void correct()
     {
-        // QnA.RemoveAll(currentQuestion);
         score += 1;
-        generateQuestion();
+
+        if (score >= 3)
+        {
+            //quizCompleted = true;
+            Quizpanel.SetActive(false);
+            GoPanel.SetActive(false);
+            FindObjectOfType<Atena_Dialogue>().QuizEndDialogue();
+        }
+        else
+        {
+            generateQuestion();
+        }
     }
+
 
     public void retry()
     {
@@ -89,6 +102,13 @@ public class QuizManager : MonoBehaviour
         {
             Debug.Log("No Question");
             GameOver();
+            if (score == 3)
+            {
+                Quizpanel.SetActive(false);
+                GoPanel.SetActive(false);
+
+            }
+
         }
     }
 
@@ -98,7 +118,7 @@ public class QuizManager : MonoBehaviour
         {
             options[i].GetComponent<AnswersScript>().isCorrect = false;
             options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestion].Answers[i];
-            
+
             if (QnA[currentQuestion].CorrectAnswer == i + 1)
             {
                 options[i].GetComponent<AnswersScript>().isCorrect = true;

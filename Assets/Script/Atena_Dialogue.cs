@@ -19,6 +19,7 @@ public class Atena_Dialogue : MonoBehaviour
 
     private int index;
     public float velocityword;
+    private bool isQuizCompleted = false;
 
     public float initialMessageDuration = 5f;
     public float delayBetweenMessages = 7f;
@@ -97,8 +98,18 @@ public class Atena_Dialogue : MonoBehaviour
     {
         isDialogActive = true;
         dialogPanel.SetActive(true);
-        StartWriting(message);
+
+        if (message == "Complimenti!")
+        {
+            dialogueText.text = message;
+            Invoke("EndDialog", 5f); // Chiudi il dialogo dopo 5 secondi
+        }
+        else
+        {
+            StartWriting(message);
+        }
     }
+
 
     private void EndDialog()
     {
@@ -106,18 +117,22 @@ public class Atena_Dialogue : MonoBehaviour
         dialogPanel.SetActive(false);
         index = 0;
 
-        if (objectToShow != null)
-        {
-            objectToShow.SetActive(true);
-        }
+        //if (objectToShow != null)
+        //{
+         //   objectToShow.SetActive(true);
+        //}
 
-        // Attiva il QuizPanel
-        quizPanel.SetActive(true);
+        // Attiva il QuizPanel solo se isQuizCompleted è impostato su false
+        if (!isQuizCompleted)
+        {
+            quizPanel.SetActive(true);
+        }
 
         // Imposta la visibilità del cursore
         Cursor.lockState = cursorLockMode;
         Cursor.visible = true;
     }
+
 
 
     private void StartWriting(string message)
@@ -178,16 +193,24 @@ public class Atena_Dialogue : MonoBehaviour
         ShowNextMessage();
     }
 
-    private void QuizStartDialogue()
-    {
-        Debug.Log("funziona"); //testing
-    }
-
-    private void QuizEndDialogue()
+    public void QuizEndDialogue()
     {
         if (quizManager.score == 3)
         {
-            Debug.Log("funziona anche questo"); //testing
+            StartDialog("Complimenti!");
+            isQuizCompleted = true;
+            quizPanel.SetActive(false);
+
+            if (objectToShow != null)
+            {
+                objectToShow.SetActive(true);
+            }
         }
+    }
+
+
+    private void QuizStartDialogue()
+    {
+        Debug.Log("funziona"); //testing
     }
 }
