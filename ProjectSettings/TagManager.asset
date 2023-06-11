@@ -12,6 +12,7 @@ TagManager:
   - Next_Level
   - Weapon
   - Atena
+  - Phobos
   layers:
   - Default
   - TransparentFX
