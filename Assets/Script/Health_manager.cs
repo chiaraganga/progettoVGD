@@ -14,7 +14,6 @@ public class Health_manager : MonoBehaviour
     
     public void Start()
     {
-        
         anim = GetComponent<Animator>();
         
         health = max_health;
@@ -35,17 +34,11 @@ public class Health_manager : MonoBehaviour
             dead = false;
             if (health == 0)
             {
-
                 dead = true;
                 anim.SetBool("dead", true);
                 Invoke("destroy_anim", 4.4f);
-
             }
         }
-        
-       
-            
-        
     }
    
 
@@ -53,10 +46,6 @@ public class Health_manager : MonoBehaviour
     {
         health -= damage;
         barra_vita.Set_health(health);
-        
-        
-           
-
     }
 
     public void Healing(int heal)
@@ -71,7 +60,6 @@ public class Health_manager : MonoBehaviour
     {
         barra_vita.Set_max_health(0);
         SceneManager.LoadScene(6);
-
     }
 
     private void OnTriggerEnter(Collider other)

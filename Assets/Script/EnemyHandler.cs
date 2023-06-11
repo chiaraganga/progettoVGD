@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAresController : MonoBehaviour
+public class EnemyHandler : MonoBehaviour
 {
-    public GameObject player; // Assign your player here.
+    public GameObject player, enemy; // Assign your player here.
     private NavMeshAgent agent;
     private Animator animator;
     private float attackDistance = 2.5f; // Define how close the enemy needs to be to attack. Modify this value as needed.
@@ -29,8 +29,15 @@ public class EnemyAresController : MonoBehaviour
         {
             agent.transform.LookAt(player.transform.position);
             // Calculate distance to player
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-            
+
             if (distanceToPlayer > attackDistance)
             {
                 // Chase the player.
@@ -50,6 +57,12 @@ public class EnemyAresController : MonoBehaviour
                 animator.SetBool("attack", true);
                 animator.SetFloat("Velocity", 0); // No velocity while attacking
             }
+        }
+    }
+    void OnTriggerExit(Collider other){
+        if (other.gameObject.tag == "player")
+        {
+            agent.transform.LookAt(player.transform.position);
         }
     }
 }
