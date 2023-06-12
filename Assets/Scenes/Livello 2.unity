@@ -3236,10 +3236,11 @@ MonoBehaviour:
   dialogueText: {fileID: 1123527238}
   dialogo:
   - Ercole, ciao!
-  - Ciao!!!! funziona??
+  - Potrai andare avanti solo se risponderai correttamente a tutte le domande.
+  - Pronto? Iniziamo
   velocityword: 0.04
   initialMessageDuration: 5
-  delayBetweenMessages: 4
+  delayBetweenMessages: 6
   panelDisableDuration: 5
   objectToShow: {fileID: 1928051819}
   quizManager: {fileID: 1742451920}

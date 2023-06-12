@@ -99,7 +99,7 @@ public class Atena_Dialogue : MonoBehaviour
         isDialogActive = true;
         dialogPanel.SetActive(true);
 
-        if (message == "Complimenti!")
+        if (message == "Complimenti! Prendi lo scudo vicino al bracere")
         {
             dialogueText.text = message;
             Invoke("EndDialog", 5f); // Chiudi il dialogo dopo 5 secondi
@@ -171,7 +171,7 @@ public class Atena_Dialogue : MonoBehaviour
         {
             StartDialog(dialogo[index]);
 
-            if (index == 1) // Controllo se è il secondo messaggio
+            if (index == 2) // Controllo se è il secondo messaggio
             {
                 Invoke("EndDialog", 5f); // Chiudi il dialogo dopo 5 secondi
             }
@@ -197,7 +197,7 @@ public class Atena_Dialogue : MonoBehaviour
     {
         if (quizManager.score == 3)
         {
-            StartDialog("Complimenti!");
+            StartDialog("Complimenti! Prendi lo scudo vicino al bracere");
             isQuizCompleted = true;
             quizPanel.SetActive(false);
 
