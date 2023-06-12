@@ -54,7 +54,7 @@ public class EnemyHandler : MonoBehaviour
                 agent.SetDestination(transform.position);
                 // Attack the player
                 animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while attacking
-                animator.SetBool("attack", true);
+                animator.SetBool("attack", true); // Attack
                 animator.SetFloat("Velocity", 0); // No velocity while attacking
             }
         }
