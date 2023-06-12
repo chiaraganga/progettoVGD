@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -559,7 +559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1750876292, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: vspeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1750876292, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: coeff_vel
@@ -567,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1750876292, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: jump_force
-      value: 0.45
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 1750876292, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: rotationSpeed
@@ -576,7 +576,7 @@ PrefabInstance:
     - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: barra_vita
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 976834375}
     - target: {fileID: 1789309407, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: CameraDistance
       value: 10
@@ -704,6 +704,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 435640469, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
   m_PrefabInstance: {fileID: 244969554}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &244969556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7140063017267463541, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
+  m_PrefabInstance: {fileID: 244969554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &244969557
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244969556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &259301270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1088,7 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ec7f1f2e432614a8b5b249631a9100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 244969556}
   enemy: {fileID: 434957470}
 --- !u!135 &434957481
 SphereCollider:
@@ -3429,7 +3448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ec7f1f2e432614a8b5b249631a9100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 244969556}
   enemy: {fileID: 1347008842}
 --- !u!135 &1347008856
 SphereCollider:
@@ -3595,7 +3614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ec7f1f2e432614a8b5b249631a9100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 244969556}
   enemy: {fileID: 1417032007}
 --- !u!135 &1417032018
 SphereCollider:
