@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+//Script per i dialoghi di Phobos e Ares, iniziano direttamente come inizia la scena.
+
 public class General_Dialogue : MonoBehaviour
 {
     public GameObject dialogPanel;
@@ -26,63 +28,16 @@ public class General_Dialogue : MonoBehaviour
 
     public GameObject objectToShow;
 
-
-
     private bool isFirstMessageShown = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         dialogPanel.SetActive(false);
         Phobos = GameObject.FindGameObjectWithTag("Phobos");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isPlayerClose && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1)))
-        {
-            if (!isDialogActive)
-            {
-                if (isFirstDialog)
-                {
-                    StartInitialDialog(dialogo[index]);
-                    isFirstDialog = false;
-                    Invoke("ShowNextMessage", initialMessageDuration);
-                }
-                else if (isFirstMessageShown)
-                {
-                    Invoke("ShowNextMessage", initialMessageDuration);
-                }
-            }
-            else if (isWriting)
-            {
-                CompleteWriting();
-                Invoke("StartNextMessage", delayBetweenMessages);
-            }
-            else if (index < dialogo.Length - 1) // Aggiunto controllo per verificare se ci sono altri messaggi
-            {
-                index++; // Aumenta l'indice per passare al messaggio successivo
-                StartDialog(dialogo[index]);
-            }
-        }
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerClose = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerClose = false;
-        }
+        StartInitialDialog(dialogo[index]);
+        isFirstDialog = false;
+        Invoke("ShowNextMessage", initialMessageDuration);
     }
 
     private void StartInitialDialog(string message)
@@ -102,9 +57,7 @@ public class General_Dialogue : MonoBehaviour
         dialogPanel.SetActive(true);
 
         StartWriting(message);
-
     }
-
 
     private void EndDialog()
     {
@@ -121,11 +74,7 @@ public class General_Dialogue : MonoBehaviour
         {
             Phobos.SetActive(false);
         }
-
-
     }
-
-
 
     private void StartWriting(string message)
     {
@@ -178,9 +127,6 @@ public class General_Dialogue : MonoBehaviour
             EndDialog();
         }
     }
-
-
-
 
     private void StartNextMessage()
     {
