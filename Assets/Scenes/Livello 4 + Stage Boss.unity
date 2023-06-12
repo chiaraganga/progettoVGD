@@ -302,12 +302,16 @@ PrefabInstance:
       value: Anfiteatro (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2450393685816419559, guid: adfb2c59250514074ad8b5bab9a9453d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.088
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450393685816419559, guid: adfb2c59250514074ad8b5bab9a9453d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.93
+      value: -29.852
       objectReference: {fileID: 0}
     - target: {fileID: 2450393685816419559, guid: adfb2c59250514074ad8b5bab9a9453d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.53
+      value: 0.45224
       objectReference: {fileID: 0}
     - target: {fileID: 2832062096061237932, guid: adfb2c59250514074ad8b5bab9a9453d, type: 3}
       propertyPath: m_RootOrder
@@ -2628,12 +2632,16 @@ PrefabInstance:
       value: Anfiteatro
       objectReference: {fileID: 0}
     - target: {fileID: 2450393685816419559, guid: adfb2c59250514074ad8b5bab9a9453d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1144
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450393685816419559, guid: adfb2c59250514074ad8b5bab9a9453d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.91
+      value: -29.83
       objectReference: {fileID: 0}
     - target: {fileID: 2450393685816419559, guid: adfb2c59250514074ad8b5bab9a9453d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.53
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 2832062096061237932, guid: adfb2c59250514074ad8b5bab9a9453d, type: 3}
       propertyPath: m_RootOrder
