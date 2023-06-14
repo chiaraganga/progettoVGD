@@ -98,9 +98,13 @@ public class Player_controller : MonoBehaviour
 
 
         animator.SetBool("attack", false);
-        Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
-        Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
-        jump = Input.GetAxis("Jump");
+        if(ch.enabled==true)//controllo utile nella scena 3 e per i dialoghi
+        {
+            Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
+            Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
+            jump = Input.GetAxis("Jump");
+        }
+       
         if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4))
         {
             run = true;
@@ -188,11 +192,14 @@ public class Player_controller : MonoBehaviour
         
         vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
+        if(ch.enabled==true)
+        {
+            ch.Move(movement);
 
-        ch.Move(movement);
 
-       
-        transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
+            transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
+        }
+        
 
 
 
@@ -278,4 +285,5 @@ public class Player_controller : MonoBehaviour
 
         }
     }
+    
 }

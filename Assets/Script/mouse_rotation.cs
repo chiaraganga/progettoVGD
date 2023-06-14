@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mouse_rotation : MonoBehaviour
 {
+    
     private GameObject player;
     private CharacterController ch;
     public Vector2 turn_movement;
@@ -12,6 +13,7 @@ public class mouse_rotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ch=FindObjectOfType<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -27,21 +29,29 @@ public class mouse_rotation : MonoBehaviour
         {
             
             player = GameObject.FindGameObjectWithTag("Player");
-            
-            if (player.transform.position!=transform.position)
+            if (ch.isGrounded)
             {
-               
-                player.transform.Rotate(Vector3.up, turn_movement.x);
-                
-                turn_movement.y = 0f;
-                turn_movement.x = 0f;
-                
-                transform.localRotation = Quaternion.Euler(-turn_movement.y, turn_movement.x, 0f);
-                
-            }
-            
+                if (ch.enabled == true)
+                {
 
-        }
+                    if (player.transform.position != transform.position)
+                    {
+
+                        player.transform.Rotate(Vector3.up, turn_movement.x);
+
+                        turn_movement.y = 0f;
+                        turn_movement.x = 0f;
+
+                        transform.localRotation = Quaternion.Euler(-turn_movement.y, turn_movement.x, 0f);
+
+                    }
+                }
+            }
+
+
+
+
+            }
     }
        
        

@@ -21,7 +21,7 @@ public class CountDown_manager : MonoBehaviour
     public Text end_display;
 
     private CharacterController player;
-    private Animator anim;
+    
 
     private bool isWriting = false;
     private bool isDialogActive = false;
@@ -35,8 +35,7 @@ public class CountDown_manager : MonoBehaviour
         dialogPanel.SetActive(false);
         player = FindObjectOfType<CharacterController>();
         player.enabled = false;
-        anim = FindObjectOfType<Animator>();
-        anim.enabled = false;
+       
 
         StartCoroutine(StartLevelRoutine());
     }
@@ -54,7 +53,7 @@ public class CountDown_manager : MonoBehaviour
 
         // Abilita il personaggio e l'animazione
         player.enabled = true;
-        anim.enabled = true;
+        
 
         // Nascondi il pannello di avvio
         start_display.gameObject.SetActive(false);
@@ -128,7 +127,7 @@ public class CountDown_manager : MonoBehaviour
         go.SetActive(true);
 
         player.enabled = false;
-        anim.enabled = false;
+        
     }
 
     private void StartWriting(string message)
