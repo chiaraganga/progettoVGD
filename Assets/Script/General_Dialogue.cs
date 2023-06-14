@@ -13,11 +13,11 @@ public class General_Dialogue : MonoBehaviour
     private GameObject Phobos;
     public TMP_Text dialogueText;
     public string[] dialogo;
-    private bool isWriting = false;
+   // private bool isWriting = false;
 
-    private bool isDialogActive = false;
-    private bool isFirstDialog = true;
-    private bool isPlayerClose = false;
+   // private bool isDialogActive = false;
+   // private bool isFirstDialog = true;
+  //  private bool isPlayerClose = false;
 
     private int index;
     public float velocityword;
@@ -28,7 +28,7 @@ public class General_Dialogue : MonoBehaviour
 
     public GameObject objectToShow;
 
-    private bool isFirstMessageShown = false;
+  //  private bool isFirstMessageShown = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -36,7 +36,7 @@ public class General_Dialogue : MonoBehaviour
         dialogPanel.SetActive(false);
         Phobos = GameObject.FindGameObjectWithTag("Phobos");
         StartInitialDialog(dialogo[index]);
-        isFirstDialog = false;
+        //isFirstDialog = false;
         Invoke("ShowNextMessage", initialMessageDuration);
     }
 
@@ -53,7 +53,7 @@ public class General_Dialogue : MonoBehaviour
 
     private void StartDialog(string message)
     {
-        isDialogActive = true;
+       // isDialogActive = true;
         dialogPanel.SetActive(true);
 
         StartWriting(message);
@@ -61,7 +61,7 @@ public class General_Dialogue : MonoBehaviour
 
     private void EndDialog()
     {
-        isDialogActive = false;
+       // isDialogActive = false;
         dialogPanel.SetActive(false);
         index = 0;
 
@@ -76,6 +76,7 @@ public class General_Dialogue : MonoBehaviour
         }
     }
 
+
     private void StartWriting(string message)
     {
         dialogueText.text = "";
@@ -86,12 +87,12 @@ public class General_Dialogue : MonoBehaviour
     {
         StopAllCoroutines();
         dialogueText.text = dialogo[index];
-        isWriting = false;
+      //  isWriting = false;
     }
 
     private IEnumerator WriteText(string message)
     {
-        isWriting = true;
+       // isWriting = true;
 
         for (int i = 0; i < message.Length; i++)
         {
@@ -101,7 +102,7 @@ public class General_Dialogue : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        isWriting = false;
+        //isWriting = false;
     }
 
     private void ShowNextMessage()
