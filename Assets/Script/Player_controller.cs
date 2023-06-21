@@ -121,7 +121,7 @@ public class Player_controller : MonoBehaviour
 
 
             if (vspeed < 0f)
-                vspeed = -2f;
+                vspeed = -0.2f;
 
 
 
@@ -134,6 +134,7 @@ public class Player_controller : MonoBehaviour
 
 
         }
+        
         if (Input.GetButtonDown("Jump") && ch.isGrounded)
         {
 
@@ -155,7 +156,7 @@ public class Player_controller : MonoBehaviour
                 vspeed = jump * jump_force;
                 coeff_vel = 0.08f;
             }
-            vspeed -= gravity * Time.deltaTime;
+            
             coeff_vel = 0.1f;
         }
 
@@ -196,8 +197,8 @@ public class Player_controller : MonoBehaviour
         {
             ch.Move(movement);
 
-
-            transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
+       
+        transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
         }
         
 
@@ -206,9 +207,7 @@ public class Player_controller : MonoBehaviour
 
 
 
-        // simuliamo la forza di gravità  in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
-
-        //movimento e rotazione
+       
 
 
 
