@@ -50,26 +50,33 @@ public class Atena_Dialogue : MonoBehaviour
     {
         if (isPlayerClose && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1)))
         {
+            player.enabled = false;
+
             if (!isDialogActive)
             {
+                player.enabled = false;
+
                 if (isFirstDialog)
                 {
                     StartInitialDialog(dialogo[index]);
                     isFirstDialog = false;
-                    Invoke("ShowNextMessage", initialMessageDuration);
                     player.enabled = false;
+                    Invoke("ShowNextMessage", initialMessageDuration);
+                    
                 }
                 else if (isFirstMessageShown)
                 {
-                    Invoke("ShowNextMessage", initialMessageDuration);
                     player.enabled = false;
+                    Invoke("ShowNextMessage", initialMessageDuration);
+                    
                 }
             }
             else if (isWriting)
             {
                 CompleteWriting();
-                Invoke("StartNextMessage", delayBetweenMessages);
                 player.enabled = false;
+                Invoke("StartNextMessage", delayBetweenMessages);
+                
             }
         }
     }
@@ -111,8 +118,9 @@ public class Atena_Dialogue : MonoBehaviour
         if (message == "Complimenti! Prendi lo scudo vicino al bracere")
         {
             dialogueText.text = message;
-            Invoke("EndDialog", 5f); // Chiudi il dialogo dopo 5 secondi
             player.enabled = true;
+            Invoke("EndDialog", 5f); // Chiudi il dialogo dopo 5 secondi
+            
         }
         else
         {
@@ -149,8 +157,9 @@ public class Atena_Dialogue : MonoBehaviour
     private void StartWriting(string message)
     {
         dialogueText.text = "";
-        StartCoroutine(WriteText(message));
         player.enabled = false;
+        StartCoroutine(WriteText(message));
+        
     }
 
     private void CompleteWriting()
@@ -196,8 +205,9 @@ public class Atena_Dialogue : MonoBehaviour
         }
         else
         {
-            EndDialog();
             player.enabled = true;
+            EndDialog();
+            
         }
     }
 
@@ -206,6 +216,7 @@ public class Atena_Dialogue : MonoBehaviour
     {
         ShowNextMessage();
     }
+
 
     public void QuizEndDialogue()
     {
