@@ -25,8 +25,11 @@ public class QuizManager : MonoBehaviour
     public GameObject Quizpanel;
     public GameObject GoPanel;
 
+    private Coroutine timerCoroutine;
     public TMP_Text QuestionTxt;
     public TMP_Text ScoreTxt;
+    public bool t;
+    
 
     // private bool quizCompleted = false;
 
@@ -38,8 +41,10 @@ public class QuizManager : MonoBehaviour
     private void Start()
     {
         totalQuestions = QnA.Count;
+
         GoPanel.SetActive(false);
         generateQuestion();
+
 
         trigger_counter++;
         if (trigger_counter != 1)
@@ -63,7 +68,8 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            generateQuestion();
+           // generateQuestion();
+            StartTimer();
         }
     }
 
@@ -85,7 +91,8 @@ public class QuizManager : MonoBehaviour
     {
         //Risposta sbagliata
         // QnA.RemoveAll(currentQuestion);
-        generateQuestion();
+        // generateQuestion();
+        StartTimer();
     }
 
     void generateQuestion()
@@ -95,6 +102,7 @@ public class QuizManager : MonoBehaviour
             currentQuestion = Random.Range(0, QnA.Count);
             QuestionTxt.text = QnA[currentQuestion].Question;
             SetAnswer();
+         //   StartTimer();
 
             // Rimuovi la domanda corrente dalla lista QnA
             QnA.RemoveAt(currentQuestion);
@@ -113,8 +121,38 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+   public void StartTimer()
+    {
+        if (timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine);
+        }
+
+        timerCoroutine = StartCoroutine(TimerCoroutine());
+
+    }
+
+    private IEnumerator TimerCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+
+        // Azioni da eseguire al termine del timer
+        Debug.Log("Timer completato!");
+
+        // Resetta la variabile del riferimento alla coroutine
+        timerCoroutine = null;
+        // t = true;
+        generateQuestion();
+    }
+
     void SetAnswer()
     {
+      //  t = false;
+      //  StartTimer();
+       // while (!t) {
+
+       // }
+
         for (int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<AnswersScript>().isCorrect = false;
@@ -133,6 +171,8 @@ public class QuizManager : MonoBehaviour
             colors = options[i].GetComponent<Button>().colors;
             colors.selectedColor = colors.normalColor;
             options[i].GetComponent<Button>().colors = colors;
+
+            options[i].GetComponent<Image>().color = options[i].GetComponent<AnswersScript>().startColor;
         }
     }
 
