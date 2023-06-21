@@ -102,7 +102,7 @@ public class Player_controller : MonoBehaviour
         {
             Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
             Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
-            jump = Input.GetAxis("Jump");
+            
         }
        
         if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4))
@@ -139,7 +139,7 @@ public class Player_controller : MonoBehaviour
         {
 
             is_jumping = true;
-            vspeed = jump * jump_force;
+            vspeed = jump_force;
             animator.SetBool("grounded", true);
             
             double_jump = true;
@@ -153,7 +153,7 @@ public class Player_controller : MonoBehaviour
             {
 
                 double_jump = false;
-                vspeed = jump * jump_force;
+                vspeed =jump_force;
                 coeff_vel = 0.08f;
             }
             
