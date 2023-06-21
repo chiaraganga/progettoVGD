@@ -208,7 +208,6 @@ public class Atena_Dialogue : MonoBehaviour
         }
     }
 
-
     private void QuizStartDialogue()
     {
         Debug.Log("funziona"); //testing

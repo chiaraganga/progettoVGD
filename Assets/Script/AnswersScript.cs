@@ -7,7 +7,6 @@ public class AnswersScript : MonoBehaviour
 {
     public bool isCorrect = false;
     public QuizManager quizManager;
-    public Color correctColor;
 
     public Color startColor;
 

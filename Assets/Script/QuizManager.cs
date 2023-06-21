@@ -28,29 +28,36 @@ public class QuizManager : MonoBehaviour
     private Coroutine timerCoroutine;
     public TMP_Text QuestionTxt;
     public TMP_Text ScoreTxt;
-    public bool t;
-    
 
-    // private bool quizCompleted = false;
+    public List<QuestionHandler> QnAReply = new List<QuestionHandler>();
 
     public int score;
 
-    int totalQuestions = 0;
+    const int totalQuestions = 3; //Numero domande
     public int trigger_counter = 0;
 
     private void Start()
     {
-        totalQuestions = QnA.Count;
+        Debug.Log("PARTE");
+       // totalQuestions = QnA.Count;
+
+        if (QnAReply.Count == 0) //inizializzare una sola volta
+        for(int i=0; i<QnA.Count; i++) {
+            QnAReply.Add(QnA[i].Clone());
+            }
 
         GoPanel.SetActive(false);
+        score = 0;
         generateQuestion();
 
-
-        trigger_counter++;
+        //Parte che non faceva funzionare 
+       /* trigger_counter++;
         if (trigger_counter != 1)
         {
             QnA.RemoveAt(currentQuestion);
+            trigger_counter = 0;
         }
+       */
         //generateQuestion();
         Cursor.visible = true;
     }
@@ -73,11 +80,28 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    public void wrong()
+    {
+        //Risposta sbagliata
+        // QnA.RemoveAll(currentQuestion);
+        // generateQuestion();
+        StartTimer();
+    }
+
 
     public void retry()
     {
 
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        for (int i = 0; i < QnAReply.Count; i++)
+        {
+            QnA.Add(QnAReply[i].Clone());
+        }
+        Debug.Log(QnAReply.Count);
+        Quizpanel.SetActive(true);
+        Start();
+
+        
     }
 
     public void GameOver()
@@ -87,16 +111,10 @@ public class QuizManager : MonoBehaviour
         ScoreTxt.text = score + "/" + totalQuestions;
     }
 
-    public void wrong()
-    {
-        //Risposta sbagliata
-        // QnA.RemoveAll(currentQuestion);
-        // generateQuestion();
-        StartTimer();
-    }
 
     void generateQuestion()
     {
+        Debug.Log(score);
         if (QnA.Count > 0)
         {
             currentQuestion = Random.Range(0, QnA.Count);
@@ -134,24 +152,19 @@ public class QuizManager : MonoBehaviour
 
     private IEnumerator TimerCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // Azioni da eseguire al termine del timer
         Debug.Log("Timer completato!");
 
         // Resetta la variabile del riferimento alla coroutine
         timerCoroutine = null;
-        // t = true;
+     
         generateQuestion();
     }
 
     void SetAnswer()
     {
-      //  t = false;
-      //  StartTimer();
-       // while (!t) {
-
-       // }
 
         for (int i = 0; i < options.Length; i++)
         {
@@ -163,14 +176,14 @@ public class QuizManager : MonoBehaviour
                 options[i].GetComponent<AnswersScript>().isCorrect = true;
             }
 
-            ColorBlock colors = options[i].GetComponent<Button>().colors;
-            colors.normalColor = options[i].GetComponent<AnswersScript>().startColor;
-            options[i].GetComponent<Button>().colors = colors;
+           // ColorBlock colors = options[i].GetComponent<Button>().colors;
+           // colors.normalColor = options[i].GetComponent<AnswersScript>().startColor;
+           // options[i].GetComponent<Button>().colors = colors;
 
             // Ripristina anche il colore selezionato
-            colors = options[i].GetComponent<Button>().colors;
-            colors.selectedColor = colors.normalColor;
-            options[i].GetComponent<Button>().colors = colors;
+           // colors = options[i].GetComponent<Button>().colors;
+           // colors.selectedColor = colors.normalColor;
+           // options[i].GetComponent<Button>().colors = colors;
 
             options[i].GetComponent<Image>().color = options[i].GetComponent<AnswersScript>().startColor;
         }
