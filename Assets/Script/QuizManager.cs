@@ -7,23 +7,12 @@ using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
-
-    // Update is called once per frame
-    //void Update()
-    //{
-
-    //}
-
     public List<QuestionHandler> QnA;
     public GameObject[] options;
     public int currentQuestion;
     public GameObject Quizpanel;
     public GameObject GoPanel;
+   
 
     private Coroutine timerCoroutine;
     public TMP_Text QuestionTxt;
@@ -32,18 +21,21 @@ public class QuizManager : MonoBehaviour
     public List<QuestionHandler> QnAReply = new List<QuestionHandler>();
 
     public int score;
-
+  
     const int totalQuestions = 3; //Numero domande
     public int trigger_counter = 0;
 
     private void Start()
     {
         Debug.Log("PARTE");
-       // totalQuestions = QnA.Count;
+        // totalQuestions = QnA.Count;
+       
+
 
         if (QnAReply.Count == 0) //inizializzare una sola volta
         for(int i=0; i<QnA.Count; i++) {
             QnAReply.Add(QnA[i].Clone());
+                
             }
 
         GoPanel.SetActive(false);
@@ -60,6 +52,7 @@ public class QuizManager : MonoBehaviour
        */
         //generateQuestion();
         Cursor.visible = true;
+    
     }
 
     public void correct()
@@ -101,7 +94,6 @@ public class QuizManager : MonoBehaviour
         Quizpanel.SetActive(true);
         Start();
 
-        
     }
 
     public void GameOver()
@@ -109,6 +101,7 @@ public class QuizManager : MonoBehaviour
         Quizpanel.SetActive(false);
         GoPanel.SetActive(true);
         ScoreTxt.text = score + "/" + totalQuestions;
+
     }
 
 
@@ -124,6 +117,7 @@ public class QuizManager : MonoBehaviour
 
             // Rimuovi la domanda corrente dalla lista QnA
             QnA.RemoveAt(currentQuestion);
+            
         }
         else
         {
@@ -133,10 +127,12 @@ public class QuizManager : MonoBehaviour
             {
                 Quizpanel.SetActive(false);
                 GoPanel.SetActive(false);
+            
 
             }
 
         }
+
     }
 
    public void StartTimer()
