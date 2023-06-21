@@ -178,7 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1868715737}
+  correctColor: {r: 0, g: 0, b: 0, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &237267418
 MonoBehaviour:
@@ -974,7 +975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1868715737}
+  correctColor: {r: 0, g: 0, b: 0, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &828194819
 MonoBehaviour:
@@ -1504,7 +1506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1868715737}
+  correctColor: {r: 0, g: 0, b: 0, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1054454594
 MonoBehaviour:
@@ -2205,7 +2208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1868715737}
+  correctColor: {r: 0, g: 0, b: 0, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1805451320
 MonoBehaviour:
