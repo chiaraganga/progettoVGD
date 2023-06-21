@@ -2471,14 +2471,14 @@ MonoBehaviour:
     - no
     CorrectAnswer: 1
   options:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1054454591}
+  - {fileID: 828194816}
+  - {fileID: 237267415}
+  - {fileID: 1805451317}
   currentQuestion: 0
-  Quizpanel: {fileID: 0}
+  Quizpanel: {fileID: 663075547}
   GoPanel: {fileID: 1670312810}
-  QuestionTxt: {fileID: 0}
+  QuestionTxt: {fileID: 531413629}
   ScoreTxt: {fileID: 569907032}
   score: 0
   trigger_counter: 0

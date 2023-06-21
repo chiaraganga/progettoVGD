@@ -28,7 +28,7 @@ public class QuizManager : MonoBehaviour
     public TMP_Text QuestionTxt;
     public TMP_Text ScoreTxt;
 
-   // private bool quizCompleted = false;
+    // private bool quizCompleted = false;
 
     public int score;
 
@@ -70,7 +70,7 @@ public class QuizManager : MonoBehaviour
 
     public void retry()
     {
-        
+
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -128,6 +128,12 @@ public class QuizManager : MonoBehaviour
             ColorBlock colors = options[i].GetComponent<Button>().colors;
             colors.normalColor = options[i].GetComponent<AnswersScript>().startColor;
             options[i].GetComponent<Button>().colors = colors;
+
+            // Ripristina anche il colore selezionato
+            colors = options[i].GetComponent<Button>().colors;
+            colors.selectedColor = colors.normalColor;
+            options[i].GetComponent<Button>().colors = colors;
         }
     }
+
 }
