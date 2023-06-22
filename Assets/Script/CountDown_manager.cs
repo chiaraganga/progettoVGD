@@ -48,9 +48,6 @@ public class CountDown_manager : MonoBehaviour
         // Avvia il conto alla rovescia
         yield return StartCoroutine(CountdownRoutine());
 
-        // Fine del gioco o altra logica dopo il conto alla rovescia
-        // ...
-
         // Abilita il personaggio e l'animazione
         player.enabled = true;
         
@@ -154,7 +151,7 @@ public class CountDown_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Puoi aggiungere qui la logica per interrompere il dialogo o il conto alla rovescia se necessario
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isDialogActive && isWriting)

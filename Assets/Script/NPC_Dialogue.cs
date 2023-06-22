@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class NPC_Dialogue : MonoBehaviour
 {
+    private Animator animator;
     public GameObject dialogPanel;
     private GameObject Zeus;
     public TMP_Text dialogueText;
@@ -23,12 +25,16 @@ public class NPC_Dialogue : MonoBehaviour
     public float delayBetweenMessages = 7f;
 
     public GameObject objectToShow;
+    private CharacterController player;
 
 
     void Start()
     {
         dialogPanel.SetActive(false);
         Zeus = GameObject.FindGameObjectWithTag("Zeus");
+        player = FindObjectOfType<CharacterController>();
+        animator = FindObjectOfType<Animator>();
+        
     }
 
     void Update()
@@ -38,16 +44,20 @@ public class NPC_Dialogue : MonoBehaviour
             StartInitialDialog("Ercole! Grazie al cielo hai aggiustato la mia statua! Avvicinati, ti devo parlare.");
             isFirstDialog = false;
             Invoke("EndInitialDialog", initialMessageDuration);
+            
         }
 
         if (isDialogActive)
         {
+            player.enabled = false;
+            animator.Play("Idle");
             if (isWriting)
             {
                 if (Time.time >= initialMessageDuration)
                 {
                     CompleteWriting();
                     Invoke("StartNextMessage", delayBetweenMessages);
+                    
                 }
             }
         }
@@ -57,7 +67,12 @@ public class NPC_Dialogue : MonoBehaviour
             {
                 StartDialog(dialogo[index]);
                 initialMessageDuration = Time.time + velocityword * dialogo[index].Length;
+                
             }
+        }
+        else
+        {
+            player.enabled = true;
         }
     }
 
@@ -81,11 +96,13 @@ public class NPC_Dialogue : MonoBehaviour
     {
         dialogPanel.SetActive(true);
         dialogueText.text = message;
+        
     }
 
     private void EndInitialDialog()
     {
         dialogPanel.SetActive(false);
+        
     }
 
     private void StartDialog(string message)
@@ -93,6 +110,7 @@ public class NPC_Dialogue : MonoBehaviour
         isDialogActive = true;
         dialogPanel.SetActive(true);
         StartWriting(message);
+        
     }
 
     private void EndDialog()
@@ -100,6 +118,7 @@ public class NPC_Dialogue : MonoBehaviour
         isDialogActive = false;
         dialogPanel.SetActive(false);
         index = 0;
+        
 
         if (objectToShow != null)
         {
@@ -123,7 +142,7 @@ public class NPC_Dialogue : MonoBehaviour
     private IEnumerator WriteText(string message)
     {
         isWriting = true;
-
+        
         for (int i = 0; i < message.Length; i++)
         {
             dialogueText.text += message[i];

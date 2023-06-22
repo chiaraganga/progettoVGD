@@ -178,7 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1868715737}
+  correctColor: {r: 0, g: 0, b: 0, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &237267418
 MonoBehaviour:
@@ -214,7 +215,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -974,7 +975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1868715737}
+  correctColor: {r: 0, g: 0, b: 0, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &828194819
 MonoBehaviour:
@@ -1010,7 +1012,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1504,7 +1506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1868715737}
+  correctColor: {r: 0, g: 0, b: 0, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1054454594
 MonoBehaviour:
@@ -1540,7 +1543,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2205,7 +2208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1868715737}
+  correctColor: {r: 0, g: 0, b: 0, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1805451320
 MonoBehaviour:
@@ -2241,7 +2245,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2471,15 +2475,16 @@ MonoBehaviour:
     - no
     CorrectAnswer: 1
   options:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1054454591}
+  - {fileID: 828194816}
+  - {fileID: 237267415}
+  - {fileID: 1805451317}
   currentQuestion: 0
-  Quizpanel: {fileID: 0}
+  Quizpanel: {fileID: 663075547}
   GoPanel: {fileID: 1670312810}
-  QuestionTxt: {fileID: 0}
+  QuestionTxt: {fileID: 531413629}
   ScoreTxt: {fileID: 569907032}
+  t: 0
   score: 0
   trigger_counter: 0
 --- !u!4 &1868715738

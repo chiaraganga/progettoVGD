@@ -12,6 +12,7 @@ public class Atena_Dialogue : MonoBehaviour
     public TMP_Text dialogueText;
     public string[] dialogo;
     private bool isWriting = false;
+    private CharacterController player;
 
     private bool isDialogActive = false;
     private bool isFirstDialog = true;
@@ -32,6 +33,7 @@ public class Atena_Dialogue : MonoBehaviour
     public GameObject quizPanel;
     public CursorLockMode cursorLockMode;
 
+
     private bool isFirstMessageShown = false;
 
     // Start is called before the first frame update
@@ -39,6 +41,8 @@ public class Atena_Dialogue : MonoBehaviour
     {
         dialogPanel.SetActive(false);
         Atena = GameObject.FindGameObjectWithTag("Atena");
+        player = FindObjectOfType<CharacterController>();
+        player.enabled = true;
     }
 
     // Update is called once per frame
@@ -46,23 +50,33 @@ public class Atena_Dialogue : MonoBehaviour
     {
         if (isPlayerClose && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1)))
         {
+            player.enabled = false;
+
             if (!isDialogActive)
             {
+                player.enabled = false;
+
                 if (isFirstDialog)
                 {
                     StartInitialDialog(dialogo[index]);
                     isFirstDialog = false;
+                    player.enabled = false;
                     Invoke("ShowNextMessage", initialMessageDuration);
+                    
                 }
                 else if (isFirstMessageShown)
                 {
+                    player.enabled = false;
                     Invoke("ShowNextMessage", initialMessageDuration);
+                    
                 }
             }
             else if (isWriting)
             {
                 CompleteWriting();
+                player.enabled = false;
                 Invoke("StartNextMessage", delayBetweenMessages);
+                
             }
         }
     }
@@ -87,6 +101,7 @@ public class Atena_Dialogue : MonoBehaviour
     {
         dialogPanel.SetActive(true);
         dialogueText.text = message;
+        player.enabled = false;
     }
 
     private void EndInitialDialog()
@@ -98,11 +113,14 @@ public class Atena_Dialogue : MonoBehaviour
     {
         isDialogActive = true;
         dialogPanel.SetActive(true);
+        player.enabled = false;
 
         if (message == "Complimenti! Prendi lo scudo vicino al bracere")
         {
             dialogueText.text = message;
+            player.enabled = true;
             Invoke("EndDialog", 5f); // Chiudi il dialogo dopo 5 secondi
+            
         }
         else
         {
@@ -116,10 +134,11 @@ public class Atena_Dialogue : MonoBehaviour
         isDialogActive = false;
         dialogPanel.SetActive(false);
         index = 0;
+        player.enabled = true;
 
         //if (objectToShow != null)
         //{
-         //   objectToShow.SetActive(true);
+        //   objectToShow.SetActive(true);
         //}
 
         // Attiva il QuizPanel solo se isQuizCompleted è impostato su false
@@ -138,7 +157,9 @@ public class Atena_Dialogue : MonoBehaviour
     private void StartWriting(string message)
     {
         dialogueText.text = "";
+        player.enabled = false;
         StartCoroutine(WriteText(message));
+        
     }
 
     private void CompleteWriting()
@@ -146,6 +167,7 @@ public class Atena_Dialogue : MonoBehaviour
         StopAllCoroutines();
         dialogueText.text = dialogo[index];
         isWriting = false;
+        player.enabled = false;
     }
 
     private IEnumerator WriteText(string message)
@@ -183,7 +205,9 @@ public class Atena_Dialogue : MonoBehaviour
         }
         else
         {
+            player.enabled = true;
             EndDialog();
+            
         }
     }
 
@@ -193,6 +217,7 @@ public class Atena_Dialogue : MonoBehaviour
         ShowNextMessage();
     }
 
+
     public void QuizEndDialogue()
     {
         if (quizManager.score == 3)
@@ -200,6 +225,7 @@ public class Atena_Dialogue : MonoBehaviour
             StartDialog("Complimenti! Prendi lo scudo vicino al bracere");
             isQuizCompleted = true;
             quizPanel.SetActive(false);
+            player.enabled = false;
 
             if (objectToShow != null)
             {
@@ -207,7 +233,6 @@ public class Atena_Dialogue : MonoBehaviour
             }
         }
     }
-
 
     private void QuizStartDialogue()
     {

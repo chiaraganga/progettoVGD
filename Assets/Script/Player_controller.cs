@@ -34,6 +34,7 @@ public class Player_controller : MonoBehaviour
     
     private CharacterController ch;
     private GameObject Zeus;
+    private GameObject spada;
     Vector3 movement;
     int buildIndex;
     //Parametri di movimento
@@ -70,7 +71,11 @@ public class Player_controller : MonoBehaviour
         {
             Zeus = GameObject.FindGameObjectWithTag("Zeus");
             Zeus.SetActive(false);
+            spada = GameObject.FindGameObjectWithTag("Weapon");
+            spada.SetActive(false);
+
         }
+
 
 
 
@@ -102,8 +107,14 @@ public class Player_controller : MonoBehaviour
         {
             Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
             Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
-            jump = Input.GetAxis("Jump");
+           
+
         }
+        else
+        {
+            animator.SetBool("dialogues", true);
+        }
+       
        
         if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4))
         {
@@ -121,7 +132,7 @@ public class Player_controller : MonoBehaviour
 
 
             if (vspeed < 0f)
-                vspeed = -2f;
+                vspeed = -0.2f;
 
 
 
@@ -134,11 +145,12 @@ public class Player_controller : MonoBehaviour
 
 
         }
+        
         if (Input.GetButtonDown("Jump") && ch.isGrounded)
         {
 
             is_jumping = true;
-            vspeed = jump * jump_force;
+            vspeed = jump_force;
             animator.SetBool("grounded", true);
             
             double_jump = true;
@@ -152,10 +164,10 @@ public class Player_controller : MonoBehaviour
             {
 
                 double_jump = false;
-                vspeed = jump * jump_force;
+                vspeed =jump_force;
                 coeff_vel = 0.08f;
             }
-            vspeed -= gravity * Time.deltaTime;
+            
             coeff_vel = 0.1f;
         }
 
@@ -196,8 +208,8 @@ public class Player_controller : MonoBehaviour
         {
             ch.Move(movement);
 
-
-            transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
+       
+        transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
         }
         
 
@@ -206,9 +218,7 @@ public class Player_controller : MonoBehaviour
 
 
 
-        // simuliamo la forza di gravità  in modo che quando siamo in aria il nostro personaggio torni attaccato al terreno
-
-        //movimento e rotazione
+       
 
 
 
@@ -232,7 +242,7 @@ public class Player_controller : MonoBehaviour
             other.gameObject.SetActive(false);
             score++;
         }
-        if (score == 6 && buildIndex == 0)
+        if (score == 1 && buildIndex == 0)
 
 
 

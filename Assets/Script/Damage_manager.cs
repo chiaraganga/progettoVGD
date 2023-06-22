@@ -26,7 +26,7 @@ public class Damage_manager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Invoke("detect_attack", 0.7f); //invoca la funzione con un ritardo di 0,7 secondi
+            Invoke("detect_attack", 0.5f); //invoca la funzione con un ritardo di 0,7 secondi
         }
 
     }
