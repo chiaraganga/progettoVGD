@@ -43,11 +43,10 @@ public class Player_controller : MonoBehaviour
     public float rotationSpeed;
     private const float gravity = 0.981f;
     public float vspeed = 0;
-    public float Knock_Back_Force = 1.0f;
-    public float Knock_Back_Time;
+    
     private float jump;
     public float jump_force;
-    public int score = 0;
+    private  int score = 0;
     string saveDataPath;
     private bool is_jumping=false;
     private bool double_jump = false;
@@ -75,11 +74,16 @@ public class Player_controller : MonoBehaviour
             spada.SetActive(false);
 
         }
+        if (buildIndex == 2 || buildIndex == 3)
+        {
+            spada = GameObject.FindGameObjectWithTag("Weapon");
+            spada.SetActive(false);
+        }
 
 
 
 
-        Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
         ch = GetComponent<CharacterController>();
 
         
@@ -107,7 +111,8 @@ public class Player_controller : MonoBehaviour
         {
             Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
             Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
-           
+            animator.SetBool("dialogues", false);
+
 
         }
         else

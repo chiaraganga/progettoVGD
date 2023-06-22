@@ -7,7 +7,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class NPC_Dialogue : MonoBehaviour
 {
-    private Animator animator;
+    
     public GameObject dialogPanel;
     private GameObject Zeus;
     public TMP_Text dialogueText;
@@ -33,7 +33,7 @@ public class NPC_Dialogue : MonoBehaviour
         dialogPanel.SetActive(false);
         Zeus = GameObject.FindGameObjectWithTag("Zeus");
         player = FindObjectOfType<CharacterController>();
-        animator = FindObjectOfType<Animator>();
+        
         
     }
 
@@ -50,7 +50,7 @@ public class NPC_Dialogue : MonoBehaviour
         if (isDialogActive)
         {
             player.enabled = false;
-            animator.Play("Idle");
+            
             if (isWriting)
             {
                 if (Time.time >= initialMessageDuration)
