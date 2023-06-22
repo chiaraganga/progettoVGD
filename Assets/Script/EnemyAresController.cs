@@ -9,9 +9,11 @@ public class EnemyAresController : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     private float attackDistance = 2.5f; // Define how close the enemy needs to be to attack. Modify this value as needed.
-
+    private GameObject ares;
     void Start()
     {
+        gameObject.SetActive(false);
+        
         // Ensure the GameObject has a NavMeshAgent and Animator.
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();

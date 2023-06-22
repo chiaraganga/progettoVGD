@@ -13,6 +13,7 @@ TagManager:
   - Weapon
   - Atena
   - Phobos
+  - Ares
   layers:
   - Default
   - TransparentFX
