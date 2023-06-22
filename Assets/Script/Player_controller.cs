@@ -34,6 +34,7 @@ public class Player_controller : MonoBehaviour
     
     private CharacterController ch;
     private GameObject Zeus;
+    private GameObject spada;
     Vector3 movement;
     int buildIndex;
     //Parametri di movimento
@@ -70,7 +71,11 @@ public class Player_controller : MonoBehaviour
         {
             Zeus = GameObject.FindGameObjectWithTag("Zeus");
             Zeus.SetActive(false);
+            spada = GameObject.FindGameObjectWithTag("Weapon");
+            spada.SetActive(false);
+
         }
+
 
 
 
@@ -102,8 +107,14 @@ public class Player_controller : MonoBehaviour
         {
             Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
             Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
-            
+           
+
         }
+        else
+        {
+            animator.SetBool("dialogues", true);
+        }
+       
        
         if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4))
         {
@@ -231,7 +242,7 @@ public class Player_controller : MonoBehaviour
             other.gameObject.SetActive(false);
             score++;
         }
-        if (score == 6 && buildIndex == 0)
+        if (score == 1 && buildIndex == 0)
 
 
 
