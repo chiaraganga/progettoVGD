@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Spear_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8612453288589322726, guid: 30433eaf66b7fbe409318ba8a27fb63e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8993200332921287516, guid: 30433eaf66b7fbe409318ba8a27fb63e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -67,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 1499082280024966430, guid: feb9c8592605c704bb1b6f12ca9a26cb, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Shield_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499082280024966430, guid: feb9c8592605c704bb1b6f12ca9a26cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2271538009118138276, guid: feb9c8592605c704bb1b6f12ca9a26cb, type: 3}
       propertyPath: m_RootOrder
