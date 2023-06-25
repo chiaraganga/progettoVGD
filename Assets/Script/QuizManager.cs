@@ -13,7 +13,6 @@ public class QuizManager : MonoBehaviour
     public GameObject Quizpanel;
     public GameObject GoPanel;
    
-
     private Coroutine timerCoroutine;
     public TMP_Text QuestionTxt;
     public TMP_Text ScoreTxt;
@@ -29,8 +28,6 @@ public class QuizManager : MonoBehaviour
     {
         Debug.Log("PARTE");
         // totalQuestions = QnA.Count;
-       
-
 
         if (QnAReply.Count == 0) //inizializzare una sola volta
         for(int i=0; i<QnA.Count; i++) {
@@ -171,15 +168,6 @@ public class QuizManager : MonoBehaviour
             {
                 options[i].GetComponent<AnswersScript>().isCorrect = true;
             }
-
-           // ColorBlock colors = options[i].GetComponent<Button>().colors;
-           // colors.normalColor = options[i].GetComponent<AnswersScript>().startColor;
-           // options[i].GetComponent<Button>().colors = colors;
-
-            // Ripristina anche il colore selezionato
-           // colors = options[i].GetComponent<Button>().colors;
-           // colors.selectedColor = colors.normalColor;
-           // options[i].GetComponent<Button>().colors = colors;
 
             options[i].GetComponent<Image>().color = options[i].GetComponent<AnswersScript>().startColor;
         }
