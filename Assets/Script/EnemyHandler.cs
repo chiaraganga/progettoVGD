@@ -8,7 +8,7 @@ public class EnemyHandler : MonoBehaviour
     public GameObject player, enemy; // Assign your player here.
     private NavMeshAgent agent;
     private Animator animator;
-    private float attackDistance = 2.5f; // Define how close the enemy needs to be to attack. Modify this value as needed.
+    private float attackDistance = 1.5f; // Define how close the enemy needs to be to attack. Modify this value as needed.
 
     void Start()
     {
@@ -27,8 +27,8 @@ public class EnemyHandler : MonoBehaviour
     {
         if (player != null)
         {
-            agent.transform.LookAt(player.transform.position);
             // Calculate distance to player
+            agent.transform.LookAt(player.transform.position);            
         }
     }
 
