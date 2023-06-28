@@ -5,64 +5,68 @@ using UnityEngine.AI;
 
 public class EnemyHandler : MonoBehaviour
 {
-    public GameObject player, enemy; // Assign your player here.
+    public GameObject player, enemy; // Assegna qui il tuo giocatore.
     private NavMeshAgent agent;
     private Animator animator;
-    private float attackDistance = 1.5f; // Define how close the enemy needs to be to attack. Modify this value as needed.
+    private float attackDistance = 1.5f; // Definisci la distanza a cui il nemico deve essere per attaccare. Modifica questo valore se necessario.
+    private float idleDistance = 10f; // Definisci la distanza a cui il nemico entra nello stato di riposo. Modifica questo valore se necessario.
+
+    private float lookAtWeight = 1.0f;
+
+    private bool isChasing = false;
 
     void Start()
     {
-        // Ensure the GameObject has a NavMeshAgent and Animator.
+        // Assicurati che il GameObject abbia un NavMeshAgent e un Animator.
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
-        if (agent == null && animator == null && player == null)
+        if (agent == null || animator == null || player == null)
         {
-            Debug.LogError("Critical component missing from enemy or player not assigned.");
+            Debug.LogError("Componente critico mancante dal nemico o giocatore non assegnato.");
             return;
         }
+
+        agent.stoppingDistance = attackDistance;
     }
 
     void Update()
     {
         if (player != null)
         {
-            // Calculate distance to player
-            agent.transform.LookAt(player.transform.position);            
-        }
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
+            // Calcola la distanza dal giocatore
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-            if (distanceToPlayer > attackDistance)
+            if (distanceToPlayer <= idleDistance)
             {
-                // Chase the player.
+                // Insegue il giocatore.
                 agent.SetDestination(player.transform.position);
+                isChasing = true;
 
-                // Update animator parameters
-                animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while moving
-                animator.SetBool("attack", false); // Not attacking while moving
-                animator.SetFloat("Velocity", agent.velocity.magnitude); // Use the agent's velocity
+                // Guarda il giocatore
+                Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * lookAtWeight);
             }
-            else
+            else if (isChasing)
             {
-                agent.transform.LookAt(player.transform.position);
+                // Entra nello stato di riposo.
                 agent.SetDestination(transform.position);
-                // Attack the player
-                animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while attacking
-                animator.SetBool("attack", true); // Attack
-                animator.SetFloat("Velocity", 0); // No velocity while attacking
+                isChasing = false;
             }
+
+            // Aggiorna i parametri dell'animatore
+            animator.SetBool("grounded", true); // Si assume che il nemico sia sempre a terra durante il movimento
+            animator.SetBool("attack", isChasing && distanceToPlayer <= attackDistance); // Attacca quando è a distanza di attacco e insegue
+            animator.SetFloat("Velocity", agent.velocity.magnitude); // Utilizza la velocità dell'agente
         }
     }
-    void OnTriggerExit(Collider other){
-        if (other.gameObject.tag == "player")
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == player)
         {
-            agent.transform.LookAt(player.transform.position);
+            agent.SetDestination(transform.position);
+            isChasing = false;
         }
     }
 }
