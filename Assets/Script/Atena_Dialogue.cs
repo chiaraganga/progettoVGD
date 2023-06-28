@@ -220,7 +220,7 @@ public class Atena_Dialogue : MonoBehaviour
 
     public void QuizEndDialogue()
     {
-        if (quizManager.score == 3)
+        if (quizManager.score == 4)
         {
             StartDialog("Complimenti! Prendi lo scudo vicino al bracere");
             isQuizCompleted = true;

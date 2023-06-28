@@ -11716,7 +11716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Che risposta \xE8 vera?"
+  m_text: DOMANDA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
   m_sharedMaterial: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
@@ -22285,27 +22285,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: Funziona?
+  - Question: Che cosa recita la facciata del tempio di Apollo?
     Answers:
-    - no
-    - no
-    - no
-    - si
+    - '"Lasciate ogni speranza voi ch''entrate"'
+    - '"Apollo il grande"'
+    - '"Apollo Was Here"'
+    - '"Conosci te stesso"'
     CorrectAnswer: 4
-  - Question: Ma davvero?
+  - Question: Chi rappresenta Eolo nella mitologia?
     Answers:
-    - si
-    - no
-    - no
-    - no
-    CorrectAnswer: 1
-  - Question: Sicuro?
+    - Uno dei 12 titani
+    - Uno dei sette nani
+    - Il dio dei venti
+    - Il messaggero degli dei
+    CorrectAnswer: 3
+  - Question: Da dove provengono le mele d'oro?
     Answers:
-    - si
-    - no
-    - no
-    - no
+    - Giardino delle Esperidi
+    - Giardino dell'Eden
+    - Giardini Pensili
+    - Giardini di Versailles
     CorrectAnswer: 1
+  - Question: Che relazione hanno Apollo e Afrodite
+    Answers:
+    - Cugini
+    - Fratelli
+    - Marito e Moglie
+    - Nessuna
+    CorrectAnswer: 2
   options:
   - {fileID: 515836540}
   - {fileID: 1556913326}
