@@ -21,7 +21,7 @@ public class QuizManager : MonoBehaviour
 
     public int score;
   
-    const int totalQuestions = 3; //Numero domande
+    const int totalQuestions = 4; //Numero domande
     public int trigger_counter = 0;
 
     private void Start()
@@ -56,7 +56,7 @@ public class QuizManager : MonoBehaviour
     {
         score += 1;
 
-        if (score >= 3)
+        if (score >= 4)
         {
             //quizCompleted = true;
             Quizpanel.SetActive(false);
@@ -120,7 +120,7 @@ public class QuizManager : MonoBehaviour
         {
             Debug.Log("No Question");
             GameOver();
-            if (score == 3)
+            if (score == 4)
             {
                 Quizpanel.SetActive(false);
                 GoPanel.SetActive(false);
