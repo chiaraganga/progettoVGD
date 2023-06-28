@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class NPC_Dialogue : MonoBehaviour
+public class Zeus_Dialogue : MonoBehaviour
 {
     
     public GameObject dialogPanel;
