@@ -34,6 +34,7 @@ public class EnemyHandler : MonoBehaviour
     {
         if (player != null)
         {
+             agent.transform.LookAt(player.transform.position);
             // Calcola la distanza dal giocatore
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
@@ -44,8 +45,8 @@ public class EnemyHandler : MonoBehaviour
                 isChasing = true;
 
                 // Guarda il giocatore
-                Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * lookAtWeight);
+                // Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+                // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * lookAtWeight);
             }
             else if (isChasing)
             {
