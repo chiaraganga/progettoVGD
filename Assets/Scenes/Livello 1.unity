@@ -1365,15 +1365,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321477678049157944, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -150.74
+      value: -150.524
       objectReference: {fileID: 0}
     - target: {fileID: 8321477678049157944, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.442
+      value: 35.382
       objectReference: {fileID: 0}
     - target: {fileID: 8321477678049157944, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.47
+      value: 19.425
       objectReference: {fileID: 0}
     - target: {fileID: 8321477678049157944, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1737,9 +1737,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.2330627
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.8834686, z: 0}
 --- !u!114 &434957480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1753,7 +1753,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 850503103}
-  enemy: {fileID: 434957470}
 --- !u!135 &434957481
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4042,10 +4041,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.4985423
+  m_Height: 2.1908913
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.90455437, z: 0.0014576912}
 --- !u!114 &1347008855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4059,7 +4058,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 850503103}
-  enemy: {fileID: 1347008842}
 --- !u!135 &1347008856
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4266,15 +4264,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5936777711494546679, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -129.14
+      value: -129.28
       objectReference: {fileID: 0}
     - target: {fileID: 5936777711494546679, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.442
+      value: 35.383
       objectReference: {fileID: 0}
     - target: {fileID: 5936777711494546679, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.06
+      value: -8.034
       objectReference: {fileID: 0}
     - target: {fileID: 5936777711494546679, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4481,9 +4479,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.277687
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: -0, y: 0.86115646, z: 0}
 --- !u!114 &1417032017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4497,7 +4495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 850503103}
-  enemy: {fileID: 1417032007}
 --- !u!135 &1417032018
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4846,15 +4843,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5840407143157144556, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -101.9
+      value: -101.982
       objectReference: {fileID: 0}
     - target: {fileID: 5840407143157144556, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.442
+      value: 35.373
       objectReference: {fileID: 0}
     - target: {fileID: 5840407143157144556, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.34
+      value: -0.321
       objectReference: {fileID: 0}
     - target: {fileID: 5840407143157144556, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalRotation.w
