@@ -60,7 +60,7 @@ public class Player_controller : MonoBehaviour
     {
 
        
-        //DontDestroyOnLoad(this.gameObject);
+       
     }
     void Start()
     {
@@ -79,6 +79,8 @@ public class Player_controller : MonoBehaviour
             spada = GameObject.FindGameObjectWithTag("Weapon");
             spada.SetActive(false);
         }
+       
+
 
 
 
@@ -267,6 +269,7 @@ public class Player_controller : MonoBehaviour
                 Destroy(this.gameObject);
             SceneManager.LoadScene(PlayerPrefs.GetInt("currentlevel"));
         }
+        
 
        
 

@@ -26,7 +26,7 @@ public class CountDown_manager : MonoBehaviour
     private bool isWriting = false;
     private bool isDialogActive = false;
     private bool isCountdownActive = false;
-
+    public bool finish = false;
     private int index;
 
     // Start is called before the first frame update
@@ -107,23 +107,26 @@ public class CountDown_manager : MonoBehaviour
         isCountdownActive = false;
     }
 
-    private IEnumerator GameCountdownRoutine()
+    public IEnumerator GameCountdownRoutine()
     {
         game_display.gameObject.SetActive(true);
-
-        while (time_to_end > 0)
+        if (finish == false)
         {
-            game_display.text = time_to_end.ToString();
-            yield return new WaitForSeconds(1f);
-            time_to_end--;
+            while (time_to_end > 0)
+            {
+
+                game_display.text = time_to_end.ToString();
+                yield return new WaitForSeconds(1f);
+                time_to_end--;
+            }
+
+            game_display.gameObject.SetActive(false);
+            end_display.gameObject.SetActive(true);
+            end_display.text = "GAME OVER!";
+            go.SetActive(true);
+
+            player.enabled = false;
         }
-
-        game_display.gameObject.SetActive(false);
-        end_display.gameObject.SetActive(true);
-        end_display.text = "GAME OVER!";
-        go.SetActive(true);
-
-        player.enabled = false;
         
     }
 
@@ -166,6 +169,10 @@ public class CountDown_manager : MonoBehaviour
                 StartCoroutine(GameCountdownRoutine());
             }
         }
+        if(finish==true)
+        {
+            StopAllCoroutines();
+        }
     }
 
     private void CompleteWriting()
@@ -177,4 +184,6 @@ public class CountDown_manager : MonoBehaviour
             isWriting = false;
         }
     }
+
+   
 }
