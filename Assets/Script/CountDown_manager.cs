@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.VersionControl;
 
 public class CountDown_manager : MonoBehaviour
 {
@@ -11,8 +12,12 @@ public class CountDown_manager : MonoBehaviour
     public GameObject endDisplay;
     public GameObject go;
     public TMP_Text dialogueText;
+    public TMP_Text congratsText;
     public string[] dialogo;
     public float velocityword;
+
+    public GameObject congratsPanel;
+    public GameObject objectToActivate;
 
     public int time_to_start;
     public int time_to_end;
@@ -21,21 +26,23 @@ public class CountDown_manager : MonoBehaviour
     public Text end_display;
 
     private CharacterController player;
-    
+
 
     private bool isWriting = false;
-    private bool isDialogActive = false;
-    private bool isCountdownActive = false;
-
+    //private bool isDialogActive = false;
+    //private bool isCountdownActive = false;
+    public bool finish = false;
     private int index;
+    private bool hasShownCongratulations = false;
 
     // Start is called before the first frame update
     void Start()
     {
         dialogPanel.SetActive(false);
+        congratsPanel.SetActive(false);
         player = FindObjectOfType<CharacterController>();
         player.enabled = false;
-       
+
 
         StartCoroutine(StartLevelRoutine());
     }
@@ -50,7 +57,7 @@ public class CountDown_manager : MonoBehaviour
 
         // Abilita il personaggio e l'animazione
         player.enabled = true;
-        
+
 
         // Nascondi il pannello di avvio
         start_display.gameObject.SetActive(false);
@@ -61,14 +68,12 @@ public class CountDown_manager : MonoBehaviour
 
     private IEnumerator DialogueRoutine()
     {
-        isDialogActive = true;
+        //isDialogActive = true;
         dialogPanel.SetActive(true);
         game_display.gameObject.SetActive(false);
         startGame.SetActive(false);
         go.SetActive(false);
         endDisplay.SetActive(false);
-
-
 
 
         foreach (string message in dialogo)
@@ -78,7 +83,7 @@ public class CountDown_manager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        isDialogActive = false;
+        //isDialogActive = false;
         dialogPanel.SetActive(false);
         game_display.gameObject.SetActive(true);
         startGame.SetActive(true);
@@ -90,7 +95,7 @@ public class CountDown_manager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f); // Aggiungi un piccolo ritardo prima di avviare il conto alla rovescia
 
-        isCountdownActive = true;
+        //isCountdownActive = true;
         start_display.gameObject.SetActive(true);
 
         while (time_to_start > 0)
@@ -104,27 +109,30 @@ public class CountDown_manager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         start_display.gameObject.SetActive(false);
 
-        isCountdownActive = false;
+        //isCountdownActive = false;
     }
 
-    private IEnumerator GameCountdownRoutine()
+    public IEnumerator GameCountdownRoutine()
     {
         game_display.gameObject.SetActive(true);
-
-        while (time_to_end > 0)
+        if (finish == false)
         {
-            game_display.text = time_to_end.ToString();
-            yield return new WaitForSeconds(1f);
-            time_to_end--;
+            while (time_to_end > 0)
+            {
+
+                game_display.text = time_to_end.ToString();
+                yield return new WaitForSeconds(1f);
+                time_to_end--;
+            }
+
+            game_display.gameObject.SetActive(false);
+            end_display.gameObject.SetActive(true);
+            end_display.text = "GAME OVER!";
+            go.SetActive(true);
+
+            player.enabled = false;
         }
 
-        game_display.gameObject.SetActive(false);
-        end_display.gameObject.SetActive(true);
-        end_display.text = "GAME OVER!";
-        go.SetActive(true);
-
-        player.enabled = false;
-        
     }
 
     private void StartWriting(string message)
@@ -148,23 +156,53 @@ public class CountDown_manager : MonoBehaviour
         isWriting = false;
     }
 
+    private IEnumerator CongratulationsRoutine()
+    {
+        congratsPanel.SetActive(true);
+        string message = "Complimenti! Ora prendi questo e vai alla prossima prova!";
+        congratsText.text = "";
+
+        foreach (char letter in message)
+        {
+            congratsText.text += letter;
+            yield return new WaitForSeconds(velocityword);
+        }
+
+        yield return new WaitForSeconds(5f);
+        congratsPanel.SetActive(false);
+
+        yield return new WaitUntil(() => !congratsPanel.activeSelf);
+
+        // Attiva l'oggetto nella scena
+        objectToActivate.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+        /* 
+         if (Input.GetKeyDown(KeyCode.Space))
+         {
+             if (isDialogActive && isWriting)
+             {
+                 // Salta la scrittura del dialogo corrente
+                 CompleteWriting();
+             }
+             else if (!isCountdownActive)
+             {
+                 // Salta il conto alla rovescia di avvio
+                 StopAllCoroutines();
+                 StartCoroutine(GameCountdownRoutine());
+             }
+         }
+        */
+
+
+        if (finish && !hasShownCongratulations)
         {
-            if (isDialogActive && isWriting)
-            {
-                // Salta la scrittura del dialogo corrente
-                CompleteWriting();
-            }
-            else if (!isCountdownActive)
-            {
-                // Salta il conto alla rovescia di avvio
-                StopAllCoroutines();
-                StartCoroutine(GameCountdownRoutine());
-            }
+            StopAllCoroutines();
+            StartCoroutine(CongratulationsRoutine());
+            hasShownCongratulations = true;
         }
     }
 
@@ -177,4 +215,6 @@ public class CountDown_manager : MonoBehaviour
             isWriting = false;
         }
     }
+
+
 }
