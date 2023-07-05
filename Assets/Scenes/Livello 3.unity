@@ -3862,8 +3862,6 @@ MonoBehaviour:
   - Sei arrivato alla tua terza prova, ora testeremo quanto sei veloce
   - Il cervo di Artemide ci mette xx:xx secondi ad arrivare alla fine del percorso
   - Riesci a battere il suo tempo?
-  congratsdialogo:
-  - Complimenti!
   velocityword: 0.04
   congratsPanel: {fileID: 1544952658}
   objectToActivate: {fileID: 683352670}
@@ -6209,7 +6207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1544952659
 RectTransform:
   m_ObjectHideFlags: 0
