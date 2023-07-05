@@ -5,16 +5,18 @@ using UnityEngine.AI;
 
 public class EnemyHandler : MonoBehaviour
 {
-    public GameObject player; // Assegna qui il tuo giocatore.
+    public GameObject player;
     private NavMeshAgent agent;
     private Animator animator;
-    private float attackDistance = 2.5f; // Definisci la distanza a cui il nemico deve essere per attaccare. Modifica questo valore se necessario.
-    private float stoppingDistance = 2.5f; // Definisci la distanza a cui il nemico si ferma per attaccare. Modifica questo valore se necessario.
-    private bool isAttacking = false; // Stato di attacco del nemico
-    private bool isPerformingAttack = false; // Stato di esecuzione dell'attacco del nemico
+    private float attackDistance = 2.5f;
+    private float stoppingDistance = 2.5f;
+    private bool isAttacking = false;
+    private bool isPerformingAttack = false;
 
-    private float idleDistance = 10f; // Definisci la distanza a cui il nemico entra in stato di riposo. Modifica questo valore se necessario.
-    private float followRange = 9f; // Definisci la distanza a cui il nemico inizia a seguire il giocatore. Modifica questo valore se necessario.
+    private float idleDistance = 10f;
+    private float followRange = 9f;
+
+    private float originalYPosition;
 
     void Start()
     {
@@ -28,7 +30,9 @@ public class EnemyHandler : MonoBehaviour
         }
 
         agent.stoppingDistance = stoppingDistance;
-        agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance; // Disabilita l'evitamento degli ostacoli
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+
+        originalYPosition = transform.position.y;
     }
 
     void Update()
@@ -39,90 +43,77 @@ public class EnemyHandler : MonoBehaviour
 
             if (isAttacking)
             {
-                // Controlla la distanza solo durante l'attacco
                 if (distanceToPlayer > attackDistance)
                 {
-                    // Il giocatore è troppo lontano, smetti di attaccare
                     StopAttack();
                 }
             }
             else
             {
-                // Nemico non in attacco
-
                 if (distanceToPlayer <= attackDistance)
                 {
-                    // Il giocatore è nel range di attacco, inizia l'attacco
                     StartAttack();
                 }
                 else if (distanceToPlayer <= followRange)
                 {
-                    // Il giocatore è nel range di inseguimento
                     StartChase();
                 }
                 else if (distanceToPlayer > idleDistance)
                 {
-                    // Il giocatore è fuori dal range di inseguimento, resta in idle
                     StartIdle();
                 }
             }
 
             if (!isPerformingAttack && agent.velocity.magnitude > 0)
             {
-                // Il nemico si sta muovendo, guarda verso la direzione del movimento
                 LookAtDirection(agent.velocity.normalized);
             }
             else if (isAttacking)
             {
-                // Il nemico è in attacco, guarda verso se stesso
-                LookAtSelf();
+                LookAtPlayer();
             }
         }
         else
         {
             isAttacking = false;
         }
+
+        transform.position = new Vector3(transform.position.x, originalYPosition, transform.position.z);
     }
 
     void StartAttack()
     {
         isAttacking = true;
         isPerformingAttack = true;
-        agent.velocity = Vector3.zero; // Imposta la velocità dell'agente a zero per fermarlo
+        agent.isStopped = true;
+        agent.updatePosition = false;
+        agent.velocity = Vector3.zero;
 
-        // Salva la posizione originale del nemico sull'asse Y
-        float originalYPosition = transform.position.y;
-
-        animator.SetBool("grounded", true); // Si assume che il nemico sia sempre a terra durante l'attacco
+        animator.SetBool("grounded", true);
         animator.SetBool("attack", true);
-        animator.SetFloat("Velocity", 0f); // Nessuna velocità durante l'attacco
-
-        // Imposta la posizione corrente del nemico sulla posizione originale sull'asse Y
-        transform.position = new Vector3(transform.position.x, originalYPosition, transform.position.z);
+        animator.SetFloat("Velocity", 0f);
     }
 
     void StopAttack()
     {
         isAttacking = false;
         isPerformingAttack = false;
-        agent.velocity = Vector3.zero; // Imposta la velocità dell'agente a zero per fermarlo
+        agent.velocity = Vector3.zero;
         animator.SetBool("attack", false);
-    }
-
-    void LookAtSelf()
-    {
-        Quaternion lookRotation = Quaternion.LookRotation(transform.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     void LookAtDirection(Vector3 direction)
     {
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        if (!isAttacking)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        }
     }
 
     void StartChase()
     {
+        agent.isStopped = false;
         agent.SetDestination(player.transform.position);
         animator.SetBool("grounded", true);
         animator.SetBool("attack", false);
@@ -132,7 +123,7 @@ public class EnemyHandler : MonoBehaviour
 
     void StartIdle()
     {
-        agent.SetDestination(transform.position);
+        agent.isStopped = true;
         animator.SetBool("grounded", true);
         animator.SetBool("attack", false);
         animator.SetFloat("Velocity", 0f);
@@ -140,39 +131,36 @@ public class EnemyHandler : MonoBehaviour
         agent.updateRotation = false;
     }
 
+    void LookAtPlayer()
+    {
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
     IEnumerator PerformAttack()
     {
         isPerformingAttack = true;
-
         agent.isStopped = true;
-        agent.updatePosition = false; // Disabilita l'aggiornamento della posizione dell'agente di navigazione
+        agent.updatePosition = false;
 
-        // Salva la posizione originale del nemico sull'asse Y
-        float originalYPosition = transform.position.y;
-
-        animator.SetBool("grounded", true); // Si assume che il nemico sia sempre a terra durante l'attacco
+        animator.SetBool("grounded", true);
         animator.SetBool("attack", true);
-        animator.SetFloat("Velocity", 0f); // Nessuna velocità durante l'attacco
-
-        // Imposta la posizione corrente del nemico sulla posizione originale sull'asse Y
-        transform.position = new Vector3(transform.position.x, originalYPosition, transform.position.z);
+        animator.SetFloat("Velocity", 0f);
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + .9f);
 
         agent.isStopped = false;
-        agent.updatePosition = true; // Abilita nuovamente l'aggiornamento della posizione dell'agente di navigazione
+        agent.updatePosition = true;
 
         isPerformingAttack = false;
 
-        // Aggiungi un tempo di attesa tra un attacco e l'altro
-        float attackCooldown = 2.0f; // Tempo di attesa desiderato (puoi modificare questo valore)
+        float attackCooldown = 2.0f;
         yield return new WaitForSeconds(attackCooldown);
 
-        // Riprendi l'attacco solo se il giocatore è ancora presente
         if (player != null)
         {
             StartCoroutine(PerformAttack());
         }
     }
-
 }
