@@ -55,6 +55,7 @@ public class Player_controller : MonoBehaviour
     
     private Animator animator;
     float velocity = 0;
+    float lateralVelocity = 0;
 
     private void Awake()
     {
@@ -79,13 +80,8 @@ public class Player_controller : MonoBehaviour
             spada = GameObject.FindGameObjectWithTag("Weapon");
             spada.SetActive(false);
         }
-       
 
-
-
-
-
-            Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         ch = GetComponent<CharacterController>();
 
         
@@ -103,22 +99,20 @@ public class Player_controller : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if(PauseMenu.IsPaused()){
-        return;
-    }
-
-
-        animator.SetBool("attack", false);
-        if(ch.enabled==true)//controllo utile nella scena 3 e per i dialoghi
-        {
-            Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; //prendiamo da tastiera i movimenti per gli assi x e z
-            Vertical_mov = Input.GetAxis("Vertical") * Time.deltaTime;
-            animator.SetBool("dialogues", false);
-
-
+    {   
+        if(PauseMenu.IsPaused()){
+            return;
         }
-        else
-        {
+        animator.SetBool("attack", false);
+        if(ch.enabled == true) {
+            Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+            Vertical_mov = Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
+
+            // Assegna la magnitudine di Horizontal_mov a lateralVelocity
+            lateralVelocity = Mathf.Abs(Horizontal_mov);
+
+            animator.SetBool("dialogues", false);
+        } else {
             animator.SetBool("dialogues", true);
         }
        
@@ -134,14 +128,10 @@ public class Player_controller : MonoBehaviour
             run = false;
         }
 
-        if (ch.isGrounded)// se il character controller   ancorato a terra allora posso saltare
+        if (ch.isGrounded)// se il character controller è ancorato a terra allora posso saltare
         {
-
-
             if (vspeed < 0f)
                 vspeed = -0.2f;
-
-
 
             if(is_jumping==true)
             {
@@ -149,8 +139,6 @@ public class Player_controller : MonoBehaviour
                 animator.SetBool("grounded", false);
             }
             
-
-
         }
         
         if (Input.GetButtonDown("Jump") && ch.isGrounded)
@@ -161,8 +149,6 @@ public class Player_controller : MonoBehaviour
             animator.SetBool("grounded", true);
             
             double_jump = true;
-            
-
 
         }
         else
@@ -195,40 +181,25 @@ public class Player_controller : MonoBehaviour
         if (Vertical_mov < 0)
             velocity = -0.5f;
 
-
-
-
         if(Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5))
         {
             animator.SetBool("attack", true);
         }
        
-    
+        animator.SetFloat("Velocity", velocity);
+        animator.SetFloat("LateralVelocity", lateralVelocity); //assegna a LateralVelocity nella tua animazione il valore della variabile lateralVelocity.
 
-        animator.SetFloat("Velocity", velocity);//nell'animator assegna a velocity(quella delle animazioni)  la nostra variabile da input
-        
-        movement = ch.transform.forward * velocity * coeff_vel;//tranform.forward è un vettore unitario relativo all'oggetto, sarà sempre nella direzione in cui punta il "davanti" dell'oggetto
-        
+
+        Vector3 forwardMovement = transform.forward * Vertical_mov;
+        Vector3 rightMovement = transform.right * Horizontal_mov;
+
+        movement = (forwardMovement + rightMovement) * coeff_vel;
         vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
         if(ch.enabled==true)
         {
             ch.Move(movement);
-
-       
-        transform.Rotate(Vector3.up, Horizontal_mov * 0.2f);
         }
-        
-
-
-
-
-
-
-       
-
-
-
 
         if (Input.GetKeyDown("p"))
         {
@@ -250,9 +221,6 @@ public class Player_controller : MonoBehaviour
             score++;
         }
         if (score == 1 && buildIndex == 0)
-
-
-
         {
             Zeus.SetActive(true);
         }
@@ -269,13 +237,7 @@ public class Player_controller : MonoBehaviour
                 Destroy(this.gameObject);
             SceneManager.LoadScene(PlayerPrefs.GetInt("currentlevel"));
         }
-        
-
-       
-
     }
-
-
 
     public void save()
     {
@@ -298,9 +260,6 @@ public class Player_controller : MonoBehaviour
             GameData gameData = (GameData)formatter.Deserialize(fileStream);
 
             transform.position = gameData.position.toVector3();
-
-
-
         }
     }
     

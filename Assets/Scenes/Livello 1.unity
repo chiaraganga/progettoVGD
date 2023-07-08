@@ -249,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: barra_vita
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 976834375}
     - target: {fileID: 1789309407, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: CameraDistance
       value: 10
@@ -733,6 +733,10 @@ PrefabInstance:
     - target: {fileID: 8514220107750100230, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: attack_range
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514220107750100230, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
+      propertyPath: player_layer.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 8589592678313205845, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: m_Layer
