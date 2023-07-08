@@ -198,7 +198,7 @@ public class Player_controller : MonoBehaviour
 
 
 
-        if(Input.GetMouseButtonDown(0) )
+        if(Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5))
         {
             animator.SetBool("attack", true);
         }
