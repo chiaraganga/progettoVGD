@@ -8,8 +8,8 @@ public class EnemyHandler : MonoBehaviour
     public GameObject player;  // Riferimento al giocatore che il nemico deve seguire e attaccare
     private NavMeshAgent agent;  // Riferimento al componente NavMeshAgent del nemico
     private Animator animator;  // Riferimento all'Animator del nemico
-    private float attackDistance = 2.5f;  // Distanza alla quale il nemico può attaccare il giocatore
-    private float stoppingDistance = 2.5f;  // Distanza alla quale il nemico deve fermarsi
+    private float attackDistance = 2f;  // Distanza alla quale il nemico può attaccare il giocatore
+    private float stoppingDistance = 2f;  // Distanza alla quale il nemico deve fermarsi
     private bool isAttacking = false;  // Flag per sapere se il nemico sta attaccando
     private bool isPerformingAttack = false;  // Flag per sapere se il nemico sta eseguendo l'animazione di attacco
 
@@ -106,13 +106,14 @@ void StartAttack()
 
     // Metodo per interrompere l'attacco
     void StopAttack()
-    {
-        Debug.Log("Fermo attacco.");
-        isAttacking = false;
-        isPerformingAttack = false;
-        agent.velocity = Vector3.zero;  // Fermiamo l'agente
-        animator.SetBool("attack", false);  // Impostiamo l'animazione di attacco a false
-    }
+{
+    Debug.Log("Fermo attacco.");
+    isAttacking = false;
+    isPerformingAttack = false;
+    agent.velocity = Vector3.zero;  // Fermiamo l'agente
+    animator.SetBool("attack", false);  // Impostiamo l'animazione di attacco a false
+    agent.updatePosition = true;  // Permettiamo all'agente di aggiornare automaticamente la sua posizione
+}
 
     // Metodo per far guardare il nemico in una certa direzione
     void LookAtDirection(Vector3 direction)
@@ -166,34 +167,32 @@ void StartAttack()
     // Coroutine per eseguire l'attacco
     // Coroutine per eseguire l'attacco
     IEnumerator PerformAttack()
+{
+    Debug.Log("Eseguo attacco.");
+    isPerformingAttack = true;  // Impostiamo il flag di attacco
+    agent.isStopped = true;  // Fermiamo l'agente
+    agent.updatePosition = false;  // Impediamo all'agente di aggiornare automaticamente la sua posizione
+
+    animator.SetBool("grounded", true);  // Impostiamo l'animazione a terra
+    animator.SetBool("attack", true);  // Impostiamo l'animazione di attacco a true
+    animator.SetFloat("Velocity", 0f);  // Impostiamo la velocità dell'animazione a 0
+
+    // Calcoliamo la distanza dal nemico al giocatore
+    float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+    // Se la distanza al giocatore è minore o uguale alla distanza di attacco
+    if (distanceToPlayer <= attackDistance)
     {
-        Debug.Log("Eseguo attacco.");
-        isPerformingAttack = true;  // Impostiamo il flag di attacco
-        agent.isStopped = true;  // Fermiamo l'agente
-        agent.updatePosition = false;  // Impediamo all'agente di aggiornare automaticamente la sua posizione
+        // Aspettiamo la durata dell'animazione di attacco più un po' di tempo extra
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + .9f);
+        agent.isStopped = false;  // Facciamo ripartire l'agente
 
-        animator.SetBool("grounded", true);  // Impostiamo l'animazione a terra
-        animator.SetBool("attack", true);  // Impostiamo l'animazione di attacco a true
-        animator.SetFloat("Velocity", 0f);  // Impostiamo la velocità dell'animazione a 0
+        StopAttack(); // Interrompiamo l'attacco dopo che l'animazione è completata
 
-        // Calcoliamo la distanza dal nemico al giocatore
-        float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-
-        // Se la distanza al giocatore è minore o uguale alla distanza di attacco
-        if (distanceToPlayer <= attackDistance)
-        {
-            // Aspettiamo la durata dell'animazione di attacco più un po' di tempo extra
-            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + .9f);
-
-            agent.isStopped = false;  // Facciamo ripartire l'agente
-            agent.updatePosition = true;  // Permettiamo all'agente di aggiornare automaticamente la sua posizione
-
-            StopAttack(); // Interrompiamo l'attacco dopo che l'animazione è completata
-
-            yield return new WaitForSeconds(0.5f); // Diamo un po' di tempo prima di un altro attacco
-        }
-
-        isPerformingAttack = false;  // Resettiamo il flag di attacco
+        yield return new WaitForSeconds(0.5f); // Diamo un po' di tempo prima di un altro attacco
     }
+
+    isPerformingAttack = false;  // Resettiamo il flag di attacco
+}
 
 }
