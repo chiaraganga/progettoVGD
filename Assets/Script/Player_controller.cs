@@ -57,6 +57,9 @@ public class Player_controller : MonoBehaviour
     float velocity = 0;
     float lateralVelocity = 0;
 
+    public float horizontalRotationSpeed = 2.0f;
+    public float verticalRotationSpeed = 2.0f;
+
     private void Awake()
     {
 
@@ -199,6 +202,18 @@ public class Player_controller : MonoBehaviour
         if(ch.enabled==true)
         {
             ch.Move(movement);
+            Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+            Vertical_mov = Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
+
+            // Assegna la magnitudine di Horizontal_mov a lateralVelocity
+            lateralVelocity = Mathf.Abs(Horizontal_mov);
+
+            // New joystick code here
+            float rightStickHorizontal = Input.GetAxis("RightStickHorizontal");
+            float rightStickVertical = Input.GetAxis("RightStickVertical");
+
+            // Rotate the character based on the right stick's position
+            transform.Rotate(new Vector3(rightStickVertical * verticalRotationSpeed, rightStickHorizontal * horizontalRotationSpeed, 0));
         }
 
         if (Input.GetKeyDown("p"))
