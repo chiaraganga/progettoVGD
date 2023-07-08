@@ -32,7 +32,7 @@ public class EnemyHandler : MonoBehaviour
 
         // Impostiamo la distanza di arresto e il tipo di evitamento degli ostacoli per l'agente
         agent.stoppingDistance = stoppingDistance;
-        agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
 
         // Memorizziamo la posizione Y originale
         originalYPosition = transform.position.y;
@@ -85,20 +85,19 @@ public class EnemyHandler : MonoBehaviour
                 LookAtPlayer();
             }
         }
-        else
-        {
-            isAttacking = false;
-        }
+
 
         // Fissiamo la posizione Y del nemico alla sua posizione originale per evitare movimenti indesiderati
         transform.position = new Vector3(transform.position.x, originalYPosition, transform.position.z);
     }
+    
 
     // Metodo per iniziare l'attacco
 void StartAttack()
 {
     if (!isPerformingAttack)
     {
+        Debug.Log("Inizio attacco.");
         isAttacking = true;
         StartCoroutine(PerformAttack());  // Avviamo la coroutine per eseguire l'attacco
     }
@@ -108,6 +107,7 @@ void StartAttack()
     // Metodo per interrompere l'attacco
     void StopAttack()
     {
+        Debug.Log("Fermo attacco.");
         isAttacking = false;
         isPerformingAttack = false;
         agent.velocity = Vector3.zero;  // Fermiamo l'agente
@@ -129,6 +129,7 @@ void StartAttack()
     // Metodo per iniziare l'inseguimento
     void StartChase()
     {
+        Debug.Log("Inizio inseguimento.");
         agent.isStopped = false;  // Facciamo ripartire l'agente
         agent.SetDestination(player.transform.position);  // Impostiamo la destinazione dell'agente sulla posizione del giocatore
         animator.SetBool("grounded", true);  // Impostiamo l'animazione a terra
@@ -140,6 +141,7 @@ void StartAttack()
     // Metodo per iniziare lo stato idle
     void StartIdle()
     {
+        Debug.Log("Inizio stato idle.");
         agent.isStopped = true;  // Fermiamo l'agente
         animator.SetBool("grounded", true);  // Impostiamo l'animazione a terra
         animator.SetBool("attack", false);  // Impostiamo l'animazione di attacco a false
@@ -161,8 +163,11 @@ void StartAttack()
     }
 
     // Coroutine per eseguire l'attacco
+    // Coroutine per eseguire l'attacco
+    // Coroutine per eseguire l'attacco
     IEnumerator PerformAttack()
     {
+        Debug.Log("Eseguo attacco.");
         isPerformingAttack = true;  // Impostiamo il flag di attacco
         agent.isStopped = true;  // Fermiamo l'agente
         agent.updatePosition = false;  // Impediamo all'agente di aggiornare automaticamente la sua posizione
@@ -181,18 +186,14 @@ void StartAttack()
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + .9f);
 
             agent.isStopped = false;  // Facciamo ripartire l'agente
-            agent.updatePosition = true;  // Consentiamo all'agente di aggiornare automaticamente la sua posizione
+            agent.updatePosition = true;  // Permettiamo all'agente di aggiornare automaticamente la sua posizione
 
-            isPerformingAttack = false;  // Resettiamo il flag di attacco
+            StopAttack(); // Interrompiamo l'attacco dopo che l'animazione è completata
 
-            // Impostiamo un tempo di cooldown per l'attacco
-            float attackCooldown = 2.0f;
-            yield return new WaitForSeconds(attackCooldown);
+            yield return new WaitForSeconds(0.5f); // Diamo un po' di tempo prima di un altro attacco
         }
-        else
-        {
-            // Se la distanza al giocatore è maggiore della distanza di attacco, interrompiamo l'attacco
-            StopAttack();
-        }
+
+        isPerformingAttack = false;  // Resettiamo il flag di attacco
     }
+
 }
