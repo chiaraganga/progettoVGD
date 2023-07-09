@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("JoystickStart"))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
             if (isPaused)
             {

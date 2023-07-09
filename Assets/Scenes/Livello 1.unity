@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2741,6 +2741,10 @@ PrefabInstance:
       value: Livello4
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986604854978, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_text
+      value: Crediti
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986604854978, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
@@ -2780,6 +2784,38 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
+    - target: {fileID: 4066452987248202117, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202117, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202117, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 626511983}
+    - target: {fileID: 4066452987248202117, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202117, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Crediti
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202117, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: "Men\xF9, Assembly-CSharp"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202117, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202119, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_Name
+      value: Credits_button
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452987523337997, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2887,7 +2923,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2613587393787704931, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
   m_PrefabInstance: {fileID: 626511982}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1537979527}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9a1ec3ad6e4c3b4092cee04b25e7024, type: 3}
@@ -5613,6 +5649,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9457aea43caf4a8b97ca829ee8592d8, type: 3}
+--- !u!1 &1537979527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7534065756748316672, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+  m_PrefabInstance: {fileID: 626511982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1537979533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537979527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fed498f56dc1784cbcc7d00840849da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1586275095
 PrefabInstance:
   m_ObjectHideFlags: 0

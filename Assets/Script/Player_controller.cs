@@ -212,8 +212,11 @@ public class Player_controller : MonoBehaviour
             float rightStickHorizontal = Input.GetAxis("RightStickHorizontal");
             float rightStickVertical = Input.GetAxis("RightStickVertical");
 
-            // Rotate the character based on the right stick's position
-            transform.Rotate(new Vector3(rightStickVertical * verticalRotationSpeed, rightStickHorizontal * horizontalRotationSpeed, 0));
+            if (Mathf.Abs(rightStickHorizontal) > 0.1f || Mathf.Abs(rightStickVertical) > 0.1f) 
+            {
+                // Rotate the character based on the right stick's position
+                transform.Rotate(new Vector3(rightStickVertical * verticalRotationSpeed, rightStickHorizontal * horizontalRotationSpeed, 0));
+            }
         }
 
         if (Input.GetKeyDown("p"))

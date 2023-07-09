@@ -26,6 +26,11 @@ public class Menù : MonoBehaviour
         SceneManager.LoadScene("Livello 4");
     }
 
+    public void Crediti()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void StrtMenù()
     {
         SceneManager.LoadScene("Menù");
