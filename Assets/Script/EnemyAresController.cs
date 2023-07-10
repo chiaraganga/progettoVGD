@@ -72,6 +72,7 @@ public class EnemyAresController : MonoBehaviour
                 animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while moving
                 animator.SetBool("attack", false); // Not attacking while moving
                 animator.SetFloat("Velocity", agent.velocity.magnitude); // Use the agent's velocity
+                
         }
     }
 
