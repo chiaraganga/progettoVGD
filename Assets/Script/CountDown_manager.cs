@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor.VersionControl;
+using UnityEngine.SceneManagement;
 
 public class CountDown_manager : MonoBehaviour
 {
+    private GameObject coppa;
+    int buildIndex;
     public GameObject dialogPanel;
     public GameObject startGame;
     public GameObject endDisplay;
@@ -38,6 +41,10 @@ public class CountDown_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coppa = GameObject.FindGameObjectWithTag("Next_Level");
+        coppa.SetActive(false);
+        Scene currentScene = SceneManager.GetActiveScene();
+        buildIndex = currentScene.buildIndex;
         dialogPanel.SetActive(false);
         congratsPanel.SetActive(false);
         player = FindObjectOfType<CharacterController>();
@@ -129,8 +136,10 @@ public class CountDown_manager : MonoBehaviour
             end_display.gameObject.SetActive(true);
             end_display.text = "GAME OVER!";
             go.SetActive(true);
-
+            
             player.enabled = false;
+            SceneManager.LoadScene(buildIndex);
+
         }
 
     }
@@ -203,6 +212,7 @@ public class CountDown_manager : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(CongratulationsRoutine());
             hasShownCongratulations = true;
+            coppa.SetActive(true);
         }
     }
 

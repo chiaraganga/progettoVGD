@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    
     private CountDown_manager timer;
     public IEnumerator Corutine_timer;
     // Start is called before the first frame update
     void Start()
     {
+       
         timer = FindObjectOfType<CountDown_manager>();
         
     }
@@ -32,6 +34,8 @@ public class Checkpoint : MonoBehaviour
             if (other.CompareTag("Player"))
             {
                 timer.finish = true;
+               
+
             }
             
         }
