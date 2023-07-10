@@ -1834,6 +1834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 850503103}
+  healthManager: {fileID: 434957484}
 --- !u!135 &434957481
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1867,7 +1868,7 @@ MonoBehaviour:
   barra_vita: {fileID: 1296570545}
   health: 0
   max_health: 15
-  dead: 0
+  death: 0
 --- !u!1 &435541692
 GameObject:
   m_ObjectHideFlags: 0
@@ -4975,6 +4976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 850503103}
+  healthManager: {fileID: 1347008860}
 --- !u!135 &1347008856
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5008,7 +5010,7 @@ MonoBehaviour:
   barra_vita: {fileID: 902717357}
   health: 0
   max_health: 15
-  dead: 0
+  death: 0
 --- !u!1001 &1360297870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5546,6 +5548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 850503103}
+  healthManager: {fileID: 1417032021}
 --- !u!135 &1417032018
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5579,7 +5582,7 @@ MonoBehaviour:
   barra_vita: {fileID: 2020569601}
   health: 0
   max_health: 15
-  dead: 0
+  death: 0
 --- !u!1001 &1446533467
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,10 +6,12 @@ using UnityEngine.AI;
 public class SingleWarriorController : MonoBehaviour
 {
     public GameObject player; // Assign your player here.
+    public Health_manager healthManager; // Assign your Health_manager here.
     private NavMeshAgent agent;
     private Animator animator;
     private float attackDistance = 2.5f; // Define how close the enemy needs to be to attack. Modify this value as needed.
     private GameObject ares;
+
     void Start()
     {
         gameObject.SetActive(true);
@@ -18,7 +20,7 @@ public class SingleWarriorController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
-        if (agent == null && animator == null && player == null)
+        if (agent == null || animator == null || player == null || healthManager == null)
         {
             Debug.LogError("Critical component missing from enemy or player not assigned.");
             return;
@@ -27,7 +29,7 @@ public class SingleWarriorController : MonoBehaviour
 
     void Update()
     {
-        if (player != null)
+        if (player != null && !healthManager.death) // Check if the enemy is not dead
         {
             agent.transform.LookAt(player.transform.position);
             // Calculate distance to player
@@ -53,5 +55,16 @@ public class SingleWarriorController : MonoBehaviour
                 animator.SetFloat("Velocity", 0); // No velocity while attacking
             }
         }
+        else if (player != null && healthManager.death)
+        {
+            
+                agent.SetDestination(transform.position);
+
+                // Update animator parameters
+                animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while moving
+                animator.SetBool("attack", false); // Not attacking while moving
+                animator.SetFloat("Velocity", agent.velocity.magnitude); // Use the agent's velocity
+        }
+
     }
 }

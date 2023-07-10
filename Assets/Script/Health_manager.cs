@@ -9,7 +9,7 @@ public class Health_manager : MonoBehaviour
     public health_bar barra_vita; // Riferimento alla barra della vita (classe health_bar)
     public int health; // Vita attuale del personaggio
     public int max_health = 15; // Vita massima del personaggio
-    public bool dead = false; // Flag per indicare se il personaggio è morto
+    public bool death = false; // Flag per indicare se il personaggio è morto
     private GameObject Ares; // Riferimento all'oggetto Ares (se esiste)
 
     private bool isDying = false; // Flag per tenere traccia dello stato di animazione di morte
@@ -22,21 +22,30 @@ public class Health_manager : MonoBehaviour
         barra_vita.Set_max_health(max_health); // Impostare la vita massima nella barra della vita
     }
 
-    public void Update()
+        public void Update()
     {
-        if (health <= 0 && !dead && !isDying)
+        if (health <= 0 && !isDying && death==false ) //se la salute è minore di zero
         {
-            dead = true; // Il personaggio è morto
-            anim.SetBool("dead", true); // Impostare il parametro "dead" nell'Animator per avviare l'animazione di morte
+            Debug.Log(gameObject.name + " sta morendo con una salute di: " + health);
+            death = true; // Il personaggio è morto
+            anim.SetBool("death", true); // Impostare il parametro "death" nell'Animator per avviare l'animazione di morte
             isDying = true; // Il personaggio sta entrando nella fase di animazione di morte
             Invoke("CompleteDeathAnimation", 4.4f); // Aggiungere un ritardo per completare l'animazione di morte
         }
     }
 
-    public void Damages(int damage)
+            public void Damages(int damage)
     {
-        health -= damage; // Sottrarre il danno dalla vita del personaggio
-        barra_vita.Set_health(health); // Aggiornare la barra della vita
+        Debug.Log(gameObject.name + " ha subito " + damage + " danni.");
+        health -= damage; // Subtract damage from character's life
+
+        if (health < 0)
+        {
+            health = 0; // Ensure health never goes below 0
+        }
+
+        Debug.Log(gameObject.name + " La salute rimanente è " + health + ".");
+        barra_vita.Set_health(health); // Update health bar
     }
 
     public void Healing(int heal)
@@ -71,4 +80,6 @@ public class Health_manager : MonoBehaviour
             Healing(10); // Applicare una cura al personaggio quando entra in collisione con un oggetto di raccolta
         }
     }
+
+    
 }

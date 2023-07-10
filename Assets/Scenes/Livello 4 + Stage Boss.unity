@@ -276,9 +276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barra_vita: {fileID: 1062435348}
-  health: 0
+  health: 15
   max_health: 15
-  dead: 0
+  death: 0
 --- !u!136 &153207398
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 873195750}
+  healthManager: {fileID: 153207397}
 --- !u!1 &162215015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,7 +1796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8514220107750100230, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: attack_range
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
@@ -3964,6 +3965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 873195750}
+  healthManager: {fileID: 0}
 --- !u!195 &1814380204
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4035,7 +4037,7 @@ MonoBehaviour:
   barra_vita: {fileID: 743864675}
   health: 0
   max_health: 15
-  dead: 0
+  death: 0
 --- !u!1001 &1828424336
 PrefabInstance:
   m_ObjectHideFlags: 0

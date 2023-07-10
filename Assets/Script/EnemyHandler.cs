@@ -18,6 +18,9 @@ public class EnemyHandler : MonoBehaviour
 
     private float originalYPosition;  // Posizione Y originale del nemico
 
+    public Health_manager healthManager; // Assign your Health_manager here.
+
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();  // Otteniamo il riferimento al NavMeshAgent
@@ -41,7 +44,7 @@ public class EnemyHandler : MonoBehaviour
     void Update()
     {
         // Controlliamo se il giocatore è stato assegnato
-        if (player != null)
+        if (player != null && !healthManager.death)
         {
             // Calcoliamo la distanza tra il giocatore e il nemico
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
@@ -85,7 +88,16 @@ public class EnemyHandler : MonoBehaviour
                 LookAtPlayer();
             }
         }
+        else if (player != null && healthManager.death) //se è morto
+        {
+                
+                agent.SetDestination(transform.position);
 
+                // Update animator parameters
+                animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while moving
+                animator.SetBool("attack", false); // Not attacking while moving
+                animator.SetFloat("Velocity", agent.velocity.magnitude); // Use the agent's velocity
+        }
 
         // Fissiamo la posizione Y del nemico alla sua posizione originale per evitare movimenti indesiderati
         transform.position = new Vector3(transform.position.x, originalYPosition, transform.position.z);

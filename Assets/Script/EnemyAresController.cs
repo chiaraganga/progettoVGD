@@ -12,6 +12,8 @@ public class EnemyAresController : MonoBehaviour
     private float stoppingDistance = 3f; // Definisci la distanza a cui il nemico si ferma per attaccare. Modifica questo valore se necessario.
     private bool isAttacking = false; // Stato di attacco del nemico
 
+    public Health_manager healthManager; // Assign your Health_manager here.
+
     void Start()
 {
     gameObject.SetActive(false);
@@ -33,7 +35,7 @@ public class EnemyAresController : MonoBehaviour
 
     void Update()
     {
-        if (player != null)
+        if (player != null && !healthManager.death)
         {
             agent.transform.LookAt(player.transform.position);
             // Calcola la distanza dal giocatore
@@ -61,11 +63,15 @@ public class EnemyAresController : MonoBehaviour
                 }
             }
         }
-        else
+        else if (player != null && healthManager.death)
         {
-            // Il giocatore non è presente, quindi il nemico non deve attaccare
-            // Ripristina lo stato di attacco su false
-            isAttacking = false;
+                isAttacking = false;
+                agent.SetDestination(transform.position);
+
+                // Update animator parameters
+                animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while moving
+                animator.SetBool("attack", false); // Not attacking while moving
+                animator.SetFloat("Velocity", agent.velocity.magnitude); // Use the agent's velocity
         }
     }
 
