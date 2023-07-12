@@ -145,6 +145,7 @@ public class Atena_Dialogue : MonoBehaviour
         if (!isQuizCompleted)
         {
             quizPanel.SetActive(true);
+            player.enabled = false;
         }
 
         // Imposta la visibilità del cursore
