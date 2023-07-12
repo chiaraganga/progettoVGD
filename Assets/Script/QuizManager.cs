@@ -18,6 +18,8 @@ public class QuizManager : MonoBehaviour
     public TMP_Text QuestionTxt;
     public TMP_Text ScoreTxt;
 
+    private CharacterController player;
+
     public List<QuestionHandler> QnAReply = new List<QuestionHandler>();
 
     public int score;
@@ -27,7 +29,8 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
-        
+        player = FindObjectOfType<CharacterController>();
+
         // totalQuestions = QnA.Count;
 
         if (QnAReply.Count == 0) //inizializzare una sola volta
@@ -46,7 +49,11 @@ public class QuizManager : MonoBehaviour
 
         //Visibile il cursore
         Cursor.visible = true;
-    
+
+        
+
+
+
     }
 
     public void correct()
@@ -102,6 +109,7 @@ public class QuizManager : MonoBehaviour
         Quizpanel.SetActive(false);
         GoPanel.SetActive(true);
         ScoreTxt.text = score + "/" + totalQuestions;
+        player.enabled = false;
 
     }
 
