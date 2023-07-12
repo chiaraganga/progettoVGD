@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class WinCondition : MonoBehaviour
+public class GoToLv2 : MonoBehaviour
 {
     public string playerTag = "Player"; // Assegna il tag del tuo giocatore qui. "Player".
-    public string nextSceneName = "GameWin"; // Assegna il nome della scena a cui vuoi passare qui.
+    public string nextSceneName = "Livello 2"; // Assegna il nome della scena a cui vuoi passare qui.
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +20,7 @@ public class WinCondition : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             // Carica la scena dei crediti
-            SceneManager.LoadScene("GameWin");
+            SceneManager.LoadScene("Livello 2");
         }
     }
 }
-

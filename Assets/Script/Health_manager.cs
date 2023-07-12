@@ -76,6 +76,7 @@ public class Health_manager : MonoBehaviour
         if (Ares != null)
         {
             Ares.SetActive(true); // Attivare l'oggetto Ares (se esiste)
+            enemiesDead += 1;
         }
         
         Destroy(gameObject); // Distruggere il personaggio
@@ -83,7 +84,7 @@ public class Health_manager : MonoBehaviour
         enemiesDead += 1;
 
         // Se entrambi i nemici sono morti...
-        if (enemiesDead >= 2)
+        if (enemiesDead >= 3)
         {
             GameObject parentObject = GameObject.Find("ParentObject");
                 if (parentObject != null)
