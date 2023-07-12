@@ -14,6 +14,8 @@ public class EnemyAresController : MonoBehaviour
 
     public Health_manager healthManager; // Assign your Health_manager here.
 
+    private bool AresDeath = false; 
+
     void Start()
 {
     gameObject.SetActive(false);
@@ -72,6 +74,9 @@ public class EnemyAresController : MonoBehaviour
                 animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while moving
                 animator.SetBool("attack", false); // Not attacking while moving
                 animator.SetFloat("Velocity", agent.velocity.magnitude); // Use the agent's velocity
+
+                AresDeath = true;
+
                 
         }
     }
@@ -98,4 +103,6 @@ public class EnemyAresController : MonoBehaviour
         // Ripristina lo stato di attacco su false
         isAttacking = false;
     }
+
+    
 }

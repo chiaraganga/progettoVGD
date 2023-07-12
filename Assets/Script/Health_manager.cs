@@ -14,12 +14,20 @@ public class Health_manager : MonoBehaviour
 
     private bool isDying = false; // Flag per tenere traccia dello stato di animazione di morte
 
+    public static int enemiesDead = 0; // Contatore per nemici morti. Questo dovrebbe essere statico perché deve essere condiviso tra tutti gli oggetti Health_manager.
+
+    public GameObject winObject; // Riferimento al GameObject "win".
+
+
     public void Start()
     {
         anim = GetComponent<Animator>(); // Ottenere il riferimento all'Animator del personaggio
         Ares = GameObject.FindGameObjectWithTag("Ares"); // Ottenere il riferimento all'oggetto Ares tramite il tag
         health = max_health; // Impostare la vita iniziale a quella massima
         barra_vita.Set_max_health(max_health); // Impostare la vita massima nella barra della vita
+
+        // Trova il GameObject "win" nel tuo gioco. Assicurati che esista un oggetto con questo nome.
+        winObject = GameObject.Find("win");
     }
 
         public void Update()
@@ -69,8 +77,37 @@ public class Health_manager : MonoBehaviour
         {
             Ares.SetActive(true); // Attivare l'oggetto Ares (se esiste)
         }
-
+        
         Destroy(gameObject); // Distruggere il personaggio
+        // Aumenta il contatore dei nemici morti.
+        enemiesDead += 1;
+
+        // Se entrambi i nemici sono morti...
+        if (enemiesDead >= 2)
+        {
+            GameObject parentObject = GameObject.Find("ParentObject");
+                if (parentObject != null)
+                {
+                    winObject = parentObject.transform.Find("win").gameObject;
+                    if(winObject != null) 
+                    {
+                        //Attiva il GameObject "win"
+                        winObject.SetActive(true);
+                        Debug.Log("Il GameObject 'win' è stato attivato");
+                    }
+                    else 
+                    {
+                        Debug.LogError("'win' GameObject non trovato come figlio di ParentObject");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("ParentObject non trovato");
+                }
+
+                                    
+        }
+    
     }
 
     private void OnTriggerEnter(Collider other)

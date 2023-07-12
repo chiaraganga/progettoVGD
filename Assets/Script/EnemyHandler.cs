@@ -13,6 +13,7 @@ public class EnemyHandler : MonoBehaviour
     private bool isAttacking = false;
     private bool isPerformingAttack = false;
 
+    private bool isIdle = false;
     private float idleDistance = 10f;
     private float followRange = 9f;
     private float originalYPosition;
@@ -37,6 +38,8 @@ public class EnemyHandler : MonoBehaviour
 
     void Update()
     {
+        animator.SetBool("isIdle", isIdle);
+
         if (player != null && healthManager.death)
         {
             StartDeath();
@@ -56,10 +59,12 @@ public class EnemyHandler : MonoBehaviour
             {
                 if (distanceToPlayer <= attackDistance && !isPerformingAttack)
                 {
+                    isIdle = false;
                     StartAttack();
                 }
                 else if (distanceToPlayer <= followRange)
                 {
+                    isIdle = false;
                     StartChase();
                 }
                 else if (distanceToPlayer > idleDistance)
@@ -139,6 +144,7 @@ public class EnemyHandler : MonoBehaviour
         animator.SetFloat("Velocity", 0f);
         transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
         agent.updateRotation = false;
+        isIdle = true; // Settiamo isIdle a true quando il nemico entra in stato idle
     }
 
     void StartDeath()
