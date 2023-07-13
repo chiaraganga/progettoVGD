@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1123,6 +1123,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1025113238835306149, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1732814012997979460, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_LocalScale.x
       value: -1.4005324
@@ -1231,6 +1235,22 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7b1a9236305c4db488f5a3e2e50e9815, type: 2}
+    - target: {fileID: 5795283506393355075, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0029
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795283506393355075, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795283506393355075, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0022
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368966439735540013, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7417760447023437695, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_Name
       value: Ares
@@ -1253,15 +1273,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906910820984294853, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7906910820984294853, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7906910820984294853, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7906910820984294853, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1851,6 +1871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
+--- !u!4 &603868555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5795283506393355075, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
+  m_PrefabInstance: {fileID: 491816211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &616058559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,6 +2085,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3594076664855058327, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3964453695490004121, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.771
@@ -2128,8 +2157,55 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6456619591032827935, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8388
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0011
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+--- !u!4 &657427697 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+  m_PrefabInstance: {fileID: 657427696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &657427698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6456619591032827935, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
+  m_PrefabInstance: {fileID: 657427696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &657427699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657427698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae3591705f387d4b988a2e6e033e8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage_done: 1
+  attack_point: {fileID: 657427697}
+  attack_range: 0.3
+  enemy_layer:
+    serializedVersion: 2
+    m_Bits: 0
+  player_layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &665423817
 GameObject:
   m_ObjectHideFlags: 0
@@ -4525,6 +4601,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdca525d1d9264a17a803145e23ec1cc, type: 3}
+--- !u!1 &1971721545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7368966439735540013, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
+  m_PrefabInstance: {fileID: 491816211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1971721550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971721545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae3591705f387d4b988a2e6e033e8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage_done: 1
+  attack_point: {fileID: 603868555}
+  attack_range: 1
+  enemy_layer:
+    serializedVersion: 2
+    m_Bits: 0
+  player_layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1982935742
 GameObject:
   m_ObjectHideFlags: 0
