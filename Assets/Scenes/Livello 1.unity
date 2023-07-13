@@ -247,6 +247,10 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
+      propertyPath: winObject
+      value: 
+      objectReference: {fileID: 1985267898}
+    - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: barra_vita
       value: 
       objectReference: {fileID: 976834375}
@@ -1829,7 +1833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2300072681672728094, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300072681672728094, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_TagString
@@ -4757,20 +4761,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1486380594196546724, guid: 169838def9b88154d92c0d272495e72f, type: 3}
   m_PrefabInstance: {fileID: 353658498}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1281518525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281518523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8b38c5e02dbf142a555f889f841b27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Player
-  nextSceneName: Credits
 --- !u!136 &1281518526
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4785,6 +4775,20 @@ CapsuleCollider:
   m_Height: 0.8437771
   m_Direction: 1
   m_Center: {x: -0.0010342157, y: 0.012518951, z: -0.036951292}
+--- !u!114 &1281518529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281518523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d102e5bebeee17f45a2f7e3f6c17fb94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  nextSceneName: Livello 2
 --- !u!1001 &1296570544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5132,7 +5136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 850503103}
-  healthManager: {fileID: 1347008860}
+  healthManager: {fileID: 1347008862}
 --- !u!135 &1347008856
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5151,7 +5155,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5936777711494546679, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
   m_PrefabInstance: {fileID: 1360297870}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1347008860
+--- !u!114 &1347008862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

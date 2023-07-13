@@ -41,9 +41,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: death
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: attack
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3216564785760100139}
   m_Solo: 0
@@ -81,7 +78,7 @@ AnimatorStateMachine:
     m_Position: {x: 270, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3216564785760100139}
-    m_Position: {x: 70, y: -160, z: 0}
+    m_Position: {x: 0, y: -240, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

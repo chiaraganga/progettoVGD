@@ -91,7 +91,7 @@ public class EnemyHandler : MonoBehaviour
         if (healthManager.death)
             return;
 
-        Debug.Log("Inizio attacco.");
+        //Debug.Log("Inizio attacco.");
         isAttacking = true;
         StartCoroutine(PerformAttack());
     }
@@ -101,7 +101,7 @@ public class EnemyHandler : MonoBehaviour
         if (healthManager.death)
             return;
 
-        Debug.Log("Fermo attacco.");
+        //Debug.Log("Fermo attacco.");
         isAttacking = false;
         isPerformingAttack = false;
         agent.velocity = Vector3.zero;
@@ -123,7 +123,7 @@ public class EnemyHandler : MonoBehaviour
         if (healthManager.death)
             return;
 
-        Debug.Log("Inizio inseguimento.");
+        //Debug.Log("Inizio inseguimento.");
         agent.isStopped = false;
         agent.SetDestination(player.transform.position);
         animator.SetBool("grounded", true);
@@ -137,7 +137,7 @@ public class EnemyHandler : MonoBehaviour
         if (healthManager.death)
             return;
 
-        Debug.Log("Inizio stato idle.");
+        //Debug.Log("Inizio stato idle.");
         agent.isStopped = true;
         animator.SetBool("grounded", true);
         animator.SetBool("attack", false);
@@ -175,7 +175,7 @@ public class EnemyHandler : MonoBehaviour
 {
     if(!healthManager.death)
     {
-        Debug.Log("Eseguo attacco.");
+        //Debug.Log("Eseguo attacco.");
         isPerformingAttack = true;  // Impostiamo il flag di attacco
         agent.isStopped = true;  // Fermiamo l'agente
         agent.updatePosition = false;  // Impediamo all'agente di aggiornare automaticamente la sua posizione

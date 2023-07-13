@@ -19,6 +19,8 @@ public class Health_manager : MonoBehaviour
     public GameObject winObject; // Riferimento al GameObject "win".
 
 
+ 
+
     public void Start()
     {
         anim = GetComponent<Animator>(); // Ottenere il riferimento all'Animator del personaggio
@@ -28,22 +30,44 @@ public class Health_manager : MonoBehaviour
 
         // Trova il GameObject "win" nel tuo gioco. Assicurati che esista un oggetto con questo nome.
         winObject = GameObject.Find("win");
+
+        
     }
 
-        public void Update()
+public void Update()
+{
+
+    if (health <= 0)
     {
-        if (health <= 0 && !isDying && death==false ) //se la salute è minore di zero
+        Debug.Log(gameObject.name + " ha una salute di: " + health);
+        if (!isDying)
         {
-            Debug.Log(gameObject.name + " sta morendo con una salute di: " + health);
-            death = true; // Il personaggio è morto
-            anim.SetBool("death", true); // Impostare il parametro "death" nell'Animator per avviare l'animazione di morte
-            isDying = true; // Il personaggio sta entrando nella fase di animazione di morte
-            Invoke("CompleteDeathAnimation", 4.4f); // Aggiungere un ritardo per completare l'animazione di morte
+            Debug.Log(gameObject.name + " non sta morendo (isDying == false)");
+            if (death == false)
+            {
+                Debug.Log(gameObject.name + " non è morto (death == false)");
+                death = true; // Il personaggio è morto
+                anim.SetBool("death", true); // Impostare il parametro "death" nell'Animator per avviare l'animazione di morte
+                isDying = true; // Il personaggio sta entrando nella fase di animazione di morte
+                Debug.Log("Chiamata a Invoke per " + gameObject.name);
+                Invoke("CompleteDeathAnimation", 4.4f); // Aggiungere un ritardo per completare l'animazione di morte
+            }
+            else
+            {
+                Debug.Log(gameObject.name + " è già morto (death == true)");
+            }
+        }
+        else
+        {
+            Debug.Log(gameObject.name + " sta già morendo (isDying == true)");
         }
     }
+}
+
 
             public void Damages(int damage)
     {
+        
         Debug.Log(gameObject.name + " ha subito " + damage + " danni.");
         health -= damage; // Subtract damage from character's life
 
@@ -73,6 +97,8 @@ public class Health_manager : MonoBehaviour
 
     public void CompleteDeathAnimation()
     {
+            Debug.Log("CompleteDeathAnimation è stato chiamato per " + gameObject.name);
+
         if (Ares != null)
         {
             Ares.SetActive(true); // Attivare l'oggetto Ares (se esiste)
@@ -82,6 +108,8 @@ public class Health_manager : MonoBehaviour
         Destroy(gameObject); // Distruggere il personaggio
         // Aumenta il contatore dei nemici morti.
         enemiesDead += 1;
+        Debug.Log("Nemici morti: " + enemiesDead); // Aggiunta dell'istruzione di debug
+
 
         // Se entrambi i nemici sono morti...
         if (enemiesDead >= 3)
