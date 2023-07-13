@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 [System.Serializable]
 public class GameData
@@ -11,72 +12,67 @@ public class GameData
 }
 
 [System.Serializable]
-public struct SerializableVector3  //creo una struttura di tipo (in questo caso)SerializableVector3
+public struct SerializableVector3
 {
-    float x, y, z;  // float di appoggio con i nomi degli assi
+    public float x, y, z;
 
-    public SerializableVector3(Vector3 v) //richiamo la struttura passandogli come parametro un vector3 
+    public SerializableVector3(Vector3 v)
     {
-        x = v.x; //metto  nelle variabili della struttura i valori di ogni asse del vector3
+        x = v.x;
         y = v.y;
         z = v.z;
     }
 
-    public Vector3 toVector3()
+    public Vector3 ToVector3()
     {
         return new Vector3(x, y, z);
     }
 }
 
-
 public class Player_controller : MonoBehaviour
 {
-    
     private CharacterController ch;
     private GameObject Zeus;
     private GameObject spada;
-    Vector3 movement;
-    int buildIndex;
-    //Parametri di movimento
-    float Horizontal_mov;
-    float Vertical_mov;
+    private Vector3 movement;
+    private int buildIndex;
+    private float Horizontal_mov;
+    private float Vertical_mov;
     public float rotationSpeed;
     private const float gravity = 0.981f;
     public float vspeed = 0;
-    
     private float jump;
     public float jump_force;
-    private  int score = 0;
-    string saveDataPath;
-    private bool is_jumping=false;
+    private int score = 0;
+    private string saveDataPath;
+    private bool is_jumping = false;
     private bool double_jump = false;
     private bool run = false;
     private float coeff_vel;
-    
     private Animator animator;
-    float velocity = 0;
-    float lateralVelocity = 0;
+    private float velocity = 0;
+    private float lateralVelocity = 0;
 
     public float horizontalRotationSpeed = 2.0f;
     public float verticalRotationSpeed = 2.0f;
 
-    private void Awake()
-    {
+    public Health_manager healthManager; // Riferimento al componente Health_manager
+    public GameObject player; // Riferimento al GameObject del giocatore
+    private NavMeshAgent agent; // Riferimento al componente NavMeshAgent
 
-       
-       
-    }
-    void Start()
+    private void Start()
     {
+        // Recupera l'indice della scena attuale
         Scene currentScene = SceneManager.GetActiveScene();
         buildIndex = currentScene.buildIndex;
+
+        // Disattiva Zeus e la spada se l'indice della scena è 0, 2 o 3
         if (buildIndex == 0)
         {
             Zeus = GameObject.FindGameObjectWithTag("Zeus");
             Zeus.SetActive(false);
             spada = GameObject.FindGameObjectWithTag("Weapon");
             spada.SetActive(false);
-
         }
         if (buildIndex == 2 || buildIndex == 3)
         {
@@ -84,172 +80,171 @@ public class Player_controller : MonoBehaviour
             spada.SetActive(false);
         }
 
+        // Blocca il cursore nel centro dello schermo
         Cursor.lockState = CursorLockMode.Locked;
-        ch = GetComponent<CharacterController>();
 
-        
+        // Ottieni il riferimento al CharacterController e all'Animator
+        ch = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        
+
+        // Trova l'oggetto del giocatore precedente e distruggilo
         GameObject oldplayer = GameObject.Find("Player");
         if (oldplayer != this.gameObject)
         {
             Destroy(oldplayer);
         }
-        
-
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {   
-        if(PauseMenu.IsPaused()){
-            return;
-        }
-        animator.SetBool("attack", false);
-        if (ch.enabled == true) 
+    private void Update()
+    {
+        // Verifica se il giocatore è vivo e il gioco non è in pausa
+        if (player != null && !healthManager.death)
         {
-            Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
-            Vertical_mov = Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
-
-            if (Mathf.Abs(Horizontal_mov) > 0) 
+            if (PauseMenu.IsPaused())
             {
-                // Assegna la magnitudine di Horizontal_mov a lateralVelocity solo se ci sono input orizzontali attivi
-                lateralVelocity = Mathf.Abs(Horizontal_mov);
+                return;
             }
-            else 
+
+            animator.SetBool("attack", false);
+
+            if (ch.enabled == true)
             {
-                // Altrimenti, imposta lateralVelocity a 0
-                lateralVelocity = 0;
-            }
-            
-            animator.SetBool("dialogues", false);
-        } 
-        else 
-        {
-            animator.SetBool("dialogues", true);
-        }
+                // Ottieni l'input di movimento orizzontale e verticale
+                Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+                Vertical_mov = Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
 
-       
-       
-        if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4))
-        {
-            run = true;
-            
-        }
-        else
-        {
+                if (Mathf.Abs(Horizontal_mov) > 0)
+                {
+                    // Calcola la magnitudine dell'input orizzontale per determinare la velocità laterale
+                    lateralVelocity = Mathf.Abs(Horizontal_mov);
+                }
+                else
+                {
+                    lateralVelocity = 0;
+                }
 
-            run = false;
-        }
-
-        if (ch.isGrounded)// se il character controller è ancorato a terra allora posso saltare
-        {
-            if (vspeed < 0f)
-                vspeed = -0.2f;
-
-            if(is_jumping==true)
-            {
-                is_jumping = false;
-                animator.SetBool("grounded", false);
-            }
-            
-        }
-        
-        if (Input.GetButtonDown("Jump") && ch.isGrounded)
-        {
-
-            is_jumping = true;
-            vspeed = jump_force;
-            animator.SetBool("grounded", true);
-            
-            double_jump = true;
-
-        }
-        else
-        {
-            if(Input.GetButtonDown("Jump") && double_jump==true)
-            {
-
-                double_jump = false;
-                vspeed =jump_force;
-                coeff_vel = 0.08f;
-            }
-            
-            coeff_vel = 0.1f;
-        }
-
-
-        if (Vertical_mov > 0)
-        {
-            if (run == true)
-            {
-                velocity = 1.5f;
+                animator.SetBool("dialogues", false);
             }
             else
             {
-                velocity = 0.5f;
+                animator.SetBool("dialogues", true);
             }
-        }
-        if (Vertical_mov == 0)
-            velocity = 0f;
-        if (Vertical_mov < 0)
-            velocity = -0.5f;
 
-        if(Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5))
-        {
-            animator.SetBool("attack", true);
-        }
-       
-        animator.SetFloat("Velocity", velocity);
-        animator.SetFloat("LateralVelocity", lateralVelocity); //assegna a LateralVelocity nella tua animazione il valore della variabile lateralVelocity.
-
-
-        Vector3 forwardMovement = transform.forward * Vertical_mov;
-        Vector3 rightMovement = transform.right * Horizontal_mov;
-
-        movement = (forwardMovement + rightMovement) * coeff_vel;
-        vspeed -= gravity * Time.deltaTime;
-        movement.y = vspeed;
-        if(ch.enabled==true)
-        {
-            ch.Move(movement);
-            Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
-            Vertical_mov = Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
-
-            // Assegna la magnitudine di Horizontal_mov a lateralVelocity
-            lateralVelocity = Mathf.Abs(Horizontal_mov);
-
-            // New joystick code here
-            float rightStickHorizontal = Input.GetAxis("RightStickHorizontal");
-            float rightStickVertical = Input.GetAxis("RightStickVertical");
-
-            if (Mathf.Abs(rightStickHorizontal) > 0.1f || Mathf.Abs(rightStickVertical) > 0.1f) 
+            if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4))
             {
-                // Rotate the character based on the right stick's position
-                transform.Rotate(new Vector3(rightStickVertical * verticalRotationSpeed, rightStickHorizontal * horizontalRotationSpeed, 0));
+                run = true;
+            }
+            else
+            {
+                run = false;
+            }
+
+            if (ch.isGrounded)
+            {
+                if (vspeed < 0f)
+                    vspeed = -0.2f;
+
+                if (is_jumping == true)
+                {
+                    is_jumping = false;
+                    animator.SetBool("grounded", false);
+                }
+            }
+
+            if (Input.GetButtonDown("Jump") && ch.isGrounded)
+            {
+                is_jumping = true;
+                vspeed = jump_force;
+                animator.SetBool("grounded", true);
+                double_jump = true;
+            }
+            else
+            {
+                if (Input.GetButtonDown("Jump") && double_jump == true)
+                {
+                    double_jump = false;
+                    vspeed = jump_force;
+                    coeff_vel = 0.08f;
+                }
+                coeff_vel = 0.1f;
+            }
+
+            if (Vertical_mov > 0)
+            {
+                if (run == true)
+                {
+                    velocity = 1.5f;
+                }
+                else
+                {
+                    velocity = 0.5f;
+                }
+            }
+            if (Vertical_mov == 0)
+                velocity = 0f;
+            if (Vertical_mov < 0)
+                velocity = -0.5f;
+
+            if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5))
+            {
+                animator.SetBool("attack", true);
+            }
+
+            animator.SetFloat("Velocity", velocity);
+            animator.SetFloat("LateralVelocity", lateralVelocity);
+
+            // Calcola il movimento in avanti e il movimento laterale
+            Vector3 forwardMovement = transform.forward * Vertical_mov;
+            Vector3 rightMovement = transform.right * Horizontal_mov;
+
+            // Combina il movimento in avanti e il movimento laterale con il coefficiente di velocità
+            movement = (forwardMovement + rightMovement) * coeff_vel;
+            vspeed -= gravity * Time.deltaTime;
+            movement.y = vspeed;
+
+            if (ch.enabled == true)
+            {
+                ch.Move(movement);
+
+                // Ottieni l'input dell'asse orizzontale e verticale del joystick
+                float rightStickHorizontal = Input.GetAxis("RightStickHorizontal");
+                float rightStickVertical = Input.GetAxis("RightStickVertical");
+
+                if (Mathf.Abs(rightStickHorizontal) > 0.1f || Mathf.Abs(rightStickVertical) > 0.1f)
+                {
+                    // Ruota il personaggio in base all'input del joystick destro
+                    transform.Rotate(new Vector3(rightStickVertical * verticalRotationSpeed, rightStickHorizontal * horizontalRotationSpeed, 0));
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                save();
+            }
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                load();
             }
         }
+        else if (player != null && healthManager.death)
+        {
+            // Il personaggio è morto
 
-        if (Input.GetKeyDown("p"))
-        {
-            save();
-        }
-        if (Input.GetKeyDown("o"))
-        {
-            load();
+            // Aggiorna i parametri dell'Animator
+            animator.SetBool("grounded", true); // Assumendo che il nemico sia sempre a terra durante il movimento
+            animator.SetBool("attack", false); // Non attaccare durante il movimento
+            animator.SetFloat("Velocity", agent.velocity.magnitude); // Utilizza la velocità dell'agente NavMesh
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Collect"))
         {
             other.gameObject.SetActive(false);
             score++;
         }
+
         if (score == 1 && buildIndex == 0)
         {
             Zeus.SetActive(true);
@@ -271,7 +266,7 @@ public class Player_controller : MonoBehaviour
 
     public void save()
     {
-        saveDataPath = Application.persistentDataPath + "/data.vgd"; //salva in una cartella che è uguale per tutti gli os usando una estensione che non esoste
+        saveDataPath = Application.persistentDataPath + "/data.vgd";
         GameData gameData = new GameData();
         gameData.position = new SerializableVector3(transform.position);
 
@@ -279,7 +274,9 @@ public class Player_controller : MonoBehaviour
         FileStream fileStream = File.Open(saveDataPath, FileMode.Create);
 
         formatter.Serialize(fileStream, gameData);
+        fileStream.Close();
     }
+
     public void load()
     {
         if (File.Exists(saveDataPath))
@@ -289,8 +286,8 @@ public class Player_controller : MonoBehaviour
 
             GameData gameData = (GameData)formatter.Deserialize(fileStream);
 
-            transform.position = gameData.position.toVector3();
+            transform.position = gameData.position.ToVector3();
+            fileStream.Close();
         }
     }
-    
 }
