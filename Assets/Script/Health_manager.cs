@@ -19,6 +19,8 @@ public class Health_manager : MonoBehaviour
     public GameObject winObject; // Riferimento al GameObject "win".
 
 
+
+
  
 
     public void Start()
@@ -37,11 +39,9 @@ public class Health_manager : MonoBehaviour
 public void Update()
 {
 
-    if (health <= 0)
-    {
-        Debug.Log(gameObject.name + " ha una salute di: " + health);
-        if (!isDying)
+    if (health <= 0 && !isDying)
         {
+            isDying = true;
             Debug.Log(gameObject.name + " non sta morendo (isDying == false)");
             if (death == false)
             {
@@ -57,11 +57,8 @@ public void Update()
                 Debug.Log(gameObject.name + " è già morto (death == true)");
             }
         }
-        else
-        {
-            Debug.Log(gameObject.name + " sta già morendo (isDying == true)");
-        }
-    }
+        
+    
 }
 
 

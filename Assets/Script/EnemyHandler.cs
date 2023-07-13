@@ -19,6 +19,8 @@ public class EnemyHandler : MonoBehaviour
     private float originalYPosition;
 
     public Health_manager healthManager;
+    private bool isDying = false;
+
 
     void Start()
     {
@@ -39,51 +41,58 @@ public class EnemyHandler : MonoBehaviour
     void Update()
     {
         animator.SetBool("isIdle", isIdle);
-
-        if (player != null && healthManager.death)
+        if (player != null)
         {
-            StartDeath();
+            if (healthManager.death && !isDying)
+            {
+                animator.SetBool("death", true);  // Questo dovrebbe iniziare l'animazione della morte
+                return;  // Usciamo da Update se l'entità è morta
+            }
+                if (player != null && healthManager.death && !isDying)
+                {
+                    StartDeath();
+                }
+                else if (player != null && !healthManager.death)
+                {
+                    float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+                    if (isAttacking)
+                    {
+                        if (distanceToPlayer > attackDistance)
+                        {
+                            StopAttack();
+                        }
+                    }
+                    else
+                    {
+                        if (distanceToPlayer <= attackDistance && !isPerformingAttack && !healthManager.death)
+                        {
+                            isIdle = false;
+                            StartAttack();
+                        }
+                        else if (distanceToPlayer <= followRange && !healthManager.death)
+                        {
+                            isIdle = false;
+                            StartChase();
+                        }
+                        else if (distanceToPlayer > idleDistance && !healthManager.death)
+                        {
+                            StartIdle();
+                        }
+                    }
+
+                    if (!isPerformingAttack && agent.velocity.magnitude > 0)
+                    {
+                        LookAtDirection(agent.velocity.normalized);
+                    }
+                    else if (isAttacking)
+                    {
+                        LookAtPlayer();
+                    }
+                }
         }
-        else if (player != null && !healthManager.death)
-        {
-            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-
-            if (isAttacking)
-            {
-                if (distanceToPlayer > attackDistance)
-                {
-                    StopAttack();
-                }
-            }
-            else
-            {
-                if (distanceToPlayer <= attackDistance && !isPerformingAttack)
-                {
-                    isIdle = false;
-                    StartAttack();
-                }
-                else if (distanceToPlayer <= followRange)
-                {
-                    isIdle = false;
-                    StartChase();
-                }
-                else if (distanceToPlayer > idleDistance)
-                {
-                    StartIdle();
-                }
-            }
-
-            if (!isPerformingAttack && agent.velocity.magnitude > 0)
-            {
-                LookAtDirection(agent.velocity.normalized);
-            }
-            else if (isAttacking)
-            {
-                LookAtPlayer();
-            }
-        }
-
-        transform.position = new Vector3(transform.position.x, originalYPosition, transform.position.z);
+       transform.position = new Vector3(transform.position.x, originalYPosition, transform.position.z);
+        
     }
 
     void StartAttack()
@@ -147,16 +156,19 @@ public class EnemyHandler : MonoBehaviour
         isIdle = true; // Settiamo isIdle a true quando il nemico entra in stato idle
     }
 
-    void StartDeath()
-    {
-        Debug.Log("Inizio morte.");
-        isAttacking = false;
-        agent.SetDestination(transform.position);
-        animator.SetBool("grounded", true);
-        animator.SetBool("attack", false);
-        animator.SetFloat("Velocity", 0);
-        animator.SetBool("death", true);
-    }
+void StartDeath()
+{
+    Debug.Log("Inizio morte.");
+    isDying = true;
+    isAttacking = false;
+    agent.SetDestination(transform.position);
+    animator.SetBool("grounded", true);
+    animator.SetBool("attack", false);  
+    animator.SetFloat("Velocity", 0);
+    animator.SetBool("death", true);  
+    healthManager.death = true; 
+}
+
 
     void LookAtPlayer()
     {
@@ -173,6 +185,13 @@ public class EnemyHandler : MonoBehaviour
     // Coroutine per eseguire l'attacco
     IEnumerator PerformAttack()
 {
+
+    if (healthManager.death)
+    {
+        animator.SetBool("death", true);
+        yield break;
+    }
+    
     if(!healthManager.death)
     {
         //Debug.Log("Eseguo attacco.");
@@ -201,8 +220,7 @@ public class EnemyHandler : MonoBehaviour
 
         isPerformingAttack = false;  // Resettiamo il flag di attacco
     }
-    else if (healthManager.death)
-        yield break;
+    
     
 }
 
