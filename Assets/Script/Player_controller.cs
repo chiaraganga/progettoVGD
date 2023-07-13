@@ -107,17 +107,29 @@ public class Player_controller : MonoBehaviour
             return;
         }
         animator.SetBool("attack", false);
-        if(ch.enabled == true) {
+        if (ch.enabled == true) 
+        {
             Horizontal_mov = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
             Vertical_mov = Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
 
-            // Assegna la magnitudine di Horizontal_mov a lateralVelocity
-            lateralVelocity = Mathf.Abs(Horizontal_mov);
-
+            if (Mathf.Abs(Horizontal_mov) > 0) 
+            {
+                // Assegna la magnitudine di Horizontal_mov a lateralVelocity solo se ci sono input orizzontali attivi
+                lateralVelocity = Mathf.Abs(Horizontal_mov);
+            }
+            else 
+            {
+                // Altrimenti, imposta lateralVelocity a 0
+                lateralVelocity = 0;
+            }
+            
             animator.SetBool("dialogues", false);
-        } else {
+        } 
+        else 
+        {
             animator.SetBool("dialogues", true);
         }
+
        
        
         if (Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4))
