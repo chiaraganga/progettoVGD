@@ -2827,6 +2827,37 @@ Transform:
   m_Father: {fileID: 1753259590955642842}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8497419190446647690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3910598654174992221}
+  m_Layer: 7
+  m_Name: attack_area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3910598654174992221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497419190446647690}
+  m_LocalRotation: {x: 0.85279155, y: 0.48277354, z: 0.19918457, w: -0.0013563462}
+  m_LocalPosition: {x: 0.031007506, y: 0.8900019, z: 0.08200028}
+  m_LocalScale: {x: 1, y: 1.5329996, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 802137880079067017}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8539846056364080250
 GameObject:
   m_ObjectHideFlags: 0
