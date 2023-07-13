@@ -3522,7 +3522,7 @@ PrefabInstance:
       objectReference: {fileID: 863742847}
     - target: {fileID: 1750876292, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: rotationSpeed
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: barra_vita
