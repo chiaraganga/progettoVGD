@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1559,7 +1559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 7.673218, y: 391.38}
+  m_AnchoredPosition: {x: 7.6730957, y: 391.38}
   m_SizeDelta: {x: -365.98, y: 112.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1185565408
@@ -1810,6 +1810,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
     - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.95581
       objectReference: {fileID: 0}
@@ -1823,11 +1839,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 592
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 300
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986793690274, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
@@ -2004,7 +2020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70.765, y: -567.84}
+  m_AnchoredPosition: {x: 70.76489, y: -567.8401}
   m_SizeDelta: {x: 94.854, y: 129.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389660527
@@ -3139,7 +3155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11.555786, y: 16.085571}
+  m_AnchoredPosition: {x: 11.555664, y: 16.085571}
   m_SizeDelta: {x: 25.9603, y: 564.1882}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1847331876
