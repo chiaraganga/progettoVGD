@@ -378,8 +378,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2613587393787704931, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
-        m_TargetAssemblyTypeName: "Men\xF9, Assembly-CSharp"
-        m_MethodName: "StrtMen\xF9"
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: StrtMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

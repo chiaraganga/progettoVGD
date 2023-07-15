@@ -31,7 +31,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
-    public void StrtMenù()
+    public void StrtMenu()
     {
         SceneManager.LoadScene("Menu");
     }
