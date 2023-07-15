@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Menù : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     
 
@@ -33,7 +33,7 @@ public class Menù : MonoBehaviour
 
     public void StrtMenù()
     {
-        SceneManager.LoadScene("Menù");
+        SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame()
@@ -45,5 +45,10 @@ public class Menù : MonoBehaviour
         #endif
     }
 
-   
+    public void LoadGame()
+    {
+        if (PlayerPrefs.GetInt("currentlevel") > 0)
+            SceneManager.LoadScene(PlayerPrefs.GetInt("currentlevel"));
+    }
+
 }

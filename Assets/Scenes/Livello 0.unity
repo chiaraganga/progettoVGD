@@ -1845,6 +1845,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 4066452986739278534, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 232387942}
+    - target: {fileID: 4066452986739278534, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986739278534, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Menu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452986793690274, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
       value: 

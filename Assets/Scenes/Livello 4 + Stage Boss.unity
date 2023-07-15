@@ -403,37 +403,6 @@ Transform:
   m_Father: {fileID: 2012287631}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &169006163 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2303360852470814794, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
-  m_PrefabInstance: {fileID: 657427696}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &169006164 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1494349351116342000, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
-  m_PrefabInstance: {fileID: 657427696}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &169006168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169006163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae3591705f387d4b988a2e6e033e8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage_done: 1
-  attack_point: {fileID: 1307646294}
-  attack_range: 0.2
-  enemy_layer:
-    serializedVersion: 2
-    m_Bits: 0
-  player_layer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &170727156
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,37 +3312,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254046471}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1307646293
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1307646294}
-  m_Layer: 0
-  m_Name: attack area
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1307646294
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307646293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.013, y: 1.066, z: 0.004}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 169006164}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1342604943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3753,6 +3691,18 @@ PrefabInstance:
     - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986739278534, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1488600273}
+    - target: {fileID: 4066452986739278534, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986739278534, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Menu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986793690274, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
