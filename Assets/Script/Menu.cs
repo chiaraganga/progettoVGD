@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    
+
 
     public void Livello0()
     {
@@ -38,17 +38,26 @@ public class Menu : MonoBehaviour
 
     public void QuitGame()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
     }
 
+
+    /* Funzione per il caricamento della scena salvata */
     public void LoadGame()
     {
         if (PlayerPrefs.GetInt("currentlevel") > 0)
             SceneManager.LoadScene(PlayerPrefs.GetInt("currentlevel"));
+    }
+
+
+    /* Funzione per il salvataggio della scena */
+    public void SaveScene() {
+        PlayerPrefs.SetInt("currentlevel", SceneManager.GetActiveScene().buildIndex);
+
     }
 
 }

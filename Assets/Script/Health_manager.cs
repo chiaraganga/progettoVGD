@@ -47,7 +47,7 @@ public void Update()
             {
                 Debug.Log(gameObject.name + " non è morto (death == false)");
                 death = true; // Il personaggio è morto
-                anim.SetBool("death", true); // Impostare il parametro "death" nell'Animator per avviare l'animazione di morte
+                anim.SetBool("dead", true); // Impostare il parametro "death" nell'Animator per avviare l'animazione di morte
                 isDying = true; // Il personaggio sta entrando nella fase di animazione di morte
                 Debug.Log("Chiamata a Invoke per " + gameObject.name);
                 Invoke("CompleteDeathAnimation", 4.4f); // Aggiungere un ritardo per completare l'animazione di morte
