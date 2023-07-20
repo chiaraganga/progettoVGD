@@ -76,13 +76,14 @@ public class EnemyHandler : MonoBehaviour
             LookAtDirection(agent.velocity.normalized);
         }
     }
+void StartAttack()
+{
+    agent.isStopped = true;
+    animator.SetBool("attack", true);
+    animator.SetFloat("Velocity", 0f);
+    LookAtPlayer();
+}
 
-    void StartAttack()
-    {
-        agent.isStopped = true;
-        animator.SetBool("attack", true);
-        animator.SetFloat("Velocity", 0f);
-    }
 
     void StartChase()
     {
