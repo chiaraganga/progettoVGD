@@ -1,4 +1,4 @@
-using System.Collections;
+          using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ public class Damage_manager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !enemyHandler.IsAttacking) // Utilizza la variabile IsAttacking del nemico
+        if (Input.GetMouseButtonDown(0) && !enemyHandler.IsAttacking || Input.GetKey(KeyCode.Joystick1Button5) && !enemyHandler.IsAttacking) // Utilizza la variabile IsAttacking del nemico
         {
             Invoke("detect_player_attack", 0.5f);
         }

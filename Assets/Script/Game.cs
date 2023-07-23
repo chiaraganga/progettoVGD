@@ -5,6 +5,7 @@ public class Game : MonoBehaviour
     public GameObject player; // Assegna il tuo player qui dall'inspector
     public GameObject gameOverMenu; // Assegna il tuo GameOver Menu qui dall'inspector
     public PauseMenu pauseMenu; // Riferimento allo script del menu
+    public GameObject dialogPanel;
 
     void Update()
     {
@@ -14,6 +15,7 @@ public class Game : MonoBehaviour
             // Se il player non esiste più, attiva il menù GameOver
             gameOverMenu.SetActive(true);
             pauseMenu.DisableMenu();
+            dialogPanel.SetActive(false);
 
             // Riattiva il cursore del mouse
             Cursor.lockState = CursorLockMode.None;

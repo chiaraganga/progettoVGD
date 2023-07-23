@@ -108,7 +108,19 @@ public class Player_controller : MonoBehaviour
             return;
         }
 
-        animator.SetBool("attack", false);
+            run = Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4);
+            float playerSpeed = run ? runSpeed : walkSpeed;
+
+            // Calcola il movimento in avanti e il movimento laterale
+            Vector3 forwardMovement = transform.forward * Vertical_mov * playerSpeed;
+            Vector3 rightMovement = transform.right * Horizontal_mov * playerSpeed;
+
+            // Combina il movimento in avanti e il movimento laterale
+           // movement = forwardMovement + rightMovement;
+           // vspeed -= gravity * Time.deltaTime;
+           // movement.y = vspeed;
+
+            animator.SetBool("attack", false);
 
         if (ch.enabled == true)
         {
@@ -130,9 +142,6 @@ public class Player_controller : MonoBehaviour
         {
             animator.SetBool("dialogues", true);
         }
-
-        run = Input.GetKey(KeyCode.CapsLock) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Joystick1Button4);
-        float playerSpeed = run ? runSpeed : walkSpeed;
 
         if (ch.isGrounded)
         {
@@ -188,8 +197,8 @@ public class Player_controller : MonoBehaviour
         animator.SetFloat("Velocity", velocity);
         animator.SetFloat("LateralVelocity", lateralVelocity);
 
-        Vector3 forwardMovement = transform.forward * Vertical_mov;
-        Vector3 rightMovement = transform.right * Horizontal_mov;
+        //Vector3 forwardMovement = transform.forward * Vertical_mov;
+        //Vector3 rightMovement = transform.right * Horizontal_mov;
         movement = (forwardMovement + rightMovement) * playerSpeed;
         vspeed -= gravity * Time.deltaTime;
         movement.y = vspeed;
