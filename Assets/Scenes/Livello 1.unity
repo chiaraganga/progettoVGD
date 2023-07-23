@@ -264,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 976834375}
     - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: max_health
-      value: 150
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1789309407, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: CameraDistance
@@ -3974,7 +3974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage_done: 1
   attack_point: {fileID: 1276847932}
-  attack_range: 0.3
+  attack_range: 0.8
   enemy_layer:
     serializedVersion: 2
     m_Bits: 0
@@ -4818,7 +4818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage_done: 1
   attack_point: {fileID: 1776272614}
-  attack_range: 0.3
+  attack_range: 0.8
   enemy_layer:
     serializedVersion: 2
     m_Bits: 0
@@ -6501,11 +6501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5840407143157144556, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.373
+      value: 35.349
       objectReference: {fileID: 0}
     - target: {fileID: 5840407143157144556, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.391
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5840407143157144556, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalRotation.w

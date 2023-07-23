@@ -10,60 +10,68 @@ public class Damage_manager : MonoBehaviour
     public LayerMask enemy_layer;
     public LayerMask player_layer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-        
-    }
+    private bool isAttacking = false;
 
-    // Update is called once per frame
     void Update()
     {
-
-
-
-
-        
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isAttacking)
         {
-            Invoke("detect_player_attack", 0.5f); //invoca la funzione con un ritardo di 0,7 secondi
+            StartAttackAnimation();
+            Invoke("detect_player_attack", 0.5f);
+            Invoke("EndAttackAnimation", 1.0f);
         }
-        if(this.CompareTag("Enemy") || this.CompareTag("Ares"))
+        else if ((this.CompareTag("Enemy") || this.CompareTag("Ares")) && !isAttacking)
         {
+            StartAttackAnimation();
             Invoke("detect_enemy_attack", 0.5f);
+            Invoke("EndAttackAnimation", 1.0f);
         }
-
     }
+
     private void detect_player_attack()
     {
-        Collider[] hit_enemies = Physics.OverlapSphere(attack_point.position, attack_range, enemy_layer);// array di memici che contiene tutto ciò che viene toccato dalla punta della spada in un area sferica di raggio variabile
+        if (!isAttacking)
+        {
+            return;
+        }
+
+        Collider[] hit_enemies = Physics.OverlapSphere(attack_point.position, attack_range, enemy_layer);
 
         foreach (Collider enemy in hit_enemies)
         {
             enemy.GetComponent<Health_manager>().Damages(damage_done);
-            //Debug.Log("hit" + enemy.name);
         }
-
     }
+
     private void detect_enemy_attack()
     {
-        Collider[] hit_players = Physics.OverlapSphere(attack_point.position, attack_range, player_layer);// array di memici che contiene tutto ciò che viene toccato dalla punta della spada in un area sferica di raggio variabile
+        if (!isAttacking)
+        {
+            return;
+        }
+
+        Collider[] hit_players = Physics.OverlapSphere(attack_point.position, attack_range, player_layer);
 
         foreach (Collider player in hit_players)
         {
             player.GetComponent<Health_manager>().Damages(damage_done);
-            //Debug.Log("hit" + player.name);
         }
-
     }
-    private void OnDrawGizmosSelected()//disegna la sfera in modo da poterla settare da inspector in modo corretto
+
+    public void StartAttackAnimation()
+    {
+        isAttacking = true;
+    }
+
+    public void EndAttackAnimation()
+    {
+        isAttacking = false;
+    }
+
+    private void OnDrawGizmosSelected()
     {
         if (attack_point == null)
             return;
-        Gizmos.DrawSphere(attack_point.position,attack_range);
+        Gizmos.DrawSphere(attack_point.position, attack_range);
     }
-
-
-
 }
