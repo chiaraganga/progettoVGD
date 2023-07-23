@@ -2316,6 +2316,7 @@ MonoBehaviour:
   player: {fileID: 850503103}
   gameOverMenu: {fileID: 827954086}
   pauseMenu: {fileID: 1537979534}
+  dialogPanel: {fileID: 811518511}
 --- !u!1 &568658625
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,7 +4969,7 @@ MonoBehaviour:
   player_layer:
     serializedVersion: 2
     m_Bits: 128
-  enemyHandler: {fileID: 0}
+  enemyHandler: {fileID: 434957480}
 --- !u!4 &1121395972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5424629586573463432, guid: f9457aea43caf4a8b97ca829ee8592d8, type: 3}
@@ -6918,7 +6919,7 @@ MonoBehaviour:
   player_layer:
     serializedVersion: 2
     m_Bits: 128
-  enemyHandler: {fileID: 0}
+  enemyHandler: {fileID: 1417032017}
 --- !u!1001 &1693904930
 PrefabInstance:
   m_ObjectHideFlags: 0
