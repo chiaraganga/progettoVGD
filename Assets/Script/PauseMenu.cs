@@ -80,4 +80,10 @@ public class PauseMenu : MonoBehaviour
             isMainMenuActive = false;
         }
     }
+
+    public void DisableMenu()
+{
+    pauseMenuUI.SetActive(false);
+}
+
 }

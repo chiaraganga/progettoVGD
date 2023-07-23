@@ -62,6 +62,8 @@ public class Player_controller : MonoBehaviour
     public GameObject player; // Riferimento al GameObject del giocatore
     private NavMeshAgent agent; // Riferimento al componente NavMeshAgent
 
+    public GameObject gameOverMenu;
+
     private void Start()
     {
         // Recupera l'indice della scena attuale
@@ -219,6 +221,7 @@ public class Player_controller : MonoBehaviour
         animator.SetBool("grounded", true);
         animator.SetBool("attack", false);
         animator.SetFloat("Velocity", agent.velocity.magnitude);
+        gameOverMenu.SetActive(true); // Attiva il menu di game over
     }
 
     if (Input.GetKey(KeyCode.Q))
