@@ -14,7 +14,7 @@ public class Damage_manager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isAttacking)
+        if (Input.GetMouseButtonDown(0) && !isAttacking || Input.GetKey(KeyCode.Joystick1Button5) && !isAttacking)
         {
             StartAttackAnimation();
             Invoke("detect_player_attack", 0.5f);

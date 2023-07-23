@@ -61,7 +61,7 @@ public class Zeus_Dialogue : MonoBehaviour
                 }
             }
         }
-        else if (isPlayerClose && Input.GetKeyDown(KeyCode.E) || (isPlayerClose && Input.GetKey(KeyCode.Joystick1Button1)))
+        else if (isPlayerClose && Input.GetKeyDown(KeyCode.T) || (isPlayerClose && Input.GetKey(KeyCode.Joystick1Button1)))
         {
             if (index < dialogo.Length)
             {
