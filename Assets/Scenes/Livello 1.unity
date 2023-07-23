@@ -268,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 976834375}
     - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: max_health
-      value: 15
+      value: 1600
       objectReference: {fileID: 0}
     - target: {fileID: 1789309407, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: CameraDistance
@@ -4108,7 +4108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage_done: 1
   attack_point: {fileID: 1276847932}
-  attack_range: 0.4
+  attack_range: 0.5
   enemy_layer:
     serializedVersion: 2
     m_Bits: 0
@@ -4953,14 +4953,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage_done: 1
   attack_point: {fileID: 1776272614}
-  attack_range: 0.8
+  attack_range: 0.5
   enemy_layer:
     serializedVersion: 2
     m_Bits: 0
   player_layer:
     serializedVersion: 2
     m_Bits: 128
-  enemyHandler: {fileID: 0}
+  enemyHandler: {fileID: 434957480}
 --- !u!4 &1121395972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5424629586573463432, guid: f9457aea43caf4a8b97ca829ee8592d8, type: 3}
@@ -5933,15 +5933,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0028
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8261
+      value: 0.352
       objectReference: {fileID: 0}
     - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0001
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6910,7 +6910,7 @@ MonoBehaviour:
   player_layer:
     serializedVersion: 2
     m_Bits: 128
-  enemyHandler: {fileID: 0}
+  enemyHandler: {fileID: 1417032017}
 --- !u!1001 &1693904930
 PrefabInstance:
   m_ObjectHideFlags: 0
