@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 23219920}
   - component: {fileID: 23219919}
   m_Layer: 5
-  m_Name: Cheats_button
+  m_Name: Tasti_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1740,9 +1740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Trucchi
-
-'
+  m_text: Tasti
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
   m_sharedMaterial: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
