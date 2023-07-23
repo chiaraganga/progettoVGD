@@ -10,31 +10,22 @@ public class Damage_manager : MonoBehaviour
     public LayerMask enemy_layer;
     public LayerMask player_layer;
 
-    private bool isAttacking = false;
+    public EnemyHandler enemyHandler; // Reso pubblico per impostarlo dall'editor di Unity
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isAttacking)
+        if (Input.GetMouseButtonDown(0) && !enemyHandler.IsAttacking) // Utilizza la variabile IsAttacking del nemico
         {
-            StartAttackAnimation();
             Invoke("detect_player_attack", 0.5f);
-            Invoke("EndAttackAnimation", 1.0f);
         }
-        else if ((this.CompareTag("Enemy") || this.CompareTag("Ares")) && !isAttacking)
+        else if ((this.CompareTag("Enemy") || this.CompareTag("Ares")) && enemyHandler.IsAttacking) // Utilizza la variabile IsAttacking del nemico
         {
-            StartAttackAnimation();
             Invoke("detect_enemy_attack", 0.5f);
-            Invoke("EndAttackAnimation", 1.0f);
         }
     }
 
     private void detect_player_attack()
     {
-        if (!isAttacking)
-        {
-            return;
-        }
-
         Collider[] hit_enemies = Physics.OverlapSphere(attack_point.position, attack_range, enemy_layer);
 
         foreach (Collider enemy in hit_enemies)
@@ -45,7 +36,7 @@ public class Damage_manager : MonoBehaviour
 
     private void detect_enemy_attack()
     {
-        if (!isAttacking)
+        if (!enemyHandler.IsAttacking) // Utilizza la variabile IsAttacking del nemico
         {
             return;
         }
@@ -56,16 +47,6 @@ public class Damage_manager : MonoBehaviour
         {
             player.GetComponent<Health_manager>().Damages(damage_done);
         }
-    }
-
-    public void StartAttackAnimation()
-    {
-        isAttacking = true;
-    }
-
-    public void EndAttackAnimation()
-    {
-        isAttacking = false;
     }
 
     private void OnDrawGizmosSelected()

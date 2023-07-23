@@ -18,6 +18,12 @@ public class EnemyHandler : MonoBehaviour
     public Health_manager healthManager;
     private bool isDying = false;
 
+        public bool IsAttacking { get; private set; } // Variabile booleana che indica se il nemico sta attaccando
+        // Aggiungi una variabile per la durata dell'attacco
+    private float attackDuration = 1f; // Imposta questo al tempo che desideri
+    private float attackTimer = 0f;
+
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -36,6 +42,17 @@ public class EnemyHandler : MonoBehaviour
 
     void Update()
     {
+        // Aggiungi il tempo trascorso dall'ultimo frame al timer di attacco
+        if (IsAttacking)
+        {
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackDuration)
+            {
+                IsAttacking = false;
+                attackTimer = 0f;
+            }
+        }
+        
         if (player != null)
         {
             if (healthManager.death && !isDying)
@@ -78,6 +95,9 @@ public class EnemyHandler : MonoBehaviour
     }
 void StartAttack()
 {
+    IsAttacking = true;
+    attackTimer = 0f; // Resetta il timer di attacco a ogni inizio di attacco
+    
     agent.isStopped = true;
     animator.SetBool("attack", true);
     animator.SetFloat("Velocity", 0f);
@@ -85,8 +105,11 @@ void StartAttack()
 }
 
 
+
     void StartChase()
     {
+        IsAttacking = false; // Impostare IsAttacking a false quando inizia l'inseguimento
+
         agent.isStopped = false;
         agent.SetDestination(player.transform.position);
         animator.SetBool("attack", false);
@@ -95,6 +118,8 @@ void StartAttack()
 
     void StartIdle()
     {
+        IsAttacking = false; // Impostare IsAttacking a false quando inizia l'ozio
+
         agent.isStopped = true;
         animator.SetBool("attack", false);
         animator.SetFloat("Velocity", 0f);
@@ -103,6 +128,8 @@ void StartAttack()
 
     void StartDeath()
     {
+        IsAttacking = false; // Impostare IsAttacking a false quando inizia la morte
+
         isDying = true;
         agent.SetDestination(transform.position);
         animator.SetBool("attack", false);  
