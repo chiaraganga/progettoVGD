@@ -25526,6 +25526,12 @@ PrefabInstance:
       value: Livello4
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986604854978, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_text
+      value: 'Tasti
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986604854978, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
@@ -25609,6 +25615,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
+    - target: {fileID: 4066452987248202119, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_Name
+      value: Tasti_button
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452987523337997, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
       value: 
