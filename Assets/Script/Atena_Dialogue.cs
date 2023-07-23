@@ -48,7 +48,7 @@ public class Atena_Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerClose && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1)))
+        if (isPlayerClose && (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Joystick1Button1)))
         {
             player.enabled = false;
 
