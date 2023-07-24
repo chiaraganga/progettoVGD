@@ -10,11 +10,7 @@ public class EnemyAresController : MonoBehaviour
     private Animator animator;
     private float attackDistance = 2.5f; // Definisci la distanza a cui il nemico deve essere per attaccare. Modifica questo valore se necessario.
     private float stoppingDistance = 3f; // Definisci la distanza a cui il nemico si ferma per attaccare. Modifica questo valore se necessario.
-    public bool isAttacking = false; // Stato di attacco del nemico
-    public bool IsAttacking
-    {
-        get { return isAttacking; }
-    }
+    private bool isAttacking = false; // Stato di attacco del nemico
 
     public Health_manager healthManager; // Assign your Health_manager here.
 

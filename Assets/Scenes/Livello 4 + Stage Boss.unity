@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1311,19 +1311,19 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 7b1a9236305c4db488f5a3e2e50e9815, type: 2}
     - target: {fileID: 5795283506393355075, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.107
+      value: 0.0029
       objectReference: {fileID: 0}
     - target: {fileID: 5795283506393355075, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.796
+      value: 0.7784
       objectReference: {fileID: 0}
     - target: {fileID: 5795283506393355075, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.529
+      value: 0.0022
       objectReference: {fileID: 0}
     - target: {fileID: 7368966439735540013, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7417760447023437695, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_Name
@@ -1340,46 +1340,6 @@ PrefabInstance:
     - target: {fileID: 7417760447023437695, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_TagString
       value: Ares
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.117
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.027
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.062
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6289463
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.77719027
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.009244132
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.017789274
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -102.233
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 10.682999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856533138938684311, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -9.9869995
       objectReference: {fileID: 0}
     - target: {fileID: 7906910820984294853, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: m_RootOrder
@@ -1791,10 +1751,6 @@ PrefabInstance:
       propertyPath: barra_vita
       value: 
       objectReference: {fileID: 988334304}
-    - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
-      propertyPath: max_health
-      value: 1600
-      objectReference: {fileID: 0}
     - target: {fileID: 1789309407, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: CameraDistance
       value: 10
@@ -2285,19 +2241,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456619591032827935, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.119
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.693
+      value: 0.8388
       objectReference: {fileID: 0}
     - target: {fileID: 8049530145916148337, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.008
+      value: -0.0011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed47075e3c20f4f1591173beaffe9379, type: 3}
@@ -2325,16 +2281,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage_done: 1
   attack_point: {fileID: 657427697}
-  attack_range: 0.5
+  attack_range: 0.3
   enemy_layer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   player_layer:
     serializedVersion: 2
     m_Bits: 128
   enemyHandler: {fileID: 0}
-  singleWarriorController: {fileID: 153207402}
-  enemyAresController: {fileID: 0}
 --- !u!1 &665423817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3826,6 +3780,10 @@ PrefabInstance:
       value: Livello4
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986604854978, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_text
+      value: Tasti
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452986604854978, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
@@ -3909,6 +3867,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
+    - target: {fileID: 4066452987248202119, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_Name
+      value: Tasti_button
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452987523337997, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -4398,7 +4360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 873195750}
-  isAttacking: 0
   healthManager: {fileID: 1814380210}
 --- !u!195 &1814380204
 NavMeshAgent:
@@ -4786,13 +4747,11 @@ MonoBehaviour:
   attack_range: 1
   enemy_layer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   player_layer:
     serializedVersion: 2
     m_Bits: 128
   enemyHandler: {fileID: 0}
-  singleWarriorController: {fileID: 0}
-  enemyAresController: {fileID: 1814380203}
 --- !u!1 &1982935742
 GameObject:
   m_ObjectHideFlags: 0

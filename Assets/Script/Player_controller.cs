@@ -253,7 +253,7 @@ public class Player_controller : MonoBehaviour
             score++;
         }
 
-        if (score == 6 && buildIndex == 0)
+        if (score == 1 && buildIndex == 0)
         {
             Zeus.SetActive(true);
         }
