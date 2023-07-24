@@ -824,8 +824,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1157,7 +1157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 358.4, y: -306}
+  m_AnchoredPosition: {x: 240.4, y: -172}
   m_SizeDelta: {x: 119.8575, y: 29.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &309349247
@@ -2136,8 +2136,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 145.9444, y: -1005.2156}
-  m_SizeDelta: {x: 190.5199, y: 219.006}
+  m_AnchoredPosition: {x: 95.8924, y: -590}
+  m_SizeDelta: {x: 123.4309, y: 126.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489994340
 MonoBehaviour:
@@ -3868,7 +3868,7 @@ MonoBehaviour:
   congratsText: {fileID: 1757380478}
   dialogo:
   - Sei arrivato alla tua terza prova, ora testeremo quanto sei veloce
-  - Il cervo di Artemide ci mette xx:xx secondi ad arrivare alla fine del percorso
+  - Il cervo di Artemide ci mette 60 secondi ad arrivare alla fine del percorso
   - Riesci a battere il suo tempo?
   velocityword: 0.04
   congratsPanel: {fileID: 1544952658}
@@ -4008,7 +4008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &942189571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4029,8 +4029,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00048828125, y: 0}
-  m_SizeDelta: {x: -125.74, y: 726.772}
+  m_AnchoredPosition: {x: -0.8540039, y: 19.658936}
+  m_SizeDelta: {x: -124.0825, y: 593.69}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &942189572
 MonoBehaviour:
@@ -6548,7 +6548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 14.122803, y: 19.659058}
+  m_AnchoredPosition: {x: 14.122803, y: 19.658936}
   m_SizeDelta: {x: -323.0398, y: 259.61865}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1544952660
@@ -7423,8 +7423,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 131.3953, y: -882.77}
-  m_SizeDelta: {x: 164.5153, y: 190.88}
+  m_AnchoredPosition: {x: 126.362305, y: -763.3601}
+  m_SizeDelta: {x: 157.7693, y: 163.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730052882
 MonoBehaviour:
@@ -7499,7 +7499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 151.90587, y: 801}
+  m_AnchoredPosition: {x: 151.90587, y: 437}
   m_SizeDelta: {x: -388.4923, y: 112.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757380478
@@ -7549,8 +7549,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
