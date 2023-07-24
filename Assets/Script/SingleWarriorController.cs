@@ -47,7 +47,7 @@ public class SingleWarriorController : MonoBehaviour
         animator.SetBool("attack", true);
         animator.SetFloat("Velocity", 0);
         IsAttacking = true;
-        Debug.Log("Enemy is attacking"); // Aggiunto il debug log
+        //Debug.Log("Enemy is attacking"); // Aggiunto il debug log
     }
         }
          else if (player != null && healthManager.death)
@@ -57,7 +57,7 @@ public class SingleWarriorController : MonoBehaviour
         animator.SetBool("attack", false);
         animator.SetFloat("Velocity", agent.velocity.magnitude);
         IsAttacking = false;
-        Debug.Log("Enemy is not attacking"); // Aggiunto il debug log
+        //Debug.Log("Enemy is not attacking"); // Aggiunto il debug log
     }
     }
 }

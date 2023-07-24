@@ -16,10 +16,13 @@ public class Damage_manager : MonoBehaviour
 
     public EnemyAresController enemyAresController; // Reso pubblico per impostarlo dall'editor di Unity
 
+    public Animator playerAnimator; // Aggiunto questo campo
+
+
 
     void Update()
 {
-    if ((Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5)) && !IsEntityAttacking()) 
+    if ((Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5))) 
     {
         Invoke("detect_player_attack", 0.5f);
     }
@@ -32,34 +35,42 @@ public class Damage_manager : MonoBehaviour
 
     private bool IsEntityAttacking()
 {
-    Debug.Log("IsEntityAttacking called");
+    //Debug.Log("IsEntityAttacking called");
     // Check if it's an enemy or a single warrior and return the correct IsAttacking value
     if (enemyHandler != null)
         return enemyHandler.IsAttacking;
     else if (singleWarriorController != null)
     {
-        Debug.Log("SingleWarriorController IsAttacking: " + singleWarriorController.IsAttacking); // Aggiunto il debug log
+        //Debug.Log("SingleWarriorController IsAttacking: " + singleWarriorController.IsAttacking); // Aggiunto il debug log
         return singleWarriorController.IsAttacking;
     }
     else if (enemyAresController != null)
     {
-        Debug.Log("EnemyAresController IsAttacking: " + enemyAresController.isAttacking);
+        //Debug.Log("EnemyAresController IsAttacking: " + enemyAresController.isAttacking);
         return enemyAresController.isAttacking;
     }
 
     return false;
 }
 
-    private void detect_player_attack()
+private void detect_player_attack()
+{
+    // Aggiungi un controllo per assicurarti che l'animazione di attacco del tuo personaggio sia in corso
+    // Animator playerAnimator = GetComponent<Animator>(); <-- rimuovi questa linea
+    if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("sword attack")) // Sostituito GetComponent<Animator>() con playerAnimator
     {
-        Debug.Log("detect_enemy_attack called");
-        Collider[] hit_enemies = Physics.OverlapSphere(attack_point.position, attack_range, enemy_layer);
-
-        foreach (Collider enemy in hit_enemies)
-        {
-            enemy.GetComponent<Health_manager>().Damages(damage_done);
-        }
+        return; // Non infliggere danni se il giocatore non sta attaccando
     }
+
+    Collider[] hit_enemies = Physics.OverlapSphere(attack_point.position, attack_range, enemy_layer);
+
+    foreach (Collider enemy in hit_enemies)
+    {
+        enemy.GetComponent<Health_manager>().Damages(damage_done);
+    }
+}
+
+
 
         private void detect_enemy_attack()
         {

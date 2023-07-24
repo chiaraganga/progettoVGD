@@ -43,7 +43,11 @@ public class EnemyAresController : MonoBehaviour
     {
         if (player != null && !healthManager.death)
         {
-            agent.transform.LookAt(player.transform.position);
+             // Crea una nuova destinazione che ha la stessa y della posizione attuale di Ares
+        Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+
+        // Fai guardare Ares a questa nuova destinazione
+        agent.transform.LookAt(targetPosition);
             // Calcola la distanza dal giocatore
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 

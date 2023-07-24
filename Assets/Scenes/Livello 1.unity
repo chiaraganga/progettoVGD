@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1399,15 +1399,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5669421705634905534, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00006
+      value: -0.014
       objectReference: {fileID: 0}
     - target: {fileID: 5669421705634905534, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.83725
+      value: 0.268
       objectReference: {fileID: 0}
     - target: {fileID: 5669421705634905534, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00106
+      value: 0.086
       objectReference: {fileID: 0}
     - target: {fileID: 5771238626216636450, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_Layer
@@ -1872,9 +1872,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.29003906
-  m_Height: 2.2443962
+  m_Height: 2.5201874
   m_Direction: 1
-  m_Center: {x: -0.017364502, y: 0.8778019, z: 0}
+  m_Center: {x: -0.017364502, y: 1.0156975, z: 0}
 --- !u!114 &434957480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5354,9 +5354,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3234253
-  m_Height: 2.239479
+  m_Height: 2.7215996
   m_Direction: 1
-  m_Center: {x: -0.003036499, y: 0.88026047, z: 0.0014576912}
+  m_Center: {x: -0.003036499, y: 1.1213207, z: 0.0014576912}
 --- !u!114 &1347008855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6039,9 +6039,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.2665156
-  m_Height: 2.1564026
+  m_Height: 2.5367775
   m_Direction: 1
-  m_Center: {x: 0.013586551, y: 0.9217987, z: -1.3505863e-11}
+  m_Center: {x: 0.013586551, y: 1.1119862, z: -1.3505863e-11}
 --- !u!114 &1417032017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6702,15 +6702,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7843948394182509930, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00058
+      value: -0.001
       objectReference: {fileID: 0}
     - target: {fileID: 7843948394182509930, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8541
+      value: 0.534
       objectReference: {fileID: 0}
     - target: {fileID: 7843948394182509930, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0018
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7967955813039746186, guid: cb51055acec9048d68b3f09b85c219ba, type: 3}
       propertyPath: m_Layer
@@ -6785,7 +6785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage_done: 1
   attack_point: {fileID: 2014298227}
-  attack_range: 0.3
+  attack_range: 0.6
   enemy_layer:
     serializedVersion: 2
     m_Bits: 0

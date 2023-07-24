@@ -42,14 +42,14 @@ public void Update()
     if (health <= 0 && !isDying)
         {
             isDying = true;
-            Debug.Log(gameObject.name + " non sta morendo (isDying == false)");
+            //Debug.Log(gameObject.name + " non sta morendo (isDying == false)");
             if (death == false)
             {
-                Debug.Log(gameObject.name + " non è morto (death == false)");
+                //Debug.Log(gameObject.name + " non è morto (death == false)");
                 death = true; // Il personaggio è morto
                 anim.SetBool("death", true); // Impostare il parametro "death" nell'Animator per avviare l'animazione di morte
                 isDying = true; // Il personaggio sta entrando nella fase di animazione di morte
-                Debug.Log("Chiamata a Invoke per " + gameObject.name);
+                //Debug.Log("Chiamata a Invoke per " + gameObject.name);
                 Invoke("CompleteDeathAnimation", 8f); // Aggiungere un ritardo per completare l'animazione di morte
             }
             else
@@ -65,7 +65,7 @@ public void Update()
             public void Damages(int damage)
     {
         
-        Debug.Log(gameObject.name + " ha subito " + damage + " danni.");
+        //Debug.Log(gameObject.name + " ha subito " + damage + " danni.");
         health -= damage; // Subtract damage from character's life
 
         if (health < 0)
@@ -73,7 +73,7 @@ public void Update()
             health = 0; // Ensure health never goes below 0
         }
 
-        Debug.Log(gameObject.name + " La salute rimanente è " + health + ".");
+        //Debug.Log(gameObject.name + " La salute rimanente è " + health + ".");
         barra_vita.Set_health(health); // Update health bar
     }
 
@@ -119,7 +119,7 @@ public void Update()
                     {
                         //Attiva il GameObject "win"
                         winObject.SetActive(true);
-                        Debug.Log("Il GameObject 'win' è stato attivato");
+                        //Debug.Log("Il GameObject 'win' è stato attivato");
                     }
                     else 
                     {
