@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1399,15 +1399,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5669421705634905534, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00006
+      value: 0.023
       objectReference: {fileID: 0}
     - target: {fileID: 5669421705634905534, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.83725
+      value: 0.349
       objectReference: {fileID: 0}
     - target: {fileID: 5669421705634905534, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00106
+      value: 0.089
       objectReference: {fileID: 0}
     - target: {fileID: 5771238626216636450, guid: c3ed013121d6b48998879ab4cd045865, type: 3}
       propertyPath: m_Layer
@@ -6912,7 +6912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage_done: 1
   attack_point: {fileID: 2014298227}
-  attack_range: 0.3
+  attack_range: 0.5
   enemy_layer:
     serializedVersion: 2
     m_Bits: 0
