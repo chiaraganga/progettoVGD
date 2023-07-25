@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage_manager : MonoBehaviour
+public class EnemyDamage : MonoBehaviour
 {
     public int damage_done = 1;
     public Transform attack_point;
     public float attack_range;
     public LayerMask enemy_layer;
 
-    public Player_controller playerController; // Reso pubblico per impostarlo dall'editor di Unity
+    public EnemyHandler enemyHandler; // Reso pubblico per impostarlo dall'editor di Unity
 
     void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5)) && playerController.isAttacking) 
+        if (enemyHandler.IsAttacking) 
         {
-            detect_player_attack();
+            detect_enemy_attack();
         }
     }
 
-    private void detect_player_attack()
+    private void detect_enemy_attack()
     {
         Collider[] hit_enemies = Physics.OverlapSphere(attack_point.position, attack_range, enemy_layer);
 

@@ -17,6 +17,7 @@ TagManager:
   - checkpoint
   - WinObject
   - ParentObject
+  - finish
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - UI
   - Ground
   - Player
-  - 
-  - 
+  - Ares
+  - Weapon
   - 
   - 
   - 

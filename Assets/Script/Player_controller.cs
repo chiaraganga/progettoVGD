@@ -64,6 +64,9 @@ public class Player_controller : MonoBehaviour
 
     public GameObject gameOverMenu;
 
+    public bool isAttacking = false;
+
+
     private void Start()
     {
         // Recupera l'indice della scena attuale
@@ -189,10 +192,25 @@ public class Player_controller : MonoBehaviour
             velocity = 0f;
         }
 
+
+
+                animator.SetBool("attack", false);
+
         if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5))
         {
             animator.SetBool("attack", true);
+            isAttacking = true;
         }
+        else
+        {
+            // Controlla se l'animazione di attacco è finita
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("AttackAnimation") 
+                && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                isAttacking = false;
+            }
+        }
+
 
         animator.SetFloat("Velocity", velocity);
         animator.SetFloat("LateralVelocity", lateralVelocity);
@@ -253,7 +271,7 @@ public class Player_controller : MonoBehaviour
             score++;
         }
 
-        if (score == 1 && buildIndex == 0)
+        if (score == 6 && buildIndex == 0)
         {
             Zeus.SetActive(true);
         }
