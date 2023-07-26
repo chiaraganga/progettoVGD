@@ -60,4 +60,6 @@ public class SingleWarriorController : MonoBehaviour
         //Debug.Log("Enemy is not attacking"); // Aggiunto il debug log
     }
     }
+   
+
 }

@@ -12,12 +12,13 @@ public class Damage_manager : MonoBehaviour
     public Player_controller playerController; // Reso pubblico per impostarlo dall'editor di Unity
 
     void Update()
+{
+    if (playerController.isAttacking) 
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5)) && playerController.isAttacking) 
-        {
-            detect_player_attack();
-        }
+        detect_player_attack();
     }
+}
+
 
     private void detect_player_attack()
     {
@@ -35,4 +36,6 @@ public class Damage_manager : MonoBehaviour
             return;
         Gizmos.DrawSphere(attack_point.position, attack_range);
     }
+
+
 }

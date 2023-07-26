@@ -92,49 +92,57 @@ public void Update()
         SceneManager.LoadScene(6); // Caricare la scena 6 (potrebbe essere necessario modificare il numero della scena in base al tuo progetto)
     }
 
-    public void CompleteDeathAnimation()
-    {
-            Debug.Log("CompleteDeathAnimation è stato chiamato per " + gameObject.name);
+public void CompleteDeathAnimation()
+{
+    //Debug.Log("CompleteDeathAnimation è stato chiamato per " + gameObject.name);
 
-        if (Ares != null)
-        {
-            Ares.SetActive(true); // Attivare l'oggetto Ares (se esiste)
-            enemiesDead += 1;
-        }
-        
-        Destroy(gameObject); // Distruggere il personaggio
-        // Aumenta il contatore dei nemici morti.
+    if (Ares != null)
+    {
+        Ares.SetActive(true); // Attivare l'oggetto Ares (se esiste)
+        enemiesDead += 1;
+    }
+    
+    Destroy(gameObject); // Distruggere il personaggio
+
+    // Se l'oggetto corrente è il giocatore...
+    if (this.CompareTag("Player"))
+    {
+        // ...ripristina il contatore dei nemici morti
+        enemiesDead = 0;
+        Debug.Log("Il giocatore è morto, il contatore dei nemici è stato reimpostato");
+    }
+    else
+    {
+        // Altrimenti, aumenta il contatore dei nemici morti.
         enemiesDead += 1;
         Debug.Log("Nemici morti: " + enemiesDead); // Aggiunta dell'istruzione di debug
-
-
-        // Se entrambi i nemici sono morti...
-        if (enemiesDead >= 3)
-        {
-            GameObject parentObject = GameObject.Find("ParentObject");
-                if (parentObject != null)
-                {
-                    winObject = parentObject.transform.Find("win").gameObject;
-                    if(winObject != null) 
-                    {
-                        //Attiva il GameObject "win"
-                        winObject.SetActive(true);
-                        //Debug.Log("Il GameObject 'win' è stato attivato");
-                    }
-                    else 
-                    {
-                        Debug.LogError("'win' GameObject non trovato come figlio di ParentObject");
-                    }
-                }
-                else
-                {
-                    Debug.LogError("ParentObject non trovato");
-                }
-
-                                    
-        }
-    
     }
+
+    // Se entrambi i nemici sono morti...
+    if (enemiesDead >= 3)
+    {
+        GameObject parentObject = GameObject.Find("ParentObject");
+        if (parentObject != null)
+        {
+            winObject = parentObject.transform.Find("win").gameObject;
+            if(winObject != null) 
+            {
+                //Attiva il GameObject "win"
+                winObject.SetActive(true);
+                //Debug.Log("Il GameObject 'win' è stato attivato");
+            }
+            else 
+            {
+                Debug.LogError("'win' GameObject non trovato come figlio di ParentObject");
+            }
+        }
+        else
+        {
+            Debug.LogError("ParentObject non trovato");
+        }   
+    }
+}
+
 
     private void OnTriggerEnter(Collider other)
     {

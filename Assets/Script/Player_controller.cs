@@ -193,23 +193,21 @@ public class Player_controller : MonoBehaviour
         }
 
 
+        animator.SetBool("attack", false);
 
-                animator.SetBool("attack", false);
-
-        if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5))
-        {
-            animator.SetBool("attack", true);
-            isAttacking = true;
-        }
-        else
-        {
-            // Controlla se l'animazione di attacco è finita
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("AttackAnimation") 
-                && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {
-                isAttacking = false;
-            }
-        }
+if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Joystick1Button5))
+{
+    animator.SetBool("attack", true);
+    isAttacking = true;
+}
+else
+{
+    // Controlla se l'animazione di attacco è finita
+    if (!animator.GetCurrentAnimatorStateInfo(0).IsName("AttackAnimation"))
+    {
+        isAttacking = false;
+    }
+}
 
 
         animator.SetFloat("Velocity", velocity);
@@ -316,4 +314,5 @@ public class Player_controller : MonoBehaviour
             fileStream.Close();
         }
     }
+
 }
