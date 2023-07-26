@@ -815,6 +815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+    - target: {fileID: 4316454587263239829, guid: d65b1a5ea875d0c498a13103edaebcd0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4316454587411235733, guid: d65b1a5ea875d0c498a13103edaebcd0, type: 3}
       propertyPath: m_Name
       value: GameOver

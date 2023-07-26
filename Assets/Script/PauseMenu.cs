@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        if (!Game.isGameOver && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton7)))
         {
             if (isPaused)
             {
@@ -45,11 +45,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        isPaused = false;
-        Time.timeScale = 1f; // Ripristina il tempo di gioco normale
-        pauseMenuUI.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked; // Blocca il cursore del mouse
-        Cursor.visible = false; // Rendi il cursore del mouse invisibile
+        if (!Game.isGameOver)
+        {
+            isPaused = false;
+            Time.timeScale = 1f; // Ripristina il tempo di gioco normale
+            pauseMenuUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked; // Blocca il cursore del mouse
+            Cursor.visible = false; // Rendi il cursore del mouse invisibile
+        }
     }
 
     public void QuitGame()
@@ -82,8 +85,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void DisableMenu()
-{
-    pauseMenuUI.SetActive(false);
-}
-
+    {
+        pauseMenuUI.SetActive(false);
+    }
 }
