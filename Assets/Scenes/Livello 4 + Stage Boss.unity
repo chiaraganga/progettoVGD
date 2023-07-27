@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4114,7 +4114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986065019088, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -392
+      value: -372
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986165824604, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_text
@@ -4228,6 +4228,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Menu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4066452986668020268, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 229.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -4280,9 +4284,17 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
+    - target: {fileID: 4066452987248202118, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -505.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452987248202119, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_Name
       value: Tasti_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202119, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4066452987523337997, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset

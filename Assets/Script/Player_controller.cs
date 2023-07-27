@@ -74,14 +74,14 @@ public class Player_controller : MonoBehaviour
         buildIndex = currentScene.buildIndex;
 
         // Disattiva Zeus e la spada se l'indice della scena è 0, 2 o 3
-        if (buildIndex == 0)
+        if (buildIndex == 1)
         {
             Zeus = GameObject.FindGameObjectWithTag("Zeus");
             Zeus.SetActive(false);
             spada = GameObject.FindGameObjectWithTag("Weapon");
             spada.SetActive(false);
         }
-        if (buildIndex == 2 || buildIndex == 3)
+        if (buildIndex == 3 || buildIndex == 4)
         {
             spada = GameObject.FindGameObjectWithTag("Weapon");
             spada.SetActive(false);
@@ -269,7 +269,7 @@ else
             score++;
         }
 
-        if (score == 6 && buildIndex == 0)
+        if (score == 6 && buildIndex == 1)
         {
             Zeus.SetActive(true);
         }

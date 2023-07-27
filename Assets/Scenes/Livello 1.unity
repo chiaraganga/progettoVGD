@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1730,27 +1730,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1486380594196546724, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 7.0114794
+      value: 1.495829
       objectReference: {fileID: 0}
     - target: {fileID: 1486380594196546724, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7.748091
+      value: 1.6529778
       objectReference: {fileID: 0}
     - target: {fileID: 1486380594196546724, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 7.3171844
+      value: 1.5610482
       objectReference: {fileID: 0}
     - target: {fileID: 1486380594196546724, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -136
+      value: -136.01
       objectReference: {fileID: 0}
     - target: {fileID: 1486380594196546724, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.1
+      value: 31.766
       objectReference: {fileID: 0}
     - target: {fileID: 1486380594196546724, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.3
+      value: 8.0873
       objectReference: {fileID: 0}
     - target: {fileID: 1486380594196546724, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1790,7 +1790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2300072681672728094, guid: 169838def9b88154d92c0d272495e72f, type: 3}
       propertyPath: m_TagString
-      value: WinObject
+      value: Next_Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 169838def9b88154d92c0d272495e72f, type: 3}
@@ -2771,7 +2771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986065019088, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -392
+      value: -376
       objectReference: {fileID: 0}
     - target: {fileID: 4066452986165824604, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_text
@@ -2925,6 +2925,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Menu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4066452986668020268, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 226
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452986729776888, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -3013,9 +3017,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202118, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -486
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452987248202119, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_Name
       value: Tasti_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066452987248202119, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4066452987523337997, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
@@ -5068,6 +5080,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   nextSceneName: Livello 2
+--- !u!114 &1281518530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281518523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933124be9472043d2a77667979679de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1296570544
 PrefabInstance:
   m_ObjectHideFlags: 0
