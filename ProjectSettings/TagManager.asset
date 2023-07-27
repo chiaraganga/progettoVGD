@@ -18,6 +18,7 @@ TagManager:
   - WinObject
   - ParentObject
   - finish
+  - StatuePanel
   layers:
   - Default
   - TransparentFX
