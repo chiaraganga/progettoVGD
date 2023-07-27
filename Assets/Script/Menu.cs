@@ -31,6 +31,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
+    public void Tasti()
+    {
+        SceneManager.LoadScene("Tasti");
+    }
+
     public void StrtMenu()
     {
         SceneManager.LoadScene("Menu");
