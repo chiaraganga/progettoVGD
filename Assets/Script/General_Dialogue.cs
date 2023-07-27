@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-//Script per i dialoghi di Phobos e Ares, iniziano direttamente come inizia la scena.
+//Script per il dialogo di Phobos, inizia direttamente come inizia la scena.
 
 public class General_Dialogue : MonoBehaviour
 {
