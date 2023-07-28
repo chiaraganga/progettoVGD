@@ -22,6 +22,7 @@ public class SingleWarriorController : MonoBehaviour
             Debug.LogError("Critical component missing from enemy or player not assigned.");
             return;
         }
+        Health_manager.enemiesDead = 0 ;
     }
 
     void Update()

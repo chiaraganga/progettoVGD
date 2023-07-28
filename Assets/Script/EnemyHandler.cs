@@ -38,6 +38,7 @@ public class EnemyHandler : MonoBehaviour
         agent.stoppingDistance = stoppingDistance;
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
         originalYPosition = transform.position.y;
+        Health_manager.enemiesDead = 0 ;
     }
 
     void Update()
