@@ -76,7 +76,7 @@ public void Update()
             health = 0; // Ensure health never goes below 0
         }
 
-        //Debug.Log(gameObject.name + " La salute rimanente è " + health + ".");
+        Debug.Log(gameObject.name + " La salute rimanente è " + health + ".");
         barra_vita.Set_health(health); // Update health bar
     }
 
@@ -151,7 +151,8 @@ public void CompleteDeathAnimation()
     {
         if (this.CompareTag("Player") && other.CompareTag("Collect"))
         {
-            Healing(10); // Applicare una cura al personaggio quando entra in collisione con un oggetto di raccolta
+            Healing(50); // Applicare una cura al personaggio quando entra in collisione con un oggetto di raccolta
+            Debug.Log(gameObject.name + " La salute ora è " + health + ".");
         }
     }
 

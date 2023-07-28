@@ -64,7 +64,7 @@ public class Player_controller : MonoBehaviour
 
     public GameObject gameOverMenu;
 
-    private GameObject statuePanel;
+    //private GameObject statuePanel;
 
     public bool isAttacking = false;
 
@@ -83,9 +83,9 @@ public class Player_controller : MonoBehaviour
             spada = GameObject.FindGameObjectWithTag("Weapon");
             spada.SetActive(false);
             // Trova l'oggetto "StatuePanel" tramite la sua tag
-            statuePanel = GameObject.FindGameObjectWithTag("StatuePanel");
+          //  statuePanel = GameObject.FindGameObjectWithTag("StatuePanel");
             // Disattiva "StatuePanel" all'inizio del gioco
-            statuePanel.SetActive(false);
+           // statuePanel.SetActive(false);
         }
         if (buildIndex == 3 || buildIndex == 4)
         {
@@ -264,17 +264,6 @@ else
     {
         transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
     }
-
-        if (score == 1)
-        {
-            // Attiva "StatuePanel" se il punteggio è uguale a 1
-            statuePanel.SetActive(true);
-        }
-        else if (score == 6)
-        {
-            // Disattiva "StatuePanel" se il punteggio è uguale a 6
-            statuePanel.SetActive(false);
-        }
     }
 
 
