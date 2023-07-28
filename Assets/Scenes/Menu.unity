@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -429,71 +429,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Project Manager:
-
-
-    Sviluppato con:
-
-
-    Animator:
-
-
-
-    Comparse:
-
-
-
-
-    Camera:
-
-
-    Cercatrice
-    di bug:
-
-
-    Risolutore di bug:
-
-
-    Grafico dei tasti:
-
-
-    Ercole:
-
-
-    Zeus:
-
-
-    Phobos:
-
-
-
-
-    Atena:
-
-
-
-
-    Apollo:
-
-
-
-
-    Artemide:
-
-
-    Ares:
-
-
-
-    Programmatori:
-
-
-
-
-
-
-
-'
+  m_text: "Project Manager:\n\nSviluppato con:\n\nAnimator:\n\n\nComparse:\n\n\n\nCamera:\n\nCercatrice
+    di bug:\n\n\nRisolutore di bug:\n\nGrafico dei tasti:\n\nCoreografo: \n\nErcole:\n\nZeus:\n\nPhobos:\n\n\n\nAtena:\n\n\n\nApollo:\n\n\n\nArtemide:\n\nAres:\n\n\nProgrammatori:\n\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2226,7 +2163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102, y: -1887}
+  m_AnchoredPosition: {x: -102, y: -1949}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352733930
@@ -2658,12 +2595,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Chiara Ganga\n\nUnity Technologies\n\nFabrizio Camedda,\nAlberto Mannai\n\nGuerriero
-    1,\nGuerriero 2,\nGuerriero 3\n\nFabrizio Camedda\n\nChiara Ganga\n\nFabrizio
-    Camedda\n\nStefano Figus\n\nSe stesso\n\nPadre di tutti\n\nPersonificazione del
-    panico e della paura della guerra\n\nDea della sapienza, delle arti e della strategia
-    in battaglia\n\nDio della musica, delle arti mediche, patrono degli arceri\n\nDea
-    della caccia\n\nDio della guerra\n\n\nChiara Ganga, \nFabrizio Camedda, \nAlberto
-    Mannai, \nStefano Figus\n\n\n\n"
+    1,\nGuerriero 2,\nGuerriero 3\n\nFabrizio Camedda\n\nChiara Ganga,\nAlberto Mannai\n\nFabrizio
+    Camedda\n\nStefano Figus\n\nAlberto Mannai\n\nSe stesso\n\nPadre di tutti\n\nPersonificazione
+    del panico e della paura della guerra\n\nDea della sapienza, delle arti e della
+    strategia in battaglia\n\nDio della musica, delle arti mediche, patrono degli
+    arceri\n\nDea della caccia\n\nDio della guerra\n\n\nChiara Ganga, \nFabrizio
+    Camedda, \nAlberto Mannai, \nStefano Figus\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
