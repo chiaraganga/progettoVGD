@@ -18,6 +18,8 @@ public class Health_manager : MonoBehaviour
 
     public GameObject winObject; // Riferimento al GameObject "win".
 
+    
+
 
 
 
