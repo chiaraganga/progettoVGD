@@ -87,6 +87,7 @@ public void Update()
         {
             health = max_health; // Assicurarsi che la vita non superi la vita massima
         }
+        barra_vita.Set_health(health); // Update health bar
     }
 
     public void destroy_anim()
