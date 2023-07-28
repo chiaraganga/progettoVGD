@@ -1677,12 +1677,12 @@ GameObject:
   - component: {fileID: 1212922630}
   - component: {fileID: 1212922629}
   m_Layer: 5
-  m_Name: StatuePanel11
+  m_Name: StatuePanel
   m_TagString: StatuePanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1212922628
 RectTransform:
   m_ObjectHideFlags: 0
