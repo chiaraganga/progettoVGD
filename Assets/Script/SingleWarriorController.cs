@@ -28,7 +28,12 @@ public class SingleWarriorController : MonoBehaviour
     {
         if (player != null && !healthManager.death)
         {
-            agent.transform.LookAt(player.transform.position);
+            //agent.transform.LookAt(player.transform.position);
+            Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+            // Fai guardare Ares a questa nuova destinazione
+            agent.transform.LookAt(targetPosition);
+
+            
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
             
             if (distanceToPlayer > attackDistance)
