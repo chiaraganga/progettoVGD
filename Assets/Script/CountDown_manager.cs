@@ -138,6 +138,7 @@ public class CountDown_manager : MonoBehaviour
             go.SetActive(true);
             
             player.enabled = false;
+            yield return new WaitForSeconds(3f);
             SceneManager.LoadScene(buildIndex);
 
         }
