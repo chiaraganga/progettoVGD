@@ -23,7 +23,7 @@ public class Health_manager : MonoBehaviour
 
  
 
-    public void Start()
+    public void Awake()
     {
         anim = GetComponent<Animator>(); // Ottenere il riferimento all'Animator del personaggio
         Ares = GameObject.FindGameObjectWithTag("Ares"); // Ottenere il riferimento all'oggetto Ares tramite il tag
