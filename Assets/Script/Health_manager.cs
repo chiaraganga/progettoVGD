@@ -65,7 +65,7 @@ public void Update()
 }
 
 
-            public void Damages(int damage)
+    public void Damages(int damage)
     {
         
         //Debug.Log(gameObject.name + " ha subito " + damage + " danni.");

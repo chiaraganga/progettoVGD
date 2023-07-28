@@ -4,19 +4,20 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
     private string previousSceneName;
 
-    void Start() {
+    void Start() 
+    {
         Cursor.lockState = CursorLockMode.None; // Sblocca il cursore del mouse
         Cursor.visible = true; // Rendi il cursore del mouse visibile
     }
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-           // DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -33,6 +34,13 @@ public class GameManager : MonoBehaviour
         if (scene.name != "GameOver") // Se la scena non è GameOver, allora è la scena di gioco
         {
             previousSceneName = scene.name;
+        }
+
+        // Aggiunta per l'animazione dei crediti
+        if (scene.name == "Credits")
+        {
+            Animator creditsAnimator = GameObject.Find("Contenitore testo").GetComponent<Animator>();
+            creditsAnimator.Play("Credits Animation");
         }
     }
 
@@ -56,6 +64,11 @@ public class GameManager : MonoBehaviour
     public void OnBackToGameButtonPressed()
     {
         GoBackToPreviousScene();
+    }
+
+    public void LoadCreditsScene()  // Nuovo metodo per caricare la scena dei crediti
+    {
+        SceneManager.LoadScene("Credits");
     }
 
     private void OnDestroy()
