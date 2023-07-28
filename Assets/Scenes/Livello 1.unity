@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2889,6 +2889,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Livello4
       objectReference: {fileID: 0}
+    - target: {fileID: 4066452986527141980, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 169.60004
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452986604854978, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_text
       value: Tasti
@@ -2981,6 +2985,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
+    - target: {fileID: 4066452986928107324, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 4066452987043782623, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -3037,6 +3045,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 1655740086415794677, guid: cdedf874db3e34b7090e5b4af53f05e4, type: 2}
+    - target: {fileID: 4066452987599959830, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7534065756748316672, guid: 12311e8935c1e654ea72e3fc37153c21, type: 3}
       propertyPath: m_Name
       value: MenuTurnOnOff
