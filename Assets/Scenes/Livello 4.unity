@@ -2313,7 +2313,7 @@ PrefabInstance:
       objectReference: {fileID: 988334304}
     - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: max_health
-      value: 500
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 1789309407, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: CameraDistance
