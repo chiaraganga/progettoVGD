@@ -355,6 +355,10 @@ PrefabInstance:
       propertyPath: barra_vita
       value: 
       objectReference: {fileID: 1960376038}
+    - target: {fileID: 1750876297, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
+      propertyPath: max_health
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1789309407, guid: a36d4039315c2a245be94b235fc4d003, type: 3}
       propertyPath: CameraDistance
       value: 10
@@ -19787,7 +19791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 395, y: -227}
+  m_AnchoredPosition: {x: 366, y: -227}
   m_SizeDelta: {x: 193.1867, y: 42.768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1147978527
@@ -32008,7 +32012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 127.376175, y: 644}
+  m_AnchoredPosition: {x: 127.376175, y: 678}
   m_SizeDelta: {x: -385.85, y: 116.59}
   m_Pivot: {x: 0.5067154, y: 0.49999988}
 --- !u!114 &1933794610
