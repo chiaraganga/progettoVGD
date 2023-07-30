@@ -1942,7 +1942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barra_vita: {fileID: 1296570545}
   health: 0
-  max_health: 15
+  max_health: 30
   death: 0
   winObject: {fileID: 1985267898}
 --- !u!114 &434957486
@@ -5597,7 +5597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barra_vita: {fileID: 902717357}
   health: 0
-  max_health: 15
+  max_health: 30
   death: 0
   winObject: {fileID: 1985267898}
 --- !u!114 &1347008864
@@ -6294,7 +6294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barra_vita: {fileID: 2020569601}
   health: 0
-  max_health: 15
+  max_health: 30
   death: 0
   winObject: {fileID: 1985267898}
 --- !u!114 &1417032023
