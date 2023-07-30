@@ -13,6 +13,7 @@ public class General_Dialogue : MonoBehaviour
     private GameObject Phobos;
     public TMP_Text dialogueText;
     public string[] dialogo;
+    private CharacterController player;
 
     private int index;
     public float velocityword;
@@ -29,6 +30,8 @@ public class General_Dialogue : MonoBehaviour
     {
         dialogPanel.SetActive(false);
         Phobos = GameObject.FindGameObjectWithTag("Phobos");
+        player = FindObjectOfType<CharacterController>();
+        player.enabled = false;
         StartInitialDialog(dialogo[index]);
         Invoke("ShowNextMessage", initialMessageDuration);
     }
@@ -37,6 +40,7 @@ public class General_Dialogue : MonoBehaviour
     {
         dialogPanel.SetActive(true);
         dialogueText.text = message;
+        player.enabled = false;
     }
 
     private void EndInitialDialog()
@@ -47,7 +51,7 @@ public class General_Dialogue : MonoBehaviour
     private void StartDialog(string message)
     {
         dialogPanel.SetActive(true);
-
+        player.enabled = false;
         StartWriting(message);
     }
 
@@ -55,6 +59,7 @@ public class General_Dialogue : MonoBehaviour
     {
         dialogPanel.SetActive(false);
         index = 0;
+        player.enabled = true;
 
         //if (objectToShow != null)
         //{
