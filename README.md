@@ -6,6 +6,7 @@ Videogioco realizzato dal gruppo “Gli Ercoliani” per VGD. Anno Accademico 20
 
 Antica Grecia. Il protagonista è Ercole che dovrà affrontare una serie di prove per testare la sua forza, l’intelligenza e la velocità, dimostrando di essere l'eroe più forte. Ogni prova è richiesta e voluta da una divinità diversa e ha ostacoli diversi. Il gioco si apre nel tempio di Zeus dove, dopo aver riparato la sua statua, è proprio il padre degli dei a dare le prime informazioni. 
 Nel primo livello troviamo Phobos e un combattimento contro dei Guerrieri. Nel secondo livello c’è Atena e un Quiz. Nel terzo livello ci sono Apollo e Artemide che introducono la corsa a tempo. Infine, il quarto livello è caratterizzato dal combattimento finale contro Ares.
+
 Riuscirà il giocatore a sconfiggere Ares e condurre Ercole all’Olimpo?
 
 Avvertenze:
