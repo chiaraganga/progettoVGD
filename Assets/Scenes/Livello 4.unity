@@ -4550,7 +4550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage_done: 1
   attack_point: {fileID: 1481477710}
-  attack_range: 0.5
+  attack_range: 0.7
   enemy_layer:
     serializedVersion: 2
     m_Bits: 128
@@ -5505,7 +5505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barra_vita: {fileID: 743864675}
   health: 0
-  max_health: 15
+  max_health: 50
   death: 0
   winObject: {fileID: 1600786527}
 --- !u!114 &1814380212
