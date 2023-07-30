@@ -8,10 +8,12 @@ Nel primo livello troviamo Phobos e un combattimento contro dei Guerrieri. Nel s
 Riuscirà il giocatore a sconfiggere Ares e condurre Ercole all’Olimpo?
 
 Avvertenze:
+
 È possibile giocare al gioco anche con il controller. In tal caso, è necessario usare il mouse per la selezione dei bottoni per i vari menu e per l’esecuzione del Quiz nel Livello 2.
 Ogni livello, in caso di mancato superamento, può essere riprovato.
 
 Disclaimer:
+
 Nessun programmatore è stato maltrattato durante la programmazione di questo gioco.
 
 - Chiara Ganga
