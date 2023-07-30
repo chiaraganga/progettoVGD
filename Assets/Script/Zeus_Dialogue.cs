@@ -39,8 +39,10 @@ public class Zeus_Dialogue : MonoBehaviour
 
     void Update()
     {
+        //Controlla se Zeus è attivo
         if (isFirstDialog && Zeus != null && Zeus.activeSelf)
         {
+            //Mostra il primo messaggio
             StartInitialDialog("Ercole! Grazie al cielo hai aggiustato la mia statua! Avvicinati, ti devo parlare.");
             isFirstDialog = false;
             Invoke("EndInitialDialog", initialMessageDuration);
@@ -49,6 +51,7 @@ public class Zeus_Dialogue : MonoBehaviour
 
         if (isDialogActive)
         {
+            //Blocca il movimento del player quando il dialogo è attivo
             player.enabled = false;
             
             if (isWriting)
@@ -61,6 +64,7 @@ public class Zeus_Dialogue : MonoBehaviour
                 }
             }
         }
+        //Controllo se il player è vicino e condizione per premere T per iniziare il dialogo
         else if (isPlayerClose && Input.GetKeyDown(KeyCode.T) || (isPlayerClose && Input.GetKey(KeyCode.Joystick1Button1)))
         {
             if (index < dialogo.Length)
@@ -92,6 +96,7 @@ public class Zeus_Dialogue : MonoBehaviour
         }
     }
 
+    //Funzione per iniziare il dialogo in riferimento al messaggio iniziale
     private void StartInitialDialog(string message)
     {
         dialogPanel.SetActive(true);
@@ -99,12 +104,14 @@ public class Zeus_Dialogue : MonoBehaviour
         
     }
 
+    //Funzione per finire il dialogo in riferimento al messaggio iniziale
     private void EndInitialDialog()
     {
         dialogPanel.SetActive(false);
         
     }
 
+    //Funzione per iniziare il dialogo
     private void StartDialog(string message)
     {
         isDialogActive = true;
@@ -113,25 +120,28 @@ public class Zeus_Dialogue : MonoBehaviour
         
     }
 
+    //Funzione per finire il dialogo
     private void EndDialog()
     {
         isDialogActive = false;
         dialogPanel.SetActive(false);
         index = 0;
         
-
+        //Mostra la spada
         if (objectToShow != null)
         {
             objectToShow.SetActive(true);
         }
     }
 
+    //Funzione per iniziare a scrivere
     private void StartWriting(string message)
     {
         dialogueText.text = "";
         StartCoroutine(WriteText(message));
     }
 
+    //Funzione che completa la scrittura
     private void CompleteWriting()
     {
         StopAllCoroutines();
@@ -139,6 +149,7 @@ public class Zeus_Dialogue : MonoBehaviour
         isWriting = false;
     }
 
+    //Funzione che scrive il messaggio parola per parola
     private IEnumerator WriteText(string message)
     {
         isWriting = true;
@@ -154,6 +165,7 @@ public class Zeus_Dialogue : MonoBehaviour
         isWriting = false;
     }
 
+    //Funzione per mostrare il messaggio successivo
     private void StartNextMessage()
     {
         index++;

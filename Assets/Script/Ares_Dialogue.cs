@@ -37,18 +37,18 @@ public class Ares_Dialogue : MonoBehaviour
 
         foreach (string message in messages)
         {
-            // Mostra il messaggio nel componente di testo UI lettera per lettera
+            // Mostra il messaggio lettera per lettera
             for (int i = 0; i <= message.Length; i++)
             {
                 dialogText.text = message.Substring(0, i);
                 yield return new WaitForSeconds(letterDelay);
             }
 
-            // Aspetta per il ritardo tra i messaggi
+            // Aspetta 
             yield return new WaitForSeconds(messageDelay);
         }
 
-        // Disattiva il pannello del dialogo dopo il completamento dei messaggi
+        // Disattiva il pannello del dialogo
         dialogPanel.SetActive(false);
     }
 }

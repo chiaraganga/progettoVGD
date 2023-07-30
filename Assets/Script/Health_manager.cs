@@ -18,13 +18,6 @@ public class Health_manager : MonoBehaviour
 
     public GameObject winObject; // Riferimento al GameObject "win".
 
-    
-
-
-
-
- 
-
     public void Awake()
     {
         anim = GetComponent<Animator>(); // Ottenere il riferimento all'Animator del personaggio
@@ -32,7 +25,7 @@ public class Health_manager : MonoBehaviour
         health = max_health; // Impostare la vita iniziale a quella massima
         barra_vita.Set_max_health(max_health); // Impostare la vita massima nella barra della vita
 
-        // Trova il GameObject "win" nel tuo gioco. Assicurati che esista un oggetto con questo nome.
+        // Trova il GameObject "win"
         winObject = GameObject.Find("win");
 
         
@@ -50,10 +43,10 @@ public void Update()
                 //Debug.Log(gameObject.name + " non è morto (death == false)");
                 death = true; // Il personaggio è morto
                 Debug.Log("DKSIRUBG"+health);
-                anim.SetBool("death", true); // Impostare il parametro "death" nell'Animator per avviare l'animazione di morte
+                anim.SetBool("death", true);
                 isDying = true; // Il personaggio sta entrando nella fase di animazione di morte
                 //Debug.Log("Chiamata a Invoke per " + gameObject.name);
-                Invoke("CompleteDeathAnimation", 8f); // Aggiungere un ritardo per completare l'animazione di morte
+                Invoke("CompleteDeathAnimation", 8f);
             }
             else
             {
@@ -69,15 +62,15 @@ public void Update()
     {
         
         //Debug.Log(gameObject.name + " ha subito " + damage + " danni.");
-        health -= damage; // Subtract damage from character's life
+        health -= damage;
 
         if (health < 0)
         {
-            health = 0; // Ensure health never goes below 0
+            health = 0;
         }
 
         Debug.Log(gameObject.name + " La salute rimanente è " + health + ".");
-        barra_vita.Set_health(health); // Update health bar
+        barra_vita.Set_health(health);
     }
 
     public void Healing(int heal)
@@ -93,7 +86,7 @@ public void Update()
     public void destroy_anim()
     {
         barra_vita.Set_max_health(0); // Impostare la vita massima a zero nella barra della vita
-        SceneManager.LoadScene(6); // Caricare la scena 6 (potrebbe essere necessario modificare il numero della scena in base al tuo progetto)
+        SceneManager.LoadScene(6); // Caricare la scena 6
     }
 
 public void CompleteDeathAnimation()
@@ -108,10 +101,10 @@ public void CompleteDeathAnimation()
     
     Destroy(gameObject); // Distruggere il personaggio
 
-    // Se l'oggetto corrente è il giocatore...
+    // Se l'oggetto corrente è il giocatore
     if (this.CompareTag("Player"))
     {
-        // ...ripristina il contatore dei nemici morti
+        //ripristina il contatore dei nemici morti
         enemiesDead = 0;
         Debug.Log("Il giocatore è morto, il contatore dei nemici è stato reimpostato");
     }
@@ -122,7 +115,7 @@ public void CompleteDeathAnimation()
         Debug.Log("Nemici morti: " + enemiesDead); // Aggiunta dell'istruzione di debug
     }
 
-    // Se entrambi i nemici sono morti...
+    // Se entrambi i nemici sono morti
     if (enemiesDead >= 3)
     {
         GameObject parentObject = GameObject.Find("ParentObject");
@@ -152,10 +145,8 @@ public void CompleteDeathAnimation()
     {
         if (this.CompareTag("Player") && other.CompareTag("Collect"))
         {
-            Healing(50); // Applicare una cura al personaggio quando entra in collisione con un oggetto di raccolta
+            Healing(100); // Applicare una cura al personaggio quando entra in collisione con un oggetto di raccolta
             Debug.Log(gameObject.name + " La salute ora è " + health + ".");
         }
     }
-
-    
 }

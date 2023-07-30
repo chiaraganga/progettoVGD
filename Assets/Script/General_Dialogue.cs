@@ -13,11 +13,6 @@ public class General_Dialogue : MonoBehaviour
     private GameObject Phobos;
     public TMP_Text dialogueText;
     public string[] dialogo;
-   // private bool isWriting = false;
-
-   // private bool isDialogActive = false;
-   // private bool isFirstDialog = true;
-  //  private bool isPlayerClose = false;
 
     private int index;
     public float velocityword;
@@ -28,7 +23,6 @@ public class General_Dialogue : MonoBehaviour
 
     public GameObject objectToShow;
 
-  //  private bool isFirstMessageShown = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -36,7 +30,6 @@ public class General_Dialogue : MonoBehaviour
         dialogPanel.SetActive(false);
         Phobos = GameObject.FindGameObjectWithTag("Phobos");
         StartInitialDialog(dialogo[index]);
-        //isFirstDialog = false;
         Invoke("ShowNextMessage", initialMessageDuration);
     }
 
@@ -53,7 +46,6 @@ public class General_Dialogue : MonoBehaviour
 
     private void StartDialog(string message)
     {
-       // isDialogActive = true;
         dialogPanel.SetActive(true);
 
         StartWriting(message);
@@ -61,7 +53,6 @@ public class General_Dialogue : MonoBehaviour
 
     private void EndDialog()
     {
-       // isDialogActive = false;
         dialogPanel.SetActive(false);
         index = 0;
 
@@ -87,12 +78,10 @@ public class General_Dialogue : MonoBehaviour
     {
         StopAllCoroutines();
         dialogueText.text = dialogo[index];
-      //  isWriting = false;
     }
 
     private IEnumerator WriteText(string message)
     {
-       // isWriting = true;
 
         for (int i = 0; i < message.Length; i++)
         {
@@ -102,7 +91,6 @@ public class General_Dialogue : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        //isWriting = false;
     }
 
     private void ShowNextMessage()
@@ -120,7 +108,7 @@ public class General_Dialogue : MonoBehaviour
             else
             {
                 float delay = index == 0 ? initialMessageDuration : delayBetweenMessages;
-                Invoke("ShowNextMessage", delay); // Richiama il metodo dopo il delay appropriato
+                Invoke("ShowNextMessage", delay);
             }
         }
         else

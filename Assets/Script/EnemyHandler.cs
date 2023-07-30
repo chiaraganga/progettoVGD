@@ -18,9 +18,8 @@ public class EnemyHandler : MonoBehaviour
     public Health_manager healthManager;
     private bool isDying = false;
 
-        public bool IsAttacking { get; private set; } // Variabile booleana che indica se il nemico sta attaccando
-        // Aggiungi una variabile per la durata dell'attacco
-    private float attackDuration = 1f; // Imposta questo al tempo che desideri
+    public bool IsAttacking { get; private set; } // Variabile booleana che indica se il nemico sta attaccando
+    private float attackDuration = 1f;
     private float attackTimer = 0f;
 
 
@@ -43,7 +42,6 @@ public class EnemyHandler : MonoBehaviour
 
     void Update()
     {
-        // Aggiungi il tempo trascorso dall'ultimo frame al timer di attacco
         if (IsAttacking)
         {
             attackTimer += Time.deltaTime;

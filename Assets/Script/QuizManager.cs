@@ -50,10 +50,6 @@ public class QuizManager : MonoBehaviour
         //Visibile il cursore
         Cursor.visible = true;
 
-        
-
-
-
     }
 
     public void correct()

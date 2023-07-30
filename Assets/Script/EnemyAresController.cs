@@ -5,18 +5,18 @@ using UnityEngine.AI;
 
 public class EnemyAresController : MonoBehaviour
 {
-    public GameObject player; // Assegna qui il tuo giocatore.
+    public GameObject player;
     private NavMeshAgent agent;
     private Animator animator;
-    private float attackDistance = 2.5f; // Definisci la distanza a cui il nemico deve essere per attaccare. Modifica questo valore se necessario.
-    private float stoppingDistance = 3f; // Definisci la distanza a cui il nemico si ferma per attaccare. Modifica questo valore se necessario.
+    private float attackDistance = 2.5f; // distanza a cui il nemico deve essere per attaccare.
+    private float stoppingDistance = 3f; // distanza a cui il nemico si ferma per attaccare.
     public bool isAttacking = false; // Stato di attacco del nemico
     public bool IsAttacking
     {
         get { return isAttacking; }
     }
 
-    public Health_manager healthManager; // Assign your Health_manager here.
+    public Health_manager healthManager;
 
     private bool AresDeath = false; 
 
@@ -24,7 +24,6 @@ public class EnemyAresController : MonoBehaviour
 {
     gameObject.SetActive(false);
 
-    // Assicurati che il GameObject abbia un NavMeshAgent e un Animator.
     agent = GetComponent<NavMeshAgent>();
     animator = GetComponent<Animator>();
 
@@ -78,14 +77,11 @@ public class EnemyAresController : MonoBehaviour
                 isAttacking = false;
                 agent.SetDestination(transform.position);
 
-                // Update animator parameters
-                animator.SetBool("grounded", true); // Assuming the enemy is always on the ground while moving
-                animator.SetBool("attack", false); // Not attacking while moving
-                animator.SetFloat("Velocity", agent.velocity.magnitude); // Use the agent's velocity
+                animator.SetBool("grounded", true);
+                animator.SetBool("attack", false);
+                animator.SetFloat("Velocity", agent.velocity.magnitude);
 
                 AresDeath = true;
-
-                
         }
     }
 
@@ -111,6 +107,4 @@ public class EnemyAresController : MonoBehaviour
         // Ripristina lo stato di attacco su false
         isAttacking = false;
     }
-
-    
 }

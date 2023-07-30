@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class WinCondition : MonoBehaviour
 {
-    public string playerTag = "Player"; // Assegna il tag del tuo giocatore qui. "Player".
-    public string nextSceneName = "GameWin"; // Assegna il nome della scena a cui vuoi passare qui.
+    public string playerTag = "Player"; // tag del giocatore.
+    public string nextSceneName = "GameWin"; // nome della scena dove passare qui.
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +17,10 @@ public class WinCondition : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Se l'oggetto che è entrato nel trigger ha il tag del giocatore...
+        // Se l'oggetto che è entrato nel trigger ha il tag del giocatore
         if (other.CompareTag(playerTag))
         {
-            // Carica la scena dei crediti
+            // Carica la scena della vittoria
             SceneManager.LoadScene("GameWin");
         }
     }

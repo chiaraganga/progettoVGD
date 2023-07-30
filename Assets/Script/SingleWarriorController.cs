@@ -10,7 +10,7 @@ public class SingleWarriorController : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     private float attackDistance = 1.5f;
-    public bool IsAttacking { get; private set; } // Aggiunto il campo IsAttacking
+    public bool IsAttacking { get; private set; }
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class SingleWarriorController : MonoBehaviour
                 animator.SetBool("grounded", true);
                 animator.SetBool("attack", false);
                 animator.SetFloat("Velocity", agent.velocity.magnitude);
-                IsAttacking = false; // Aggiunto il controllo IsAttacking
+                IsAttacking = false;
             }
             else
     {

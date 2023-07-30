@@ -65,7 +65,6 @@ public class CountDown_manager : MonoBehaviour
         // Abilita il personaggio e l'animazione
         player.enabled = true;
 
-
         // Nascondi il pannello di avvio
         start_display.gameObject.SetActive(false);
 
@@ -136,7 +135,8 @@ public class CountDown_manager : MonoBehaviour
             end_display.gameObject.SetActive(true);
             end_display.text = "GAME OVER!";
             go.SetActive(true);
-            
+
+            //Prima di ricaricare la scena aspetto 3 secondi
             player.enabled = false;
             yield return new WaitForSeconds(3f);
             SceneManager.LoadScene(buildIndex);
@@ -145,13 +145,14 @@ public class CountDown_manager : MonoBehaviour
 
     }
 
+    //Funzione che si occupa della scrittura del dialogo
     private void StartWriting(string message)
     {
         dialogueText.text = "";
         StartCoroutine(WriteTextRoutine(message));
     }
 
-
+    //Funzione che scrive il messaggio parola per parola
     private IEnumerator WriteTextRoutine(string message)
     {
         dialogueText.text = "";
@@ -166,6 +167,7 @@ public class CountDown_manager : MonoBehaviour
         isWriting = false;
     }
 
+    //Funzione che mostra il messaggio di vittoria
     private IEnumerator CongratulationsRoutine()
     {
         congratsPanel.SetActive(true);
@@ -226,6 +228,4 @@ public class CountDown_manager : MonoBehaviour
             isWriting = false;
         }
     }
-
-
 }

@@ -48,12 +48,14 @@ public class Atena_Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Controllo se il giocatore è vicino e premo il tasto per avviare il dialogo
         if (isPlayerClose && (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Joystick1Button1)))
         {
             player.enabled = false;
 
             if (!isDialogActive)
             {
+                //Disabilita il player quando inizia il dialogo
                 player.enabled = false;
 
                 if (isFirstDialog)
@@ -73,6 +75,7 @@ public class Atena_Dialogue : MonoBehaviour
             }
             else if (isWriting)
             {
+                //Se sto già scrivendo aspetto che finisca di scrivere
                 CompleteWriting();
                 player.enabled = false;
                 Invoke("StartNextMessage", delayBetweenMessages);
@@ -97,6 +100,7 @@ public class Atena_Dialogue : MonoBehaviour
         }
     }
 
+    //Funzione per iniziare il dialogo con il messaggio iniziale
     private void StartInitialDialog(string message)
     {
         dialogPanel.SetActive(true);
@@ -109,11 +113,14 @@ public class Atena_Dialogue : MonoBehaviour
         dialogPanel.SetActive(false);
     }
 
+    //Funzione per iniziare il dialogo
     private void StartDialog(string message)
     {
         isDialogActive = true;
         dialogPanel.SetActive(true);
         player.enabled = false;
+
+        //Mostra il messaggio una volta finito il quiz
 
         if (message == "Complimenti! Prendi lo scudo vicino al bracere")
         {
@@ -153,8 +160,7 @@ public class Atena_Dialogue : MonoBehaviour
         Cursor.visible = true;
     }
 
-
-
+    //Funzione che si occupa della scrittura
     private void StartWriting(string message)
     {
         dialogueText.text = "";
@@ -201,7 +207,7 @@ public class Atena_Dialogue : MonoBehaviour
             else
             {
                 float delay = index == 0 ? initialMessageDuration : delayBetweenMessages;
-                Invoke("ShowNextMessage", delay); // Richiama il metodo dopo il delay appropriato
+                Invoke("ShowNextMessage", delay); // Richiama dopo il delay appropriato
             }
         }
         else
@@ -221,6 +227,7 @@ public class Atena_Dialogue : MonoBehaviour
 
     public void QuizEndDialogue()
     {
+        //Messaggio di congratulazioni finito il quiz
         if (quizManager.score == 4)
         {
             StartDialog("Complimenti! Prendi lo scudo vicino al bracere");
@@ -233,10 +240,5 @@ public class Atena_Dialogue : MonoBehaviour
                 objectToShow.SetActive(true);
             }
         }
-    }
-
-    private void QuizStartDialogue()
-    {
-        Debug.Log("funziona"); //testing
     }
 }
