@@ -145,7 +145,7 @@ public void CompleteDeathAnimation()
     {
         if (this.CompareTag("Player") && other.CompareTag("Collect"))
         {
-            Healing(100); // Applicare una cura al personaggio quando entra in collisione con un oggetto di raccolta
+            Healing(120); // Applicare una cura al personaggio quando entra in collisione con un oggetto di raccolta
             Debug.Log(gameObject.name + " La salute ora è " + health + ".");
         }
     }

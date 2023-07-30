@@ -1482,7 +1482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1656144339659376981, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: damage_done
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1656144339659376981, guid: 602aa1f85fb1640098a8b19f4c65d52a, type: 3}
       propertyPath: attack_point
@@ -5509,7 +5509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barra_vita: {fileID: 743864675}
   health: 0
-  max_health: 80
+  max_health: 70
   death: 0
   winObject: {fileID: 1600786527}
 --- !u!114 &1814380212
